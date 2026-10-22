@@ -1,0 +1,57 @@
+name: Feature request
+description: Propose an API or capability for misskey_dart_api
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you unable to do with the current API?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed API
+      description: Show the Dart API shape you want, if possible.
+      placeholder: |
+        final result = await client.notes.create(...);
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      multiple: true
+      options:
+        - Authentication
+        - Notes / timelines
+        - Notifications
+        - Messaging
+        - Drive / media
+        - Streaming / WebSocket
+        - Models / serialization
+        - Error handling
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Misskey API docs, endpoint names, or prior art.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues.
+          required: true
+        - label: This request does not contain secrets or personal data.
+          required: true

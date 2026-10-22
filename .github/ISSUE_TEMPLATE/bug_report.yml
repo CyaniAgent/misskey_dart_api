@@ -1,0 +1,87 @@
+name: Bug report
+description: Report a reproducible defect in misskey_dart_api
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include access tokens, cookies, private messages, or instance
+        credentials. For security vulnerabilities, use Security Advisories.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Minimal, deterministic steps or code.
+      placeholder: |
+        1. Create MisskeyClient...
+        2. Call ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: package_version
+    attributes:
+      label: Package version / commit
+      placeholder: 0.1.0 or main @ abc1234
+    validations:
+      required: true
+  - type: input
+    id: dart_version
+    attributes:
+      label: Dart / Flutter version
+      placeholder: Dart 3.13.5 / Flutter 3.47.7
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      multiple: true
+      options:
+        - Dart VM
+        - Flutter Android
+        - Flutter iOS
+        - Flutter Windows
+        - Flutter macOS
+        - Flutter Linux
+        - Flutter Web
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / stack trace
+      description: Redact tokens, cookies, private messages, and server addresses.
+      render: shell
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues.
+          required: true
+        - label: I removed secrets and personal data from this report.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true
