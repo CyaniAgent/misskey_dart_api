@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'channels_models.dart';
 
-class ChannelsApi {
-  ChannelsApi(this.client);
+class RawChannelsApi {
+  RawChannelsApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class ChannelsApi {
     return client.postModel<Channel>(
       'channels/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Channel.fromJson,
       cancelToken: cancelToken,
     );
@@ -33,6 +34,7 @@ class ChannelsApi {
     return client.postVoid(
       'channels/favorite',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -40,6 +42,7 @@ class ChannelsApi {
   Future<List<Channel>> featured({CancelToken? cancelToken}) {
     return client.postList<Channel>(
       'channels/featured',
+      requiresAuth: false,
       itemParser: Channel.fromJson,
       cancelToken: cancelToken,
     );
@@ -52,6 +55,7 @@ class ChannelsApi {
     return client.postVoid(
       'channels/follow',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -63,6 +67,7 @@ class ChannelsApi {
     return client.postList<Channel>(
       'channels/followed',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Channel.fromJson,
       cancelToken: cancelToken,
     );
@@ -75,6 +80,7 @@ class ChannelsApi {
     return client.postVoid(
       'channels/mute/create',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -86,6 +92,7 @@ class ChannelsApi {
     return client.postVoid(
       'channels/mute/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -93,6 +100,7 @@ class ChannelsApi {
   Future<List<Channel>> muteList({CancelToken? cancelToken}) {
     return client.postList<Channel>(
       'channels/mute/list',
+      requiresAuth: true,
       itemParser: Channel.fromJson,
       cancelToken: cancelToken,
     );
@@ -101,6 +109,7 @@ class ChannelsApi {
   Future<List<Channel>> myFavorites({CancelToken? cancelToken}) {
     return client.postList<Channel>(
       'channels/my-favorites',
+      requiresAuth: true,
       itemParser: Channel.fromJson,
       cancelToken: cancelToken,
     );
@@ -113,6 +122,7 @@ class ChannelsApi {
     return client.postList<Channel>(
       'channels/owned',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Channel.fromJson,
       cancelToken: cancelToken,
     );
@@ -125,6 +135,7 @@ class ChannelsApi {
     return client.postList<Channel>(
       'channels/search',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Channel.fromJson,
       cancelToken: cancelToken,
     );
@@ -137,6 +148,7 @@ class ChannelsApi {
     return client.postModel<Channel>(
       'channels/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: Channel.fromJson,
       cancelToken: cancelToken,
     );
@@ -149,6 +161,7 @@ class ChannelsApi {
     return client.postList<Note>(
       'channels/timeline',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -161,6 +174,7 @@ class ChannelsApi {
     return client.postVoid(
       'channels/unfavorite',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -172,6 +186,7 @@ class ChannelsApi {
     return client.postVoid(
       'channels/unfollow',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -183,6 +198,7 @@ class ChannelsApi {
     return client.postModel<Channel>(
       'channels/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Channel.fromJson,
       cancelToken: cancelToken,
     );

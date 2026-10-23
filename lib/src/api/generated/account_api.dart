@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'account_models.dart';
 
-class AccountApi {
-  AccountApi(this.client);
+class RawAccountApi {
+  RawAccountApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class AccountApi {
     return client.postModel<AccountTwoFactorDoneResponse>(
       'i/2fa/done',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AccountTwoFactorDoneResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -33,6 +34,7 @@ class AccountApi {
     return client.postModel<AccountTwoFactorKeyDoneResponse>(
       'i/2fa/key-done',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AccountTwoFactorKeyDoneResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -45,6 +47,7 @@ class AccountApi {
     return client.postVoid(
       'i/2fa/password-less',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -56,6 +59,7 @@ class AccountApi {
     return client.postModel<AccountTwoFactorRegisterResponse>(
       'i/2fa/register',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AccountTwoFactorRegisterResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -68,6 +72,7 @@ class AccountApi {
     return client.postMap(
       'i/2fa/register-key',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -79,6 +84,7 @@ class AccountApi {
     return client.postVoid(
       'i/2fa/remove-key',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -90,6 +96,7 @@ class AccountApi {
     return client.postVoid(
       'i/2fa/unregister',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -101,6 +108,7 @@ class AccountApi {
     return client.postVoid(
       'i/2fa/update-key',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -112,6 +120,7 @@ class AccountApi {
     return client.postList<AccountAppsResponseItem>(
       'i/apps',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AccountAppsResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -124,6 +133,7 @@ class AccountApi {
     return client.postList<AccountAuthorizedAppsResponseItem>(
       'i/authorized-apps',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AccountAuthorizedAppsResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -136,6 +146,7 @@ class AccountApi {
     return client.postVoid(
       'i/change-password',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -147,6 +158,7 @@ class AccountApi {
     return client.postVoid(
       'i/claim-achievement',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -158,24 +170,41 @@ class AccountApi {
     return client.postVoid(
       'i/delete-account',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
 
   Future<void> exportAntennas({CancelToken? cancelToken}) {
-    return client.postVoid('i/export-antennas', cancelToken: cancelToken);
+    return client.postVoid(
+      'i/export-antennas',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<void> exportBlocking({CancelToken? cancelToken}) {
-    return client.postVoid('i/export-blocking', cancelToken: cancelToken);
+    return client.postVoid(
+      'i/export-blocking',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<void> exportClips({CancelToken? cancelToken}) {
-    return client.postVoid('i/export-clips', cancelToken: cancelToken);
+    return client.postVoid(
+      'i/export-clips',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<void> exportFavorites({CancelToken? cancelToken}) {
-    return client.postVoid('i/export-favorites', cancelToken: cancelToken);
+    return client.postVoid(
+      'i/export-favorites',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<void> exportFollowing(
@@ -185,20 +214,33 @@ class AccountApi {
     return client.postVoid(
       'i/export-following',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
 
   Future<void> exportMute({CancelToken? cancelToken}) {
-    return client.postVoid('i/export-mute', cancelToken: cancelToken);
+    return client.postVoid(
+      'i/export-mute',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<void> exportNotes({CancelToken? cancelToken}) {
-    return client.postVoid('i/export-notes', cancelToken: cancelToken);
+    return client.postVoid(
+      'i/export-notes',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<void> exportUserLists({CancelToken? cancelToken}) {
-    return client.postVoid('i/export-user-lists', cancelToken: cancelToken);
+    return client.postVoid(
+      'i/export-user-lists',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<List<NoteFavorite>> favorites(
@@ -208,6 +250,7 @@ class AccountApi {
     return client.postList<NoteFavorite>(
       'i/favorites',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: NoteFavorite.fromJson,
       cancelToken: cancelToken,
     );
@@ -220,6 +263,7 @@ class AccountApi {
     return client.postList<AccountGalleryLikesResponseItem>(
       'i/gallery/likes',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AccountGalleryLikesResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -232,6 +276,7 @@ class AccountApi {
     return client.postList<GalleryPost>(
       'i/gallery/posts',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: GalleryPost.fromJson,
       cancelToken: cancelToken,
     );
@@ -244,6 +289,7 @@ class AccountApi {
     return client.postVoid(
       'i/import-antennas',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -255,6 +301,7 @@ class AccountApi {
     return client.postVoid(
       'i/import-blocking',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -266,6 +313,7 @@ class AccountApi {
     return client.postVoid(
       'i/import-following',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -277,6 +325,7 @@ class AccountApi {
     return client.postVoid(
       'i/import-muting',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -288,6 +337,7 @@ class AccountApi {
     return client.postVoid(
       'i/import-user-lists',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -296,6 +346,7 @@ class AccountApi {
     return client.postMap(
       'i/move',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -307,6 +358,7 @@ class AccountApi {
     return client.postList<Notification>(
       'i/notifications',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Notification.fromJson,
       cancelToken: cancelToken,
     );
@@ -319,6 +371,7 @@ class AccountApi {
     return client.postList<Notification>(
       'i/notifications-grouped',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Notification.fromJson,
       cancelToken: cancelToken,
     );
@@ -331,6 +384,7 @@ class AccountApi {
     return client.postList<AccountPageLikesResponseItem>(
       'i/page-likes',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AccountPageLikesResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -343,6 +397,7 @@ class AccountApi {
     return client.postList<Page>(
       'i/pages',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Page.fromJson,
       cancelToken: cancelToken,
     );
@@ -355,6 +410,7 @@ class AccountApi {
     return client.postModel<MeDetailed>(
       'i/pin',
       body: request.toJson(),
+      requiresAuth: true,
       parser: MeDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -367,6 +423,7 @@ class AccountApi {
     return client.postVoid(
       'i/read-announcement',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -378,6 +435,7 @@ class AccountApi {
     return client.postVoid(
       'i/regenerate-token',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -389,6 +447,7 @@ class AccountApi {
     return client.postMap(
       'i/registry/get',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -400,6 +459,7 @@ class AccountApi {
     return client.postMap(
       'i/registry/get-all',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -411,6 +471,7 @@ class AccountApi {
     return client.postModel<AccountRegistryGetDetailResponse>(
       'i/registry/get-detail',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AccountRegistryGetDetailResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -423,6 +484,7 @@ class AccountApi {
     return client.postParsed<List<String>>(
       'i/registry/keys',
       body: request.toJson(),
+      requiresAuth: true,
       parser: (data) => (data as List).cast<String>(),
       cancelToken: cancelToken,
     );
@@ -435,6 +497,7 @@ class AccountApi {
     return client.postMap(
       'i/registry/keys-with-type',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -446,6 +509,7 @@ class AccountApi {
     return client.postVoid(
       'i/registry/remove',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -454,6 +518,7 @@ class AccountApi {
   registryScopesWithDomain({CancelToken? cancelToken}) {
     return client.postList<AccountRegistryScopesWithDomainResponseItem>(
       'i/registry/scopes-with-domain',
+      requiresAuth: true,
       itemParser: AccountRegistryScopesWithDomainResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -466,6 +531,7 @@ class AccountApi {
     return client.postVoid(
       'i/registry/set',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -477,6 +543,7 @@ class AccountApi {
     return client.postVoid(
       'i/revoke-token',
       body: request.toJson(),
+      requiresAuth: false,
       cancelToken: cancelToken,
     );
   }
@@ -488,6 +555,7 @@ class AccountApi {
     return client.postList<Signin>(
       'i/signin-history',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Signin.fromJson,
       cancelToken: cancelToken,
     );
@@ -500,6 +568,7 @@ class AccountApi {
     return client.postModel<MeDetailed>(
       'i/unpin',
       body: request.toJson(),
+      requiresAuth: true,
       parser: MeDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -512,6 +581,7 @@ class AccountApi {
     return client.postModel<MeDetailed>(
       'i/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: MeDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -524,6 +594,7 @@ class AccountApi {
     return client.postModel<MeDetailed>(
       'i/update-email',
       body: request.toJson(),
+      requiresAuth: true,
       parser: MeDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -536,6 +607,7 @@ class AccountApi {
     return client.postModel<AccountWebhooksCreateResponse>(
       'i/webhooks/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AccountWebhooksCreateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -548,6 +620,7 @@ class AccountApi {
     return client.postVoid(
       'i/webhooks/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -555,6 +628,7 @@ class AccountApi {
   Future<List<UserWebhook>> webhooksList({CancelToken? cancelToken}) {
     return client.postList<UserWebhook>(
       'i/webhooks/list',
+      requiresAuth: true,
       itemParser: UserWebhook.fromJson,
       cancelToken: cancelToken,
     );
@@ -567,6 +641,7 @@ class AccountApi {
     return client.postModel<UserWebhook>(
       'i/webhooks/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserWebhook.fromJson,
       cancelToken: cancelToken,
     );
@@ -579,6 +654,7 @@ class AccountApi {
     return client.postVoid(
       'i/webhooks/test',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -590,6 +666,7 @@ class AccountApi {
     return client.postVoid(
       'i/webhooks/update',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -601,6 +678,7 @@ class AccountApi {
     return client.postList<App>(
       'my/apps',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: App.fromJson,
       cancelToken: cancelToken,
     );
@@ -613,6 +691,7 @@ class AccountApi {
     return client.postModel<AccountSwRegisterResponse>(
       'sw/register',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AccountSwRegisterResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -625,6 +704,7 @@ class AccountApi {
     return client.postNullableModel<AccountSwShowRegistrationResponse>(
       'sw/show-registration',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AccountSwShowRegistrationResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -637,6 +717,7 @@ class AccountApi {
     return client.postVoid(
       'sw/unregister',
       body: request.toJson(),
+      requiresAuth: false,
       cancelToken: cancelToken,
     );
   }
@@ -648,6 +729,7 @@ class AccountApi {
     return client.postModel<AccountSwUpdateRegistrationResponse>(
       'sw/update-registration',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AccountSwUpdateRegistrationResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -660,6 +742,7 @@ class AccountApi {
     return client.postVoid(
       'verify-email',
       body: request.toJson(),
+      requiresAuth: false,
       cancelToken: cancelToken,
     );
   }

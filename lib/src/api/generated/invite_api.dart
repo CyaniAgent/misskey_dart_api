@@ -9,14 +9,15 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'invite_models.dart';
 
-class InviteApi {
-  InviteApi(this.client);
+class RawInviteApi {
+  RawInviteApi(this.client);
 
   final MisskeyClient client;
 
   Future<InviteCode> create({CancelToken? cancelToken}) {
     return client.postModel<InviteCode>(
       'invite/create',
+      requiresAuth: true,
       parser: InviteCode.fromJson,
       cancelToken: cancelToken,
     );
@@ -26,6 +27,7 @@ class InviteApi {
     return client.postVoid(
       'invite/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -33,6 +35,7 @@ class InviteApi {
   Future<InviteLimitResponse> limit({CancelToken? cancelToken}) {
     return client.postModel<InviteLimitResponse>(
       'invite/limit',
+      requiresAuth: true,
       parser: InviteLimitResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -45,6 +48,7 @@ class InviteApi {
     return client.postList<InviteCode>(
       'invite/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: InviteCode.fromJson,
       cancelToken: cancelToken,
     );

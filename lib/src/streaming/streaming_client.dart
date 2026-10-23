@@ -3,7 +3,9 @@
 import 'dart:async';
 import 'dart:convert';
 
+import '../client/token_provider.dart';
 import '../config.dart';
+import '../exceptions.dart';
 import '../models/json.dart';
 import 'channels.dart';
 import 'streaming_exceptions.dart';
@@ -13,14 +15,14 @@ import 'web_socket_transport.dart';
 class MisskeyStreamingClient {
   MisskeyStreamingClient({
     required this.baseUri,
-    this.accessToken,
+    this.tokenProvider,
     this.authMode = MisskeyAuthMode.bearer,
     this.allowInsecureHttp = false,
     this.connector,
   }) : _events = StreamController<MisskeyStreamEvent>.broadcast();
 
   final Uri baseUri;
-  final String? accessToken;
+  final TokenProvider? tokenProvider;
   final MisskeyAuthMode authMode;
   final bool allowInsecureHttp;
   final StreamingConnector? connector;
@@ -29,27 +31,36 @@ class MisskeyStreamingClient {
   final Map<String, _Subscription> _subscriptions = {};
   StreamingTransport? _transport;
   StreamSubscription<dynamic>? _subscription;
+  Future<void>? _connecting;
   var _counter = 0;
   var _connected = false;
   var _closed = false;
 
   Stream<MisskeyStreamEvent> get events => _events.stream;
 
-  Future<void> connect() async {
+  Future<void> connect() {
     if (_closed) {
       throw StateError('The streaming client is closed.');
     }
-    if (_connected) return;
-    final transport = (connector ?? WebSocketStreamingTransport.connect)(
-      _streamingUri(),
-    );
-    _transport = transport;
-    _subscription = transport.stream.listen(
-      _onData,
-      onError: _onError,
-      onDone: _onDone,
-    );
-    _connected = true;
+    if (_connected) return Future<void>.value();
+    return _connecting ??= _connect();
+  }
+
+  Future<void> _connect() async {
+    try {
+      final transport = (connector ?? WebSocketStreamingTransport.connect)(
+        await _streamingUri(),
+      );
+      _transport = transport;
+      _subscription = transport.stream.listen(
+        _onData,
+        onError: _onError,
+        onDone: _onDone,
+      );
+      _connected = true;
+    } finally {
+      _connecting = null;
+    }
   }
 
   Future<Stream<StreamingChannelEvent<T>>> subscribe<T>(
@@ -131,7 +142,7 @@ class MisskeyStreamingClient {
     });
   }
 
-  Uri _streamingUri() {
+  Future<Uri> _streamingUri() async {
     if (baseUri.scheme == 'http' && !allowInsecureHttp) {
       throw ArgumentError.value(
         baseUri,
@@ -140,9 +151,23 @@ class MisskeyStreamingClient {
       );
     }
     final query = <String, String>{};
-    final token = accessToken;
-    if (token != null && token.isNotEmpty && authMode != MisskeyAuthMode.none) {
-      query['i'] = token;
+    if (authMode != MisskeyAuthMode.none) {
+      final provider = tokenProvider;
+      String? token;
+      if (provider != null) {
+        try {
+          token = await provider();
+        } catch (error) {
+          throw MisskeyAuthenticationException(
+            'Failed to obtain an access token.',
+            code: 'TOKEN_UNAVAILABLE',
+            cause: error,
+          );
+        }
+      }
+      if (token != null && token.isNotEmpty) {
+        query['i'] = token;
+      }
     }
     return baseUri.replace(
       scheme: baseUri.scheme == 'https' ? 'wss' : 'ws',

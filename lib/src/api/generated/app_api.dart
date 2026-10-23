@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'app_models.dart';
 
-class AppApi {
-  AppApi(this.client);
+class RawAppApi {
+  RawAppApi(this.client);
 
   final MisskeyClient client;
 
@@ -18,6 +18,7 @@ class AppApi {
     return client.postModel<App>(
       'app/create',
       body: request.toJson(),
+      requiresAuth: false,
       parser: App.fromJson,
       cancelToken: cancelToken,
     );
@@ -30,6 +31,7 @@ class AppApi {
     return client.postModel<App>(
       'app/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: App.fromJson,
       cancelToken: cancelToken,
     );

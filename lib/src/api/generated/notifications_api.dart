@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'notifications_models.dart';
 
-class NotificationsApi {
-  NotificationsApi(this.client);
+class RawNotificationsApi {
+  RawNotificationsApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,17 +21,23 @@ class NotificationsApi {
     return client.postVoid(
       'notifications/create',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
 
   Future<void> flush({CancelToken? cancelToken}) {
-    return client.postVoid('notifications/flush', cancelToken: cancelToken);
+    return client.postVoid(
+      'notifications/flush',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<void> markAllAsRead({CancelToken? cancelToken}) {
     return client.postVoid(
       'notifications/mark-all-as-read',
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -39,6 +45,7 @@ class NotificationsApi {
   Future<void> testNotification({CancelToken? cancelToken}) {
     return client.postVoid(
       'notifications/test-notification',
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }

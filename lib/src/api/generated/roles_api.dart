@@ -9,14 +9,15 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'roles_models.dart';
 
-class RolesApi {
-  RolesApi(this.client);
+class RawRolesApi {
+  RawRolesApi(this.client);
 
   final MisskeyClient client;
 
   Future<List<Role>> list({CancelToken? cancelToken}) {
     return client.postList<Role>(
       'roles/list',
+      requiresAuth: true,
       itemParser: Role.fromJson,
       cancelToken: cancelToken,
     );
@@ -29,6 +30,7 @@ class RolesApi {
     return client.postList<Note>(
       'roles/notes',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -41,6 +43,7 @@ class RolesApi {
     return client.postModel<Role>(
       'roles/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: Role.fromJson,
       cancelToken: cancelToken,
     );
@@ -53,6 +56,7 @@ class RolesApi {
     return client.postList<RolesUsersResponseItem>(
       'roles/users',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: RolesUsersResponseItem.fromJson,
       cancelToken: cancelToken,
     );

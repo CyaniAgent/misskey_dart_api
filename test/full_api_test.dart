@@ -6,6 +6,7 @@ import 'dart:math';
 
 import 'package:dio/dio.dart';
 import 'package:misskey_dart_api/misskey_dart_api.dart';
+import 'package:misskey_dart_api/raw.dart';
 import 'package:test/test.dart';
 
 import 'support/fixtures.dart';
@@ -78,9 +79,9 @@ MisskeyClient _client(
   return MisskeyClient(
     config: MisskeyClientConfig(
       baseUri: Uri.parse('https://example.com'),
-      accessToken: accessToken,
       authMode: authMode,
     ),
+    tokenProvider: accessToken == null ? null : () => accessToken,
     dio: dio,
   );
 }
@@ -108,6 +109,12 @@ void main() {
       expect(
         misskeyEndpoints.where((entry) => entry.supportsGet),
         hasLength(24),
+      );
+      expect(
+        misskeyEndpoints.where(
+          (entry) => entry.supportsPagination && entry.group != 'admin',
+        ),
+        hasLength(71),
       );
       final methods = <String>{};
       for (final entry in misskeyEndpoints) {
@@ -154,7 +161,8 @@ void main() {
       addTearDown(client.close);
 
       final file = await client.drive.filesCreate(
-        DriveFilesCreateRequest(file: [1, 2], fileName: 'a.txt'),
+        file: [1, 2],
+        fileName: 'a.txt',
       );
 
       expect(file.id, 'file-1');
@@ -171,7 +179,7 @@ void main() {
       final client = _client(adapter);
       addTearDown(client.close);
 
-      final result = await client.users.showValue(
+      final result = await client.raw.users.showValue(
         UsersShowValueRequestByUserId(userId: 'user-1'),
       );
 
@@ -218,7 +226,7 @@ void main() {
       late _FakeTransport transport;
       final streaming = MisskeyStreamingClient(
         baseUri: Uri.parse('https://example.com'),
-        accessToken: 'secret',
+        tokenProvider: () => 'secret',
         connector: (uri) {
           transport = _FakeTransport(uri);
           return transport;

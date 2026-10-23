@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'admin_models.dart';
 
-class AdminApi {
-  AdminApi(this.client);
+class RawAdminApi {
+  RawAdminApi(this.client);
 
   final MisskeyClient client;
 
@@ -22,6 +22,7 @@ class AdminApi {
     return client.postModel<AbuseReportNotificationRecipient>(
       'admin/abuse-report/notification-recipient/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AbuseReportNotificationRecipient.fromJson,
       cancelToken: cancelToken,
     );
@@ -34,6 +35,7 @@ class AdminApi {
     return client.postVoid(
       'admin/abuse-report/notification-recipient/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -46,6 +48,7 @@ class AdminApi {
     return client.postList<AbuseReportNotificationRecipient>(
       'admin/abuse-report/notification-recipient/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AbuseReportNotificationRecipient.fromJson,
       cancelToken: cancelToken,
     );
@@ -58,6 +61,7 @@ class AdminApi {
     return client.postModel<AbuseReportNotificationRecipient>(
       'admin/abuse-report/notification-recipient/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AbuseReportNotificationRecipient.fromJson,
       cancelToken: cancelToken,
     );
@@ -71,6 +75,7 @@ class AdminApi {
     return client.postModel<AbuseReportNotificationRecipient>(
       'admin/abuse-report/notification-recipient/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AbuseReportNotificationRecipient.fromJson,
       cancelToken: cancelToken,
     );
@@ -83,6 +88,7 @@ class AdminApi {
     return client.postList<AdminAbuseUserReportsResponseItem>(
       'admin/abuse-user-reports',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AdminAbuseUserReportsResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -95,6 +101,7 @@ class AdminApi {
     return client.postModel<AdminAccountsCreateResponse>(
       'admin/accounts/create',
       body: request.toJson(),
+      requiresAuth: false,
       parser: AdminAccountsCreateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -107,6 +114,7 @@ class AdminApi {
     return client.postVoid(
       'admin/accounts/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -118,6 +126,7 @@ class AdminApi {
     return client.postModel<UserDetailedNotMe>(
       'admin/accounts/find-by-email',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserDetailedNotMe.fromJson,
       cancelToken: cancelToken,
     );
@@ -130,6 +139,7 @@ class AdminApi {
     return client.postModel<Ad>(
       'admin/ad/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Ad.fromJson,
       cancelToken: cancelToken,
     );
@@ -142,6 +152,7 @@ class AdminApi {
     return client.postVoid(
       'admin/ad/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -153,6 +164,7 @@ class AdminApi {
     return client.postList<Ad>(
       'admin/ad/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Ad.fromJson,
       cancelToken: cancelToken,
     );
@@ -165,6 +177,7 @@ class AdminApi {
     return client.postVoid(
       'admin/ad/update',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -176,6 +189,7 @@ class AdminApi {
     return client.postModel<AdminAnnouncementsCreateResponse>(
       'admin/announcements/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AdminAnnouncementsCreateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -188,6 +202,7 @@ class AdminApi {
     return client.postVoid(
       'admin/announcements/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -199,6 +214,7 @@ class AdminApi {
     return client.postList<AdminAnnouncementsListResponseItem>(
       'admin/announcements/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AdminAnnouncementsListResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -211,6 +227,7 @@ class AdminApi {
     return client.postVoid(
       'admin/announcements/update',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -222,6 +239,7 @@ class AdminApi {
     return client.postModel<AdminAvatarDecorationsCreateResponse>(
       'admin/avatar-decorations/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AdminAvatarDecorationsCreateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -234,6 +252,7 @@ class AdminApi {
     return client.postVoid(
       'admin/avatar-decorations/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -245,6 +264,7 @@ class AdminApi {
     return client.postList<AdminAvatarDecorationsListResponseItem>(
       'admin/avatar-decorations/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AdminAvatarDecorationsListResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -257,6 +277,7 @@ class AdminApi {
     return client.postVoid(
       'admin/avatar-decorations/update',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -266,6 +287,7 @@ class AdminApi {
   }) {
     return client.postModel<AdminCaptchaCurrentResponse>(
       'admin/captcha/current',
+      requiresAuth: true,
       parser: AdminCaptchaCurrentResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -278,6 +300,7 @@ class AdminApi {
     return client.postVoid(
       'admin/captcha/save',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -289,6 +312,7 @@ class AdminApi {
     return client.postVoid(
       'admin/delete-account',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -300,6 +324,7 @@ class AdminApi {
     return client.postVoid(
       'admin/delete-all-files-of-a-user',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -307,12 +332,17 @@ class AdminApi {
   Future<void> driveCleanRemoteFiles({CancelToken? cancelToken}) {
     return client.postVoid(
       'admin/drive/clean-remote-files',
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
 
   Future<void> driveCleanup({CancelToken? cancelToken}) {
-    return client.postVoid('admin/drive/cleanup', cancelToken: cancelToken);
+    return client.postVoid(
+      'admin/drive/cleanup',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<List<DriveFile>> driveFiles(
@@ -322,6 +352,7 @@ class AdminApi {
     return client.postList<DriveFile>(
       'admin/drive/files',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: DriveFile.fromJson,
       cancelToken: cancelToken,
     );
@@ -334,6 +365,7 @@ class AdminApi {
     return client.postModel<AdminDriveShowFileResponse>(
       'admin/drive/show-file',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AdminDriveShowFileResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -346,6 +378,7 @@ class AdminApi {
     return client.postModel<EmojiDetailed>(
       'admin/emoji/add',
       body: request.toJson(),
+      requiresAuth: true,
       parser: EmojiDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -358,6 +391,7 @@ class AdminApi {
     return client.postVoid(
       'admin/emoji/add-aliases-bulk',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -369,6 +403,7 @@ class AdminApi {
     return client.postModel<AdminEmojiCopyResponse>(
       'admin/emoji/copy',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AdminEmojiCopyResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -381,6 +416,7 @@ class AdminApi {
     return client.postVoid(
       'admin/emoji/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -392,6 +428,7 @@ class AdminApi {
     return client.postVoid(
       'admin/emoji/delete-bulk',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -403,6 +440,7 @@ class AdminApi {
     return client.postVoid(
       'admin/emoji/import-zip',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -414,6 +452,7 @@ class AdminApi {
     return client.postList<EmojiDetailed>(
       'admin/emoji/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: EmojiDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -426,6 +465,7 @@ class AdminApi {
     return client.postList<EmojiDetailed>(
       'admin/emoji/list-remote',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: EmojiDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -438,6 +478,7 @@ class AdminApi {
     return client.postVoid(
       'admin/emoji/remove-aliases-bulk',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -449,6 +490,7 @@ class AdminApi {
     return client.postVoid(
       'admin/emoji/set-aliases-bulk',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -460,6 +502,7 @@ class AdminApi {
     return client.postVoid(
       'admin/emoji/set-category-bulk',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -471,6 +514,7 @@ class AdminApi {
     return client.postVoid(
       'admin/emoji/set-license-bulk',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -482,6 +526,7 @@ class AdminApi {
     return client.postVoid(
       'admin/emoji/update',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -493,6 +538,7 @@ class AdminApi {
     return client.postVoid(
       'admin/federation/delete-all-files',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -504,6 +550,7 @@ class AdminApi {
     return client.postVoid(
       'admin/federation/refresh-remote-instance-metadata',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -515,6 +562,7 @@ class AdminApi {
     return client.postVoid(
       'admin/federation/remove-all-following',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -526,6 +574,7 @@ class AdminApi {
     return client.postVoid(
       'admin/federation/update-instance',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -537,6 +586,7 @@ class AdminApi {
     return client.postVoid(
       'admin/forward-abuse-user-report',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -546,13 +596,18 @@ class AdminApi {
   }) {
     return client.postList<AdminGetIndexStatsResponseItem>(
       'admin/get-index-stats',
+      requiresAuth: true,
       itemParser: AdminGetIndexStatsResponseItem.fromJson,
       cancelToken: cancelToken,
     );
   }
 
   Future<JsonMap> getTableStats({CancelToken? cancelToken}) {
-    return client.postMap('admin/get-table-stats', cancelToken: cancelToken);
+    return client.postMap(
+      'admin/get-table-stats',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<List<AdminGetUserIpsResponseItem>> getUserIps(
@@ -562,6 +617,7 @@ class AdminApi {
     return client.postList<AdminGetUserIpsResponseItem>(
       'admin/get-user-ips',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AdminGetUserIpsResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -574,6 +630,7 @@ class AdminApi {
     return client.postList<InviteCode>(
       'admin/invite/create',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: InviteCode.fromJson,
       cancelToken: cancelToken,
     );
@@ -586,6 +643,7 @@ class AdminApi {
     return client.postList<InviteCode>(
       'admin/invite/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: InviteCode.fromJson,
       cancelToken: cancelToken,
     );
@@ -594,6 +652,7 @@ class AdminApi {
   Future<AdminMetaResponse> meta({CancelToken? cancelToken}) {
     return client.postModel<AdminMetaResponse>(
       'admin/meta',
+      requiresAuth: true,
       parser: AdminMetaResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -606,6 +665,7 @@ class AdminApi {
     return client.postVoid(
       'admin/promo/create',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -617,6 +677,7 @@ class AdminApi {
     return client.postVoid(
       'admin/queue/clear',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -624,6 +685,7 @@ class AdminApi {
   Future<List<List<Object>>> queueDeliverDelayed({CancelToken? cancelToken}) {
     return client.postParsed<List<List<Object>>>(
       'admin/queue/deliver-delayed',
+      requiresAuth: true,
       parser: (data) =>
           (data as List).map((e) => (e as List).cast<Object>()).toList(),
       cancelToken: cancelToken,
@@ -633,6 +695,7 @@ class AdminApi {
   Future<List<List<Object>>> queueInboxDelayed({CancelToken? cancelToken}) {
     return client.postParsed<List<List<Object>>>(
       'admin/queue/inbox-delayed',
+      requiresAuth: true,
       parser: (data) =>
           (data as List).map((e) => (e as List).cast<Object>()).toList(),
       cancelToken: cancelToken,
@@ -646,6 +709,7 @@ class AdminApi {
     return client.postList<QueueJob>(
       'admin/queue/jobs',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: QueueJob.fromJson,
       cancelToken: cancelToken,
     );
@@ -658,6 +722,7 @@ class AdminApi {
     return client.postVoid(
       'admin/queue/pause',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -669,6 +734,7 @@ class AdminApi {
     return client.postVoid(
       'admin/queue/promote-jobs',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -680,6 +746,7 @@ class AdminApi {
     return client.postModel<AdminQueueQueueStatsResponse>(
       'admin/queue/queue-stats',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AdminQueueQueueStatsResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -690,6 +757,7 @@ class AdminApi {
   }) {
     return client.postList<AdminQueueQueuesResponseItem>(
       'admin/queue/queues',
+      requiresAuth: true,
       itemParser: AdminQueueQueuesResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -702,6 +770,7 @@ class AdminApi {
     return client.postVoid(
       'admin/queue/remove-job',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -713,6 +782,7 @@ class AdminApi {
     return client.postVoid(
       'admin/queue/resume',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -724,6 +794,7 @@ class AdminApi {
     return client.postVoid(
       'admin/queue/retry-job',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -735,6 +806,7 @@ class AdminApi {
     return client.postModel<QueueJob>(
       'admin/queue/show-job',
       body: request.toJson(),
+      requiresAuth: true,
       parser: QueueJob.fromJson,
       cancelToken: cancelToken,
     );
@@ -747,6 +819,7 @@ class AdminApi {
     return client.postParsed<List<String>>(
       'admin/queue/show-job-logs',
       body: request.toJson(),
+      requiresAuth: true,
       parser: (data) => (data as List).cast<String>(),
       cancelToken: cancelToken,
     );
@@ -755,6 +828,7 @@ class AdminApi {
   Future<AdminQueueStatsResponse> queueStats({CancelToken? cancelToken}) {
     return client.postModel<AdminQueueStatsResponse>(
       'admin/queue/stats',
+      requiresAuth: true,
       parser: AdminQueueStatsResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -767,6 +841,7 @@ class AdminApi {
     return client.postModel<AdminRelaysAddResponse>(
       'admin/relays/add',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AdminRelaysAddResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -777,6 +852,7 @@ class AdminApi {
   }) {
     return client.postList<AdminRelaysListResponseItem>(
       'admin/relays/list',
+      requiresAuth: true,
       itemParser: AdminRelaysListResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -789,6 +865,7 @@ class AdminApi {
     return client.postVoid(
       'admin/relays/remove',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -800,6 +877,7 @@ class AdminApi {
     return client.postModel<AdminResetPasswordResponse>(
       'admin/reset-password',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AdminResetPasswordResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -812,6 +890,7 @@ class AdminApi {
     return client.postVoid(
       'admin/resolve-abuse-user-report',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -823,6 +902,7 @@ class AdminApi {
     return client.postVoid(
       'admin/roles/assign',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -834,6 +914,7 @@ class AdminApi {
     return client.postModel<Role>(
       'admin/roles/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Role.fromJson,
       cancelToken: cancelToken,
     );
@@ -846,6 +927,7 @@ class AdminApi {
     return client.postVoid(
       'admin/roles/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -853,6 +935,7 @@ class AdminApi {
   Future<List<Role>> rolesList({CancelToken? cancelToken}) {
     return client.postList<Role>(
       'admin/roles/list',
+      requiresAuth: true,
       itemParser: Role.fromJson,
       cancelToken: cancelToken,
     );
@@ -865,6 +948,7 @@ class AdminApi {
     return client.postModel<Role>(
       'admin/roles/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Role.fromJson,
       cancelToken: cancelToken,
     );
@@ -877,6 +961,7 @@ class AdminApi {
     return client.postVoid(
       'admin/roles/unassign',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -888,6 +973,7 @@ class AdminApi {
     return client.postVoid(
       'admin/roles/update',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -899,6 +985,7 @@ class AdminApi {
     return client.postVoid(
       'admin/roles/update-default-policies',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -910,6 +997,7 @@ class AdminApi {
     return client.postList<AdminRolesUsersResponseItem>(
       'admin/roles/users',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: AdminRolesUsersResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -922,6 +1010,7 @@ class AdminApi {
     return client.postVoid(
       'admin/send-email',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -929,6 +1018,7 @@ class AdminApi {
   Future<AdminServerInfoResponse> serverInfo({CancelToken? cancelToken}) {
     return client.postModel<AdminServerInfoResponse>(
       'admin/server-info',
+      requiresAuth: true,
       parser: AdminServerInfoResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -941,6 +1031,7 @@ class AdminApi {
     return client.postList<AdminShowModerationLogsResponseItem>(
       'admin/show-moderation-logs',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: AdminShowModerationLogsResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -953,6 +1044,7 @@ class AdminApi {
     return client.postModel<AdminShowUserResponse>(
       'admin/show-user',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AdminShowUserResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -965,6 +1057,7 @@ class AdminApi {
     return client.postList<UserDetailed>(
       'admin/show-users',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: UserDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -977,6 +1070,7 @@ class AdminApi {
     return client.postVoid(
       'admin/suspend-user',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -988,6 +1082,7 @@ class AdminApi {
     return client.postModel<SystemWebhook>(
       'admin/system-webhook/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: SystemWebhook.fromJson,
       cancelToken: cancelToken,
     );
@@ -1000,6 +1095,7 @@ class AdminApi {
     return client.postVoid(
       'admin/system-webhook/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -1011,6 +1107,7 @@ class AdminApi {
     return client.postList<SystemWebhook>(
       'admin/system-webhook/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: SystemWebhook.fromJson,
       cancelToken: cancelToken,
     );
@@ -1023,6 +1120,7 @@ class AdminApi {
     return client.postModel<SystemWebhook>(
       'admin/system-webhook/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: SystemWebhook.fromJson,
       cancelToken: cancelToken,
     );
@@ -1035,6 +1133,7 @@ class AdminApi {
     return client.postVoid(
       'admin/system-webhook/test',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -1046,6 +1145,7 @@ class AdminApi {
     return client.postModel<SystemWebhook>(
       'admin/system-webhook/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: SystemWebhook.fromJson,
       cancelToken: cancelToken,
     );
@@ -1058,6 +1158,7 @@ class AdminApi {
     return client.postVoid(
       'admin/unset-mfa',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -1069,6 +1170,7 @@ class AdminApi {
     return client.postVoid(
       'admin/unset-user-avatar',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -1080,6 +1182,7 @@ class AdminApi {
     return client.postVoid(
       'admin/unset-user-banner',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -1091,6 +1194,7 @@ class AdminApi {
     return client.postVoid(
       'admin/unsuspend-user',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -1102,6 +1206,7 @@ class AdminApi {
     return client.postVoid(
       'admin/update-abuse-user-report',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -1113,6 +1218,7 @@ class AdminApi {
     return client.postVoid(
       'admin/update-meta',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -1124,6 +1230,7 @@ class AdminApi {
     return client.postModel<UserDetailed>(
       'admin/update-proxy-account',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -1136,6 +1243,7 @@ class AdminApi {
     return client.postVoid(
       'admin/update-user-note',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -1147,6 +1255,7 @@ class AdminApi {
     return client.postModel<AdminV2EmojiListResponse>(
       'v2/admin/emoji/list',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AdminV2EmojiListResponse.fromJson,
       cancelToken: cancelToken,
     );

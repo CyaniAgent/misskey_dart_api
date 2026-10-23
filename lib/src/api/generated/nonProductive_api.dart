@@ -9,13 +9,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'nonProductive_models.dart';
 
-class NonProductiveApi {
-  NonProductiveApi(this.client);
+class RawNonProductiveApi {
+  RawNonProductiveApi(this.client);
 
   final MisskeyClient client;
 
   Future<void> resetDb({CancelToken? cancelToken}) {
-    return client.postVoid('reset-db', cancelToken: cancelToken);
+    return client.postVoid(
+      'reset-db',
+      requiresAuth: false,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<NonProductiveTestResponse> test(
@@ -25,6 +29,7 @@ class NonProductiveApi {
     return client.postModel<NonProductiveTestResponse>(
       'test',
       body: request.toJson(),
+      requiresAuth: false,
       parser: NonProductiveTestResponse.fromJson,
       cancelToken: cancelToken,
     );

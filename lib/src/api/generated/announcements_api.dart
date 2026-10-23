@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'announcements_models.dart';
 
-class AnnouncementsApi {
-  AnnouncementsApi(this.client);
+class RawAnnouncementsApi {
+  RawAnnouncementsApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class AnnouncementsApi {
     return client.postList<Announcement>(
       'announcements',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Announcement.fromJson,
       cancelToken: cancelToken,
     );
@@ -33,6 +34,7 @@ class AnnouncementsApi {
     return client.postModel<Announcement>(
       'announcements/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: Announcement.fromJson,
       cancelToken: cancelToken,
     );

@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'gallery_models.dart';
 
-class GalleryApi {
-  GalleryApi(this.client);
+class RawGalleryApi {
+  RawGalleryApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class GalleryApi {
     return client.postList<GalleryPost>(
       'gallery/featured',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: GalleryPost.fromJson,
       cancelToken: cancelToken,
     );
@@ -29,6 +30,7 @@ class GalleryApi {
   Future<List<GalleryPost>> popular({CancelToken? cancelToken}) {
     return client.postList<GalleryPost>(
       'gallery/popular',
+      requiresAuth: false,
       itemParser: GalleryPost.fromJson,
       cancelToken: cancelToken,
     );
@@ -41,6 +43,7 @@ class GalleryApi {
     return client.postList<GalleryPost>(
       'gallery/posts',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: GalleryPost.fromJson,
       cancelToken: cancelToken,
     );
@@ -53,6 +56,7 @@ class GalleryApi {
     return client.postModel<GalleryPost>(
       'gallery/posts/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: GalleryPost.fromJson,
       cancelToken: cancelToken,
     );
@@ -65,6 +69,7 @@ class GalleryApi {
     return client.postVoid(
       'gallery/posts/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -76,6 +81,7 @@ class GalleryApi {
     return client.postVoid(
       'gallery/posts/like',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -87,6 +93,7 @@ class GalleryApi {
     return client.postModel<GalleryPost>(
       'gallery/posts/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: GalleryPost.fromJson,
       cancelToken: cancelToken,
     );
@@ -99,6 +106,7 @@ class GalleryApi {
     return client.postVoid(
       'gallery/posts/unlike',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -110,6 +118,7 @@ class GalleryApi {
     return client.postModel<GalleryPost>(
       'gallery/posts/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: GalleryPost.fromJson,
       cancelToken: cancelToken,
     );

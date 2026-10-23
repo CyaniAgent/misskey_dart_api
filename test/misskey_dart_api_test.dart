@@ -17,10 +17,10 @@ MisskeyClient _client(
   return MisskeyClient(
     config: MisskeyClientConfig(
       baseUri: Uri.parse('https://example.com'),
-      accessToken: accessToken,
       authMode: authMode,
       userAgent: userAgent,
     ),
+    tokenProvider: accessToken == null ? null : () => accessToken,
     dio: dio,
   );
 }

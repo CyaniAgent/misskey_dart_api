@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'pages_models.dart';
 
-class PagesApi {
-  PagesApi(this.client);
+class RawPagesApi {
+  RawPagesApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class PagesApi {
     return client.postVoid(
       'page-push',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -29,6 +30,7 @@ class PagesApi {
     return client.postModel<Page>(
       'pages/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Page.fromJson,
       cancelToken: cancelToken,
     );
@@ -38,6 +40,7 @@ class PagesApi {
     return client.postVoid(
       'pages/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -45,6 +48,7 @@ class PagesApi {
   Future<List<Page>> featured({CancelToken? cancelToken}) {
     return client.postList<Page>(
       'pages/featured',
+      requiresAuth: false,
       itemParser: Page.fromJson,
       cancelToken: cancelToken,
     );
@@ -54,6 +58,7 @@ class PagesApi {
     return client.postVoid(
       'pages/like',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -65,6 +70,7 @@ class PagesApi {
     return client.postModel<Page>(
       'pages/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: Page.fromJson,
       cancelToken: cancelToken,
     );
@@ -74,6 +80,7 @@ class PagesApi {
     return client.postVoid(
       'pages/unlike',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -82,6 +89,7 @@ class PagesApi {
     return client.postVoid(
       'pages/update',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }

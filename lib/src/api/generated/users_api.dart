@@ -10,8 +10,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'users_models.dart';
 
-class UsersApi {
-  UsersApi(this.client);
+class RawUsersApi {
+  RawUsersApi(this.client);
 
   final MisskeyClient client;
 
@@ -22,6 +22,7 @@ class UsersApi {
     return client.postModel<UsersEmailAddressAvailableResponse>(
       'email-address/available',
       body: request.toJson(),
+      requiresAuth: false,
       parser: UsersEmailAddressAvailableResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -32,6 +33,7 @@ class UsersApi {
   }) {
     return client.postList<UsersGetAvatarDecorationsResponseItem>(
       'get-avatar-decorations',
+      requiresAuth: false,
       itemParser: UsersGetAvatarDecorationsResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -40,6 +42,7 @@ class UsersApi {
   Future<List<UserDetailed>> pinnedUsers({CancelToken? cancelToken}) {
     return client.postList<UserDetailed>(
       'pinned-users',
+      requiresAuth: false,
       itemParser: UserDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -52,6 +55,7 @@ class UsersApi {
     return client.postList<UsersRetentionResponseItem>(
       'retention',
       httpMethod: httpMethod,
+      requiresAuth: false,
       itemParser: UsersRetentionResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -64,6 +68,7 @@ class UsersApi {
     return client.postModel<UsersUsernameAvailableResponse>(
       'username/available',
       body: request.toJson(),
+      requiresAuth: false,
       parser: UsersUsernameAvailableResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -76,6 +81,7 @@ class UsersApi {
     return client.postList<UserDetailed>(
       'users',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: UserDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -88,6 +94,7 @@ class UsersApi {
     return client.postList<Achievement>(
       'users/achievements',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Achievement.fromJson,
       cancelToken: cancelToken,
     );
@@ -100,6 +107,7 @@ class UsersApi {
     return client.postList<Clip>(
       'users/clips',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Clip.fromJson,
       cancelToken: cancelToken,
     );
@@ -114,6 +122,7 @@ class UsersApi {
       'users/featured-notes',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -126,6 +135,7 @@ class UsersApi {
     return client.postList<Flash>(
       'users/flashs',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Flash.fromJson,
       cancelToken: cancelToken,
     );
@@ -138,6 +148,7 @@ class UsersApi {
     return client.postList<Following>(
       'users/followers',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Following.fromJson,
       cancelToken: cancelToken,
     );
@@ -150,6 +161,7 @@ class UsersApi {
     return client.postList<Following>(
       'users/following',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Following.fromJson,
       cancelToken: cancelToken,
     );
@@ -162,6 +174,7 @@ class UsersApi {
     return client.postList<GalleryPost>(
       'users/gallery/posts',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: GalleryPost.fromJson,
       cancelToken: cancelToken,
     );
@@ -175,6 +188,7 @@ class UsersApi {
     return client.postList<UsersGetFollowingUsersByBirthdayResponseItem>(
       'users/get-following-users-by-birthday',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: UsersGetFollowingUsersByBirthdayResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -188,6 +202,7 @@ class UsersApi {
     return client.postList<UsersGetFrequentlyRepliedUsersResponseItem>(
       'users/get-frequently-replied-users',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: UsersGetFrequentlyRepliedUsersResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -200,6 +215,7 @@ class UsersApi {
     return client.postModel<UserList>(
       'users/lists/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserList.fromJson,
       cancelToken: cancelToken,
     );
@@ -212,6 +228,7 @@ class UsersApi {
     return client.postModel<UserList>(
       'users/lists/create-from-public',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserList.fromJson,
       cancelToken: cancelToken,
     );
@@ -224,6 +241,7 @@ class UsersApi {
     return client.postVoid(
       'users/lists/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -235,6 +253,7 @@ class UsersApi {
     return client.postVoid(
       'users/lists/favorite',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -246,6 +265,7 @@ class UsersApi {
     return client.postList<UsersListsGetMembershipsResponseItem>(
       'users/lists/get-memberships',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: UsersListsGetMembershipsResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -258,6 +278,7 @@ class UsersApi {
     return client.postList<UserList>(
       'users/lists/list',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: UserList.fromJson,
       cancelToken: cancelToken,
     );
@@ -270,6 +291,7 @@ class UsersApi {
     return client.postVoid(
       'users/lists/pull',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -281,6 +303,7 @@ class UsersApi {
     return client.postVoid(
       'users/lists/push',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -292,6 +315,7 @@ class UsersApi {
     return client.postModel<UsersListsShowResponse>(
       'users/lists/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: UsersListsShowResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -304,6 +328,7 @@ class UsersApi {
     return client.postVoid(
       'users/lists/unfavorite',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -315,6 +340,7 @@ class UsersApi {
     return client.postModel<UserList>(
       'users/lists/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserList.fromJson,
       cancelToken: cancelToken,
     );
@@ -327,6 +353,7 @@ class UsersApi {
     return client.postVoid(
       'users/lists/update-membership',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -338,6 +365,7 @@ class UsersApi {
     return client.postList<Note>(
       'users/notes',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -350,6 +378,7 @@ class UsersApi {
     return client.postList<Page>(
       'users/pages',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Page.fromJson,
       cancelToken: cancelToken,
     );
@@ -362,6 +391,7 @@ class UsersApi {
     return client.postList<NoteReactionWithNote>(
       'users/reactions',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: NoteReactionWithNote.fromJson,
       cancelToken: cancelToken,
     );
@@ -374,6 +404,7 @@ class UsersApi {
     return client.postList<UserDetailed>(
       'users/recommendation',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: UserDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -386,6 +417,7 @@ class UsersApi {
     return client.postParsed<UsersRelationResponse>(
       'users/relation',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UsersRelationResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -398,6 +430,7 @@ class UsersApi {
     return client.postVoid(
       'users/report-abuse',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -409,6 +442,7 @@ class UsersApi {
     return client.postList<User>(
       'users/search',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: User.fromJson,
       cancelToken: cancelToken,
     );
@@ -421,6 +455,7 @@ class UsersApi {
     return client.postList<User>(
       'users/search-by-username-and-host',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: User.fromJson,
       cancelToken: cancelToken,
     );
@@ -433,6 +468,7 @@ class UsersApi {
     return client.postParsed<UsersShowValueResponse>(
       'users/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: UsersShowValueResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -445,6 +481,7 @@ class UsersApi {
     return client.postVoid(
       'users/update-memo',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }

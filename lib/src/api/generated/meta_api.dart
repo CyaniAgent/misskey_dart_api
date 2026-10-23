@@ -10,8 +10,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'meta_models.dart';
 
-class MetaApi {
-  MetaApi(this.client);
+class RawMetaApi {
+  RawMetaApi(this.client);
 
   final MisskeyClient client;
 
@@ -22,6 +22,7 @@ class MetaApi {
     return client.postNullableModel<MetaEndpointResponse>(
       'endpoint',
       body: request.toJson(),
+      requiresAuth: false,
       parser: MetaEndpointResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -30,6 +31,7 @@ class MetaApi {
   Future<List<String>> endpoints({CancelToken? cancelToken}) {
     return client.postParsed<List<String>>(
       'endpoints',
+      requiresAuth: false,
       parser: (data) => (data as List).cast<String>(),
       cancelToken: cancelToken,
     );
@@ -42,6 +44,7 @@ class MetaApi {
     return client.postModel<MetaFetchExternalResourcesResponse>(
       'fetch-external-resources',
       body: request.toJson(),
+      requiresAuth: true,
       parser: MetaFetchExternalResourcesResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -56,6 +59,7 @@ class MetaApi {
       'fetch-rss',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: MetaFetchRssResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -68,6 +72,7 @@ class MetaApi {
     return client.postModel<MetaGetOnlineUsersCountResponse>(
       'get-online-users-count',
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: MetaGetOnlineUsersCountResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -76,6 +81,7 @@ class MetaApi {
   Future<MetaPingResponse> ping({CancelToken? cancelToken}) {
     return client.postModel<MetaPingResponse>(
       'ping',
+      requiresAuth: false,
       parser: MetaPingResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -88,6 +94,7 @@ class MetaApi {
     return client.postModel<MetaServerInfoResponse>(
       'server-info',
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: MetaServerInfoResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -96,6 +103,7 @@ class MetaApi {
   Future<MetaStatsResponse> stats({CancelToken? cancelToken}) {
     return client.postModel<MetaStatsResponse>(
       'stats',
+      requiresAuth: false,
       parser: MetaStatsResponse.fromJson,
       cancelToken: cancelToken,
     );

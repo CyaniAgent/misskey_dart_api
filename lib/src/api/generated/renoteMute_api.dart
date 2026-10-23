@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'renoteMute_models.dart';
 
-class RenoteMuteApi {
-  RenoteMuteApi(this.client);
+class RawRenoteMuteApi {
+  RawRenoteMuteApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class RenoteMuteApi {
     return client.postVoid(
       'renote-mute/create',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -32,6 +33,7 @@ class RenoteMuteApi {
     return client.postVoid(
       'renote-mute/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -43,6 +45,7 @@ class RenoteMuteApi {
     return client.postList<RenoteMuting>(
       'renote-mute/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: RenoteMuting.fromJson,
       cancelToken: cancelToken,
     );

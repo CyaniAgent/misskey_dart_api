@@ -12,6 +12,7 @@ class EndpointManifest {
     required this.responseType,
     required this.multipart,
     required this.supportsGet,
+    required this.supportsPagination,
     this.handWrittenMethod,
   });
 
@@ -23,6 +24,7 @@ class EndpointManifest {
   final String responseType;
   final bool multipart;
   final bool supportsGet;
+  final bool supportsPagination;
   final String? handWrittenMethod;
 }
 
@@ -36,6 +38,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AbuseReportNotificationRecipient',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -47,6 +50,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -58,6 +62,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AbuseReportNotificationRecipient>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -69,6 +74,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AbuseReportNotificationRecipient',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -80,6 +86,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AbuseReportNotificationRecipient',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -91,6 +98,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AdminAbuseUserReportsResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -102,6 +110,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminAccountsCreateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -113,6 +122,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -124,6 +134,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserDetailedNotMe',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -135,6 +146,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Ad',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -146,6 +158,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -157,6 +170,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Ad>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -168,6 +182,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -179,6 +194,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminAnnouncementsCreateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -190,6 +206,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -201,6 +218,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AdminAnnouncementsListResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -212,6 +230,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -223,6 +242,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminAvatarDecorationsCreateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -234,6 +254,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -245,6 +266,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AdminAvatarDecorationsListResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -256,6 +278,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -267,6 +290,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminCaptchaCurrentResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -278,6 +302,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -289,6 +314,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -300,6 +326,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -311,6 +338,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -322,6 +350,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -333,6 +362,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<DriveFile>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -344,6 +374,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminDriveShowFileResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -355,6 +386,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'EmojiDetailed',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -366,6 +398,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -377,6 +410,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminEmojiCopyResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -388,6 +422,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -399,6 +434,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -410,6 +446,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -421,6 +458,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<EmojiDetailed>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -432,6 +470,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<EmojiDetailed>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -443,6 +482,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -454,6 +494,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -465,6 +506,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -476,6 +518,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -487,6 +530,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -498,6 +542,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -509,6 +554,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -520,6 +566,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -531,6 +578,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -542,6 +590,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -553,6 +602,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AdminGetIndexStatsResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -564,6 +614,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'JsonMap',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -575,6 +626,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AdminGetUserIpsResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -586,6 +638,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<InviteCode>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -597,6 +650,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<InviteCode>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -608,6 +662,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminMetaResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -619,6 +674,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -630,6 +686,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -641,6 +698,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<List<Object>>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -652,6 +710,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<List<Object>>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -663,6 +722,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<QueueJob>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -674,6 +734,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -685,6 +746,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -696,6 +758,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminQueueQueueStatsResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -707,6 +770,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AdminQueueQueuesResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -718,6 +782,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -729,6 +794,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -740,6 +806,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -751,6 +818,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'QueueJob',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -762,6 +830,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<String>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -773,6 +842,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminQueueStatsResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -784,6 +854,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminRelaysAddResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -795,6 +866,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AdminRelaysListResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -806,6 +878,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -817,6 +890,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminResetPasswordResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -828,6 +902,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -839,6 +914,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -850,6 +926,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Role',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -861,6 +938,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -872,6 +950,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Role>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -883,6 +962,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Role',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -894,6 +974,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -905,6 +986,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -916,6 +998,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -927,6 +1010,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AdminRolesUsersResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -938,6 +1022,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -949,6 +1034,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminServerInfoResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -960,6 +1046,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AdminShowModerationLogsResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -971,6 +1058,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminShowUserResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -982,6 +1070,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UserDetailed>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -993,6 +1082,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1004,6 +1094,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'SystemWebhook',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1015,6 +1106,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1026,6 +1118,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<SystemWebhook>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1037,6 +1130,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'SystemWebhook',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1048,6 +1142,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1059,6 +1154,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'SystemWebhook',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1070,6 +1166,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1081,6 +1178,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1092,6 +1190,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1103,6 +1202,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1114,6 +1214,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1125,6 +1226,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1136,6 +1238,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserDetailed',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1147,6 +1250,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1158,6 +1262,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Announcement>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1169,6 +1274,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Announcement',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1180,6 +1286,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Antenna',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1191,6 +1298,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1202,6 +1310,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Antenna>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1213,6 +1322,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1224,6 +1334,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1235,6 +1346,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Antenna',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1246,6 +1358,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Antenna',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1257,6 +1370,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'JsonMap',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1268,6 +1382,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'FederationApShowResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1279,6 +1394,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'App',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1290,6 +1406,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'App',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1301,6 +1418,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1312,6 +1430,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AuthSessionGenerateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1323,6 +1442,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AuthSessionShowResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1334,6 +1454,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AuthSessionUserkeyResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1345,6 +1466,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserDetailedNotMe',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1356,6 +1478,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserDetailedNotMe',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1367,6 +1490,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Blocking>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1378,6 +1502,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<BubbleGameRankingResponseItem>',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1389,6 +1514,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1400,6 +1526,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Channel',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1411,6 +1538,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1422,6 +1550,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Channel>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1433,6 +1562,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1444,6 +1574,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Channel>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1455,6 +1586,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1466,6 +1598,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1477,6 +1610,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Channel>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1488,6 +1622,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Channel>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1499,6 +1634,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Channel>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1510,6 +1646,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Channel>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1521,6 +1658,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Channel',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1532,6 +1670,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1543,6 +1682,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1554,6 +1694,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1565,6 +1706,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Channel',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1576,6 +1718,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsActiveUsersResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1587,6 +1730,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsApRequestResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1598,6 +1742,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsDriveResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1609,6 +1754,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsFederationResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1620,6 +1766,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsInstanceResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1631,6 +1778,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsNotesResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1642,6 +1790,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsUserDriveResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1653,6 +1802,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsUserFollowingResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1664,6 +1814,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsUserNotesResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1675,6 +1826,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsUserPvResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1686,6 +1838,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsUserReactionsResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1697,6 +1850,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChartsUsersResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1708,6 +1862,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatMessage>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1719,6 +1874,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChatMessageLiteForRoom',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1730,6 +1886,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChatMessageLiteFor1on1',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1741,6 +1898,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1752,6 +1910,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1763,6 +1922,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatMessageLiteForRoom>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1774,6 +1934,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatMessage>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1785,6 +1946,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChatMessage',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1796,6 +1958,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1807,6 +1970,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatMessageLiteFor1on1>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1818,6 +1982,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1829,6 +1994,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChatRoom',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1840,6 +2006,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1851,6 +2018,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChatRoomInvitation',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1862,6 +2030,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1873,6 +2042,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatRoomInvitation>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1884,6 +2054,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatRoomInvitation>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1895,6 +2066,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1906,6 +2078,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatRoomMembership>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1917,6 +2090,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1928,6 +2102,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatRoomMembership>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1939,6 +2114,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1950,6 +2126,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatRoom>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1961,6 +2138,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChatRoom',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1972,6 +2150,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ChatRoom',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1983,6 +2162,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1994,6 +2174,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Clip',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2005,6 +2186,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2016,6 +2198,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2027,6 +2210,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Clip>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2038,6 +2222,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Clip>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2049,6 +2234,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2060,6 +2246,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2071,6 +2258,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Clip',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2082,6 +2270,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2093,6 +2282,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Clip',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2104,6 +2294,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'DriveGetResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2115,6 +2306,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<DriveFile>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2126,6 +2318,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ChatMessage>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2137,6 +2330,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2148,6 +2342,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'bool',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2159,6 +2354,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'DriveFile',
     multipart: true,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2170,6 +2366,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2181,6 +2378,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<DriveFile>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2192,6 +2390,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<DriveFile>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2203,6 +2402,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2214,6 +2414,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'DriveFile',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2225,6 +2426,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'DriveFile',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2236,6 +2438,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2247,6 +2450,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<DriveFolder>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2258,6 +2462,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'DriveFolder',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2269,6 +2474,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2280,6 +2486,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<DriveFolder>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2291,6 +2498,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'DriveFolder',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2302,6 +2510,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'DriveFolder',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2313,6 +2522,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<DriveFile>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2324,6 +2534,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UsersEmailAddressAvailableResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2335,6 +2546,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'EmojiDetailed',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2346,6 +2558,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'EmojiListResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2357,6 +2570,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MetaEndpointResponse?',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2368,6 +2582,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<String>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2379,6 +2594,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2390,6 +2606,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Following>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2401,6 +2618,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Following>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2412,6 +2630,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<FederationInstance>',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2423,6 +2642,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'FederationInstance?',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2434,6 +2654,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'FederationStatsResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2445,6 +2666,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2456,6 +2678,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UserDetailedNotMe>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2467,6 +2690,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MetaFetchExternalResourcesResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2478,6 +2702,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MetaFetchRssResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2489,6 +2714,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Flash',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2500,6 +2726,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2511,6 +2738,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Flash>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2522,6 +2750,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2533,6 +2762,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Flash>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2544,6 +2774,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<FlashMyLikesResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2555,6 +2786,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Flash>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2566,6 +2798,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Flash',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2577,6 +2810,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2588,6 +2822,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2599,6 +2834,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserLite',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2610,6 +2846,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserLite',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2621,6 +2858,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserLite',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2632,6 +2870,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Following>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2643,6 +2882,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2654,6 +2894,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserLite',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2665,6 +2906,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<FollowingRequestsListResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2676,6 +2918,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2687,6 +2930,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<FollowingRequestsSentResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2698,6 +2942,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserLite',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2709,6 +2954,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2720,6 +2966,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<GalleryPost>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2731,6 +2978,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<GalleryPost>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2742,6 +2990,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<GalleryPost>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2753,6 +3002,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'GalleryPost',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2764,6 +3014,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2775,6 +3026,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2786,6 +3038,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'GalleryPost',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2797,6 +3050,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2808,6 +3062,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'GalleryPost',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2819,6 +3074,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UsersGetAvatarDecorationsResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2830,6 +3086,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MetaGetOnlineUsersCountResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2841,6 +3098,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Hashtag>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2852,6 +3110,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<String>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2863,6 +3122,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Hashtag',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2874,6 +3134,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<HashtagsTrendResponseItem>',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2885,6 +3146,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UserDetailed>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2896,6 +3158,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MeDetailed',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: 'account.me',
   ),
   EndpointManifest(
@@ -2907,6 +3170,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AccountTwoFactorDoneResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2918,6 +3182,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AccountTwoFactorKeyDoneResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2929,6 +3194,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2940,6 +3206,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AccountTwoFactorRegisterResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2951,6 +3218,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'JsonMap',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2962,6 +3230,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2973,6 +3242,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2984,6 +3254,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2995,6 +3266,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AccountAppsResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3006,6 +3278,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AccountAuthorizedAppsResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3017,6 +3290,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3028,6 +3302,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3039,6 +3314,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3050,6 +3326,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3061,6 +3338,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3072,6 +3350,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3083,6 +3362,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3094,6 +3374,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3105,6 +3386,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3116,6 +3398,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3127,6 +3410,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3138,6 +3422,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<NoteFavorite>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3149,6 +3434,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AccountGalleryLikesResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3160,6 +3446,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<GalleryPost>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3171,6 +3458,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3182,6 +3470,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3193,6 +3482,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3204,6 +3494,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3215,6 +3506,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3226,6 +3518,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'JsonMap',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3237,6 +3530,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Notification>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3248,6 +3542,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Notification>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3259,6 +3554,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AccountPageLikesResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3270,6 +3566,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Page>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3281,6 +3578,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MeDetailed',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3292,6 +3590,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3303,6 +3602,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3314,6 +3614,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'JsonMap',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3325,6 +3626,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'JsonMap',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3336,6 +3638,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AccountRegistryGetDetailResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3347,6 +3650,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<String>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3358,6 +3662,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'JsonMap',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3369,6 +3674,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3380,6 +3686,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<AccountRegistryScopesWithDomainResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3391,6 +3698,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3402,6 +3710,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3413,6 +3722,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Signin>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3424,6 +3734,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MeDetailed',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3435,6 +3746,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MeDetailed',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3446,6 +3758,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MeDetailed',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3457,6 +3770,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AccountWebhooksCreateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3468,6 +3782,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3479,6 +3794,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UserWebhook>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3490,6 +3806,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserWebhook',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3501,6 +3818,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3512,6 +3830,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3523,6 +3842,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'InviteCode',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3534,6 +3854,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3545,6 +3866,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'InviteLimitResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3556,6 +3878,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<InviteCode>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3567,6 +3890,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MetaLite',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: 'meta.get/detailed',
   ),
   EndpointManifest(
@@ -3578,6 +3902,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AuthMiAuthGenTokenResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3589,6 +3914,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3600,6 +3926,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3611,6 +3938,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Muting>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3622,6 +3950,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<App>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3633,6 +3962,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3644,6 +3974,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3655,6 +3986,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Clip>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3666,6 +3998,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3677,6 +4010,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'NotesCreateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3688,6 +4022,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3699,6 +4034,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'JsonMap',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3710,6 +4046,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'NotesDraftsCreateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3721,6 +4058,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3732,6 +4070,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<NoteDraft>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3743,6 +4082,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'NotesDraftsUpdateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3754,6 +4094,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3765,6 +4106,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3776,6 +4118,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: true,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3787,6 +4130,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3798,6 +4142,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3809,6 +4154,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3820,6 +4166,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3831,6 +4178,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3842,6 +4190,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3853,6 +4202,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<NoteReaction>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3864,6 +4214,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3875,6 +4226,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3886,6 +4238,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3897,6 +4250,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3908,6 +4262,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3919,6 +4274,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3930,6 +4286,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Note',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3941,6 +4298,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<NotesShowPartialBulkResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3952,6 +4310,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'NotesStateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3963,6 +4322,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3974,6 +4334,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3985,6 +4346,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3996,6 +4358,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'NotesTranslateResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4007,6 +4370,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4018,6 +4382,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4029,6 +4394,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4040,6 +4406,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4051,6 +4418,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4062,6 +4430,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4073,6 +4442,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4084,6 +4454,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Page',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4095,6 +4466,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4106,6 +4478,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Page>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4117,6 +4490,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4128,6 +4502,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Page',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4139,6 +4514,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4150,6 +4526,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4161,6 +4538,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MetaPingResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4172,6 +4550,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UserDetailed>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4183,6 +4562,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4194,6 +4574,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4205,6 +4586,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4216,6 +4598,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<RenoteMuting>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4227,6 +4610,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4238,6 +4622,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4249,6 +4634,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4260,6 +4646,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UsersRetentionResponseItem>',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4271,6 +4658,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4282,6 +4670,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<ReversiGameLite>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4293,6 +4682,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UserLite>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4304,6 +4694,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ReversiGameDetailed',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4315,6 +4706,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ReversiGameDetailed',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4326,6 +4718,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4337,6 +4730,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'ReversiVerifyResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4348,6 +4742,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Role>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4359,6 +4754,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4370,6 +4766,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'Role',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4381,6 +4778,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<RolesUsersResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4392,6 +4790,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MetaServerInfoResponse',
     multipart: false,
     supportsGet: true,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4403,6 +4802,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'MetaStatsResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4414,6 +4814,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AccountSwRegisterResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4425,6 +4826,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AccountSwShowRegistrationResponse?',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4436,6 +4838,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4447,6 +4850,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AccountSwUpdateRegistrationResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4458,6 +4862,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'NonProductiveTestResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4469,6 +4874,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UsersUsernameAvailableResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4480,6 +4886,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UserDetailed>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4491,6 +4898,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Achievement>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4502,6 +4910,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Clip>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4513,6 +4922,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: true,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4524,6 +4934,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Flash>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4535,6 +4946,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Following>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4546,6 +4958,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Following>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4557,6 +4970,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<GalleryPost>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4568,6 +4982,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UsersGetFollowingUsersByBirthdayResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4579,6 +4994,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UsersGetFrequentlyRepliedUsersResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4590,6 +5006,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserList',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4601,6 +5018,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserList',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4612,6 +5030,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4623,6 +5042,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4634,6 +5054,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UsersListsGetMembershipsResponseItem>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4645,6 +5066,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UserList>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4656,6 +5078,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4667,6 +5090,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4678,6 +5102,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UsersListsShowResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4689,6 +5114,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4700,6 +5126,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UserList',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4711,6 +5138,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4722,6 +5150,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Note>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4733,6 +5162,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<Page>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4744,6 +5174,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<NoteReactionWithNote>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4755,6 +5186,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<UserDetailed>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4766,6 +5198,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UsersRelationResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4777,6 +5210,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4788,6 +5222,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<User>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4799,6 +5234,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'List<User>',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4810,6 +5246,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'UsersShowValueResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4821,6 +5258,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4832,6 +5270,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'AdminV2EmojiListResponse',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4843,6 +5282,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     responseType: 'void',
     multipart: false,
     supportsGet: false,
+    supportsPagination: false,
     handWrittenMethod: null,
   ),
 ];

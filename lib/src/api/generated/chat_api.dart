@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'chat_models.dart';
 
-class ChatApi {
-  ChatApi(this.client);
+class RawChatApi {
+  RawChatApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class ChatApi {
     return client.postList<ChatMessage>(
       'chat/history',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatMessage.fromJson,
       cancelToken: cancelToken,
     );
@@ -33,6 +34,7 @@ class ChatApi {
     return client.postModel<ChatMessageLiteForRoom>(
       'chat/messages/create-to-room',
       body: request.toJson(),
+      requiresAuth: true,
       parser: ChatMessageLiteForRoom.fromJson,
       cancelToken: cancelToken,
     );
@@ -45,6 +47,7 @@ class ChatApi {
     return client.postModel<ChatMessageLiteFor1on1>(
       'chat/messages/create-to-user',
       body: request.toJson(),
+      requiresAuth: true,
       parser: ChatMessageLiteFor1on1.fromJson,
       cancelToken: cancelToken,
     );
@@ -57,6 +60,7 @@ class ChatApi {
     return client.postVoid(
       'chat/messages/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -68,6 +72,7 @@ class ChatApi {
     return client.postVoid(
       'chat/messages/react',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -79,6 +84,7 @@ class ChatApi {
     return client.postList<ChatMessageLiteForRoom>(
       'chat/messages/room-timeline',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatMessageLiteForRoom.fromJson,
       cancelToken: cancelToken,
     );
@@ -91,6 +97,7 @@ class ChatApi {
     return client.postList<ChatMessage>(
       'chat/messages/search',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatMessage.fromJson,
       cancelToken: cancelToken,
     );
@@ -103,6 +110,7 @@ class ChatApi {
     return client.postModel<ChatMessage>(
       'chat/messages/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: ChatMessage.fromJson,
       cancelToken: cancelToken,
     );
@@ -115,6 +123,7 @@ class ChatApi {
     return client.postVoid(
       'chat/messages/unreact',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -126,13 +135,18 @@ class ChatApi {
     return client.postList<ChatMessageLiteFor1on1>(
       'chat/messages/user-timeline',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatMessageLiteFor1on1.fromJson,
       cancelToken: cancelToken,
     );
   }
 
   Future<void> readAll({CancelToken? cancelToken}) {
-    return client.postVoid('chat/read-all', cancelToken: cancelToken);
+    return client.postVoid(
+      'chat/read-all',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<ChatRoom> roomsCreate(
@@ -142,6 +156,7 @@ class ChatApi {
     return client.postModel<ChatRoom>(
       'chat/rooms/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: ChatRoom.fromJson,
       cancelToken: cancelToken,
     );
@@ -154,6 +169,7 @@ class ChatApi {
     return client.postVoid(
       'chat/rooms/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -165,6 +181,7 @@ class ChatApi {
     return client.postModel<ChatRoomInvitation>(
       'chat/rooms/invitations/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: ChatRoomInvitation.fromJson,
       cancelToken: cancelToken,
     );
@@ -177,6 +194,7 @@ class ChatApi {
     return client.postVoid(
       'chat/rooms/invitations/ignore',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -188,6 +206,7 @@ class ChatApi {
     return client.postList<ChatRoomInvitation>(
       'chat/rooms/invitations/inbox',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatRoomInvitation.fromJson,
       cancelToken: cancelToken,
     );
@@ -200,6 +219,7 @@ class ChatApi {
     return client.postList<ChatRoomInvitation>(
       'chat/rooms/invitations/outbox',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatRoomInvitation.fromJson,
       cancelToken: cancelToken,
     );
@@ -212,6 +232,7 @@ class ChatApi {
     return client.postVoid(
       'chat/rooms/join',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -223,6 +244,7 @@ class ChatApi {
     return client.postList<ChatRoomMembership>(
       'chat/rooms/joining',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatRoomMembership.fromJson,
       cancelToken: cancelToken,
     );
@@ -235,6 +257,7 @@ class ChatApi {
     return client.postVoid(
       'chat/rooms/leave',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -246,6 +269,7 @@ class ChatApi {
     return client.postList<ChatRoomMembership>(
       'chat/rooms/members',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatRoomMembership.fromJson,
       cancelToken: cancelToken,
     );
@@ -258,6 +282,7 @@ class ChatApi {
     return client.postVoid(
       'chat/rooms/mute',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -269,6 +294,7 @@ class ChatApi {
     return client.postList<ChatRoom>(
       'chat/rooms/owned',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatRoom.fromJson,
       cancelToken: cancelToken,
     );
@@ -281,6 +307,7 @@ class ChatApi {
     return client.postModel<ChatRoom>(
       'chat/rooms/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: ChatRoom.fromJson,
       cancelToken: cancelToken,
     );
@@ -293,6 +320,7 @@ class ChatApi {
     return client.postModel<ChatRoom>(
       'chat/rooms/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: ChatRoom.fromJson,
       cancelToken: cancelToken,
     );

@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'flash_models.dart';
 
-class FlashApi {
-  FlashApi(this.client);
+class RawFlashApi {
+  RawFlashApi(this.client);
 
   final MisskeyClient client;
 
@@ -18,6 +18,7 @@ class FlashApi {
     return client.postModel<Flash>(
       'flash/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Flash.fromJson,
       cancelToken: cancelToken,
     );
@@ -27,6 +28,7 @@ class FlashApi {
     return client.postVoid(
       'flash/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -38,6 +40,7 @@ class FlashApi {
     return client.postList<Flash>(
       'flash/featured',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Flash.fromJson,
       cancelToken: cancelToken,
     );
@@ -47,6 +50,7 @@ class FlashApi {
     return client.postVoid(
       'flash/like',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -55,6 +59,7 @@ class FlashApi {
     return client.postList<Flash>(
       'flash/my',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Flash.fromJson,
       cancelToken: cancelToken,
     );
@@ -67,6 +72,7 @@ class FlashApi {
     return client.postList<FlashMyLikesResponseItem>(
       'flash/my-likes',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: FlashMyLikesResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -79,6 +85,7 @@ class FlashApi {
     return client.postList<Flash>(
       'flash/search',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Flash.fromJson,
       cancelToken: cancelToken,
     );
@@ -91,6 +98,7 @@ class FlashApi {
     return client.postModel<Flash>(
       'flash/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: Flash.fromJson,
       cancelToken: cancelToken,
     );
@@ -100,6 +108,7 @@ class FlashApi {
     return client.postVoid(
       'flash/unlike',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -108,6 +117,7 @@ class FlashApi {
     return client.postVoid(
       'flash/update',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }

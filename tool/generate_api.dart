@@ -15,6 +15,27 @@ const _expectedHash =
 const _repoRoot = '.';
 const _skipPaths = {'/meta', '/i'};
 
+const _highLevelNameOverrides = <String, String>{
+  '/notes/show': 'show',
+  '/notes/search-by-tag|Tag': 'searchByTag',
+  '/notes/search-by-tag|Query': 'searchByTagQuery',
+  '/users/show|UserId': 'showByUserId',
+  '/users/show|UserIds': 'showByUserIds',
+  '/users/show|Username': 'showByUsername',
+  '/users/followers|UserId': 'followersByUserId',
+  '/users/followers|Username': 'followersByUsername',
+  '/users/following|UserId': 'followingByUserId',
+  '/users/following|Username': 'followingByUsername',
+  '/users/search-by-username-and-host|Username': 'searchByUsername',
+  '/users/search-by-username-and-host|Host': 'searchByHost',
+  '/drive/files/show|FileId': 'filesShowByFileId',
+  '/drive/files/show|Url': 'filesShowByUrl',
+  '/pages/show|PageId': 'showByPageId',
+  '/pages/show|Name': 'showByName',
+  '/i/revoke-token|TokenId': 'revokeTokenByTokenId',
+  '/i/revoke-token|Token': 'revokeTokenByToken',
+};
+
 const _sourceSegment = <String, String>{
   'account': 'i',
   'admin': 'admin',
@@ -265,10 +286,39 @@ class ApiGenerator {
     'users': 'UsersApi',
   };
 
+  String _rawClass(String group) => 'Raw${_groupClass[group]}';
+
+  bool _isHighLevelGroup(String group) => group != 'admin';
+
+  String _highLevelFileName(String group) {
+    return '${group.replaceAllMapped(RegExp('[A-Z]'), (match) => '_${match[0]!.toLowerCase()}')}_api.dart';
+  }
+
+  bool _usesSharedModels(List<_Operation> operations) {
+    final names = schemas.keys.where((name) => name != 'Error').toList();
+    final types = <String>[
+      for (final op in operations) ...[
+        op.returnType,
+        for (final cls in [
+          if (op.requestClass != null) op.requestClass!,
+          ...op.requestVariants,
+        ])
+          ...cls.fields.map((field) => field.type),
+      ],
+    ];
+    for (final type in types) {
+      for (final name in names) {
+        if (RegExp('\\b${RegExp.escape(name)}\\b').hasMatch(type)) return true;
+      }
+    }
+    return false;
+  }
+
   void generate() {
     _prepareComponentTypes();
     _generateComponents();
     _generateOperations();
+    _generateHighLevel();
     _generateManifest();
     _generateBarrels();
     _generateFixtures();
@@ -490,6 +540,9 @@ class ApiGenerator {
     final b = StringBuffer()
       ..writeln('sealed class Notification {')
       ..writeln('  const Notification();')
+      ..writeln()
+      ..writeln('  /// The notification id, shared by every variant.')
+      ..writeln('  String get id;')
       ..writeln()
       ..writeln('  factory Notification.fromJson(Map<String, dynamic> json) {')
       ..writeln("    final type = json['type'];")
@@ -736,6 +789,9 @@ class ApiGenerator {
       final op = (item['post'] ?? item['get']) as Map<String, dynamic>?;
       if (op == null) continue;
       final group = _groupForPath(path);
+      if (!_groupOrder.contains(group)) {
+        throw StateError('Unknown API group $group for $path');
+      }
       final method = _methodForPath(path, group);
       final generated = !_skipPaths.contains(path);
       final supportsGet =
@@ -747,10 +803,12 @@ class ApiGenerator {
         requiresAuth: (op['security'] as List?)?.isNotEmpty ?? false,
         generated: generated,
         supportsGet: supportsGet,
+        summary: op['summary'] as String?,
       );
       final registry = registries[group]!;
       if (generated) {
         _buildRequest(operation, op, registry);
+        operation.supportsPagination = _requestSupportsPagination(operation);
         _buildResponse(operation, op, registry);
       } else {
         operation.returnType = path == '/i' ? 'MeDetailed' : 'MetaLite';
@@ -767,6 +825,19 @@ class ApiGenerator {
       _writeGroupModels(group, registries[group]!);
       _writeGroupApi(group, byGroup[group]!);
     }
+  }
+
+  bool _requestSupportsPagination(_Operation operation) {
+    if (operation.group == 'admin') return false;
+    final classes = <ClassDef>[
+      if (operation.requestClass != null) operation.requestClass!,
+      ...operation.requestVariants,
+    ];
+    return classes.any(
+      (cls) => cls.fields.any(
+        (field) => field.wireName == 'sinceId' || field.wireName == 'untilId',
+      ),
+    );
   }
 
   void _buildRequest(
@@ -810,6 +881,7 @@ class ApiGenerator {
       );
       _forceFieldType(cls, 'file', 'List<int>');
       operation.requestType = cls.name;
+      operation.requestClass = cls;
       operation.requestKind = _RequestKind.multipart;
       final properties = schemaMap['properties'] as Map? ?? {};
       for (final key in properties.keys) {
@@ -835,6 +907,7 @@ class ApiGenerator {
       write: true,
     );
     operation.requestType = cls.name;
+    operation.requestClass = cls;
     operation.requestKind = _RequestKind.object;
   }
 
@@ -900,6 +973,7 @@ class ApiGenerator {
         write: true,
       );
       cls.extendsName = base;
+      operation.requestVariants.add(cls);
     }
     final buffer = StringBuffer()
       ..writeln('sealed class $base {')
@@ -1323,8 +1397,8 @@ class ApiGenerator {
       ..writeln("import '../../models/json.dart';")
       ..writeln("import '${group}_models.dart';")
       ..writeln()
-      ..writeln('class ${_groupClass[group]} {')
-      ..writeln('  ${_groupClass[group]}(this.client);')
+      ..writeln('class ${_rawClass(group)} {')
+      ..writeln('  ${_rawClass(group)}(this.client);')
       ..writeln()
       ..writeln('  final MisskeyClient client;');
     for (final op in operations) {
@@ -1363,12 +1437,15 @@ class ApiGenerator {
       b.writeln("      '$endpoint',");
       b.writeln('      body: form,');
       b.writeln('      parser: $returnType.fromJson,');
+      b.writeln('      requiresAuth: ${op.requiresAuth},');
       b.writeln('      cancelToken: cancelToken,');
       b.writeln('    );');
       b.writeln('  }');
       return b.toString();
     }
-    final httpArgument = op.supportsGet ? 'httpMethod: httpMethod, ' : '';
+    final httpArgument =
+        '${op.supportsGet ? 'httpMethod: httpMethod, ' : ''}'
+        'requiresAuth: ${op.requiresAuth}, ';
     final call = switch (op.responseKind) {
       _ResponseKind.voidType =>
         "postVoid('$endpoint', ${body ?? ''}${httpArgument}cancelToken: cancelToken)",
@@ -1413,6 +1490,317 @@ class ApiGenerator {
     return '(data) => (data as List).cast<$item>()';
   }
 
+  void _generateHighLevel() {
+    for (final group in _groupOrder) {
+      if (!_isHighLevelGroup(group)) continue;
+      final operations = _operations
+          .where((op) => op.group == group && op.generated)
+          .toList();
+      _writeHighLevelGroupApi(group, operations);
+    }
+    final barrel = StringBuffer()
+      ..writeln('// SPDX-License-Identifier: BSD-3-Clause')
+      ..writeln()
+      ..writeln('// GENERATED CODE - DO NOT EDIT BY HAND.')
+      ..writeln();
+    for (final group in _groupOrder) {
+      if (!_isHighLevelGroup(group)) continue;
+      barrel.writeln("export '${_highLevelFileName(group)}';");
+    }
+    _output['lib/src/api/high_level/generated.dart'] = barrel.toString();
+    _writeRawClient();
+  }
+
+  void _writeRawClient() {
+    final out = StringBuffer()
+      ..writeln('// SPDX-License-Identifier: BSD-3-Clause')
+      ..writeln()
+      ..writeln('// GENERATED CODE - DO NOT EDIT BY HAND.')
+      ..writeln()
+      ..writeln("import 'api/generated/generated.dart';")
+      ..writeln("import 'client.dart';")
+      ..writeln()
+      ..writeln('/// The complete generated Misskey API surface.')
+      ..writeln('class MisskeyRawClient {')
+      ..writeln('  MisskeyRawClient(this.client);')
+      ..writeln()
+      ..writeln('  final MisskeyClient client;');
+    for (final group in _groupOrder) {
+      out
+        ..writeln()
+        ..writeln(
+          '  late final ${_rawClass(group)} $group = ${_rawClass(group)}(client);',
+        );
+    }
+    out.writeln('}');
+    _output['lib/src/raw_client.dart'] = out.toString();
+  }
+
+  void _writeHighLevelGroupApi(String group, List<_Operation> operations) {
+    final hasOperations = operations.isNotEmpty;
+    final hasGet = operations.any((op) => op.supportsGet);
+    final usesShared = _usesSharedModels(operations);
+    final hasPages = operations.any(
+      (op) => op.supportsPagination && _listItemType(op) != null,
+    );
+    final usesJsonMap = operations.any(
+      (op) =>
+          op.returnType.contains('JsonMap') ||
+          [
+            if (op.requestClass != null) op.requestClass!,
+            ...op.requestVariants,
+          ].any(
+            (cls) => cls.fields.any((field) => field.type.contains('JsonMap')),
+          ),
+    );
+    final out = StringBuffer()
+      ..writeln('// SPDX-License-Identifier: BSD-3-Clause')
+      ..writeln()
+      ..writeln('// GENERATED CODE - DO NOT EDIT BY HAND.')
+      ..writeln();
+    if (hasOperations) {
+      out
+        ..writeln("import 'package:dio/dio.dart';")
+        ..writeln();
+    }
+    out.writeln("import '../../client.dart';");
+    if (hasGet) out.writeln("import '../../config.dart';");
+    if (usesShared) {
+      out.writeln("import '../../models/generated/generated.dart';");
+    }
+    if (usesJsonMap) out.writeln("import '../../models/json.dart';");
+    if (hasPages) out.writeln("import '../../pagination/cursor_page.dart';");
+    if (hasOperations) {
+      out.writeln("import '../generated/${group}_models.dart';");
+    }
+    out
+      ..writeln()
+      ..writeln('class ${_groupClass[group]} {')
+      ..writeln('  ${_groupClass[group]}(this.client);')
+      ..writeln()
+      ..writeln('  final MisskeyClient client;');
+    final usedNames = <String>{
+      if (group == 'account') 'me',
+      if (group == 'meta') ...['get', 'detailed'],
+    };
+    for (final op in operations) {
+      final variants = op.requestVariants.isEmpty
+          ? <ClassDef?>[null]
+          : op.requestVariants;
+      for (final variant in variants) {
+        if (variant != null && variant.fields.isEmpty) {
+          throw StateError(
+            'High-level variant ${variant.name} for ${op.path} has no fields.',
+          );
+        }
+        if (op.supportsPagination && _listItemType(op) == null) {
+          throw StateError(
+            'Cannot paginate ${op.path} without a cursor model item type.',
+          );
+        }
+        final name = _highLevelMethodName(op, variant);
+        if (!usedNames.add(name)) {
+          throw StateError('Duplicate high-level method $group.$name');
+        }
+        out
+          ..writeln()
+          ..writeln(_highLevelMethodSource(op, variant, name));
+        if (op.supportsPagination && _listItemType(op) != null) {
+          final pageName = '${name}Page';
+          if (!usedNames.add(pageName)) {
+            throw StateError('Duplicate high-level method $group.$pageName');
+          }
+          out
+            ..writeln()
+            ..writeln(_highLevelPageSource(op, variant, name, pageName));
+        }
+      }
+    }
+    out.writeln('}');
+    _output['lib/src/api/high_level/${_highLevelFileName(group)}'] = out
+        .toString();
+  }
+
+  String _highLevelMethodName(_Operation op, ClassDef? variant) {
+    if (variant == null) {
+      return _highLevelNameOverrides[op.path] ?? op.method;
+    }
+    final suffix = _variantSuffix(op, variant);
+    final name = _highLevelNameOverrides['${op.path}|$suffix'];
+    if (name == null) {
+      throw StateError(
+        'Missing high-level name override for ${op.path} ($suffix)',
+      );
+    }
+    return name;
+  }
+
+  String _variantSuffix(_Operation op, ClassDef variant) {
+    final base = op.requestType!;
+    final suffix = variant.name.substring(base.length);
+    return suffix.startsWith('By') ? suffix.substring(2) : suffix;
+  }
+
+  String _highLevelMethodSource(_Operation op, ClassDef? variant, String name) {
+    final fields = variant?.fields ?? op.requestClass?.fields ?? const [];
+    final returnType = _highLevelReturnType(op, variant);
+    final parameters = <String>[
+      for (final field in fields) _fieldParameter(field),
+      if (op.supportsGet)
+        'MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,',
+      'CancelToken? cancelToken,',
+    ];
+    final requestExpression = variant != null || op.requestClass != null
+        ? '${variant?.name ?? op.requestClass!.name}(${fields.map((field) => '${field.name}: ${field.name}').join(', ')})'
+        : null;
+    final callOptions = <String>[
+      if (op.supportsGet) 'httpMethod: httpMethod,',
+      'cancelToken: cancelToken,',
+    ];
+    final rawCall = requestExpression == null
+        ? 'client.raw.${op.group}.${op.method}(${callOptions.join(' ')})'
+        : 'client.raw.${op.group}.${op.method}($requestExpression, ${callOptions.join(' ')})';
+    final summary = op.summary?.trim();
+    final docs = StringBuffer()
+      ..writeln(
+        '  /// ${summary?.isNotEmpty == true ? summary : 'Calls POST /api${op.path}.'}',
+      );
+    if (summary?.isNotEmpty == true) {
+      docs.writeln('  ///');
+      docs.writeln('  /// Calls POST /api${op.path}.');
+    }
+    if (op.requiresAuth) {
+      docs.writeln('  ///');
+      docs.writeln('  /// Authentication required.');
+    }
+    final b = StringBuffer()
+      ..write(docs)
+      ..writeln('  Future<$returnType> $name({')
+      ..writeln('    ${parameters.join('\n    ')}')
+      ..writeln('  }) async {');
+    if (op.path == '/notes/create') {
+      b
+        ..writeln('    final response = await $rawCall;')
+        ..writeln('    return response.createdNote;');
+    } else if (op.path == '/users/show' && variant != null) {
+      final suffix = _variantSuffix(op, variant);
+      b.writeln('    final response = await $rawCall;');
+      if (suffix == 'UserIds') {
+        b.writeln('    return (response as UsersShowValueResponseList).items;');
+      } else {
+        b.writeln(
+          '    return (response as UsersShowValueResponseUserDetailed).value;',
+        );
+      }
+    } else {
+      b.writeln('    return $rawCall;');
+    }
+    b.writeln('  }');
+    return b.toString();
+  }
+
+  String _highLevelPageSource(
+    _Operation op,
+    ClassDef? variant,
+    String methodName,
+    String pageName,
+  ) {
+    final fields = variant?.fields ?? op.requestClass?.fields ?? const [];
+    final itemType = _listItemType(op);
+    if (itemType == null) {
+      throw StateError('Cannot paginate ${op.path} without a model item type.');
+    }
+    if (!fields.any((field) => field.wireName == 'untilId')) {
+      throw StateError('Cannot paginate ${op.path} without untilId.');
+    }
+    if (!fields.any((field) => field.wireName == 'limit')) {
+      throw StateError('Cannot paginate ${op.path} without limit.');
+    }
+    final isNotification =
+        op.path == '/i/notifications' || op.path == '/i/notifications-grouped';
+    final filterFields = fields
+        .where(
+          (field) =>
+              field.wireName != 'sinceId' &&
+              field.wireName != 'sinceDate' &&
+              field.wireName != 'untilDate' &&
+              field.wireName != 'untilId' &&
+              field.wireName != 'limit',
+        )
+        .toList();
+    final parameters = <String>[
+      'int limit = 20,',
+      'String? untilId,',
+      for (final field in filterFields)
+        _fieldParameter(
+          field,
+          markAsRead:
+              isNotification &&
+              field.wireName == 'markAsRead' &&
+              !field.required,
+        ),
+      if (op.supportsGet)
+        'MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,',
+      'CancelToken? cancelToken,',
+    ];
+    final callArguments = <String>[
+      'limit: pageLimit,',
+      'untilId: cursor,',
+      for (final field in filterFields) '${field.name}: ${field.name},',
+      if (op.supportsGet) 'httpMethod: httpMethod,',
+      'cancelToken: cancelToken,',
+    ];
+    final b = StringBuffer()
+      ..writeln('  /// Fetches a cursor page for [$methodName].')
+      ..writeln('  Future<CursorPage<$itemType>> $pageName({')
+      ..writeln('    ${parameters.join('\n    ')}')
+      ..writeln('  }) {')
+      ..writeln('    return CursorPage.fetch<$itemType>(')
+      ..writeln('      limit: limit,')
+      ..writeln('      untilId: untilId,')
+      ..writeln('      idOf: (item) => item.id,')
+      ..writeln('      fetchPage: (pageLimit, cursor) => $methodName(')
+      ..writeln('        ${callArguments.join('\n        ')}')
+      ..writeln('      ),')
+      ..writeln('    );')
+      ..writeln('  }');
+    return b.toString();
+  }
+
+  String _fieldParameter(FieldDef field, {bool markAsRead = false}) {
+    if (markAsRead) return 'bool ${field.name} = false,';
+    if (field.required) return 'required ${field.type} ${field.name},';
+    if (field.defaultValue != null) {
+      return '${field.type} ${field.name} = ${field.defaultValue},';
+    }
+    return '${field.type} ${field.name},';
+  }
+
+  String _highLevelReturnType(_Operation op, ClassDef? variant) {
+    if (op.path == '/notes/create') return 'Note';
+    if (op.path == '/users/show' && variant != null) {
+      return _variantSuffix(op, variant) == 'UserIds'
+          ? 'List<UserDetailed>'
+          : 'UserDetailed';
+    }
+    return op.returnType;
+  }
+
+  String? _listItemType(_Operation op) {
+    final type = op.returnType;
+    if (!type.startsWith('List<') || !type.endsWith('>')) return null;
+    final item = type.substring(5, type.length - 1);
+    if (item == 'Object' ||
+        item == 'String' ||
+        item == 'int' ||
+        item == 'num' ||
+        item == 'bool' ||
+        item.startsWith('List<')) {
+      return null;
+    }
+    return item;
+  }
+
   void _generateManifest() {
     final out = StringBuffer()
       ..writeln('// SPDX-License-Identifier: BSD-3-Clause')
@@ -1429,6 +1817,7 @@ class ApiGenerator {
       ..writeln('    required this.responseType,')
       ..writeln('    required this.multipart,')
       ..writeln('    required this.supportsGet,')
+      ..writeln('    required this.supportsPagination,')
       ..writeln('    this.handWrittenMethod,')
       ..writeln('  });')
       ..writeln()
@@ -1440,6 +1829,7 @@ class ApiGenerator {
       ..writeln('  final String responseType;')
       ..writeln('  final bool multipart;')
       ..writeln('  final bool supportsGet;')
+      ..writeln('  final bool supportsPagination;')
       ..writeln('  final String? handWrittenMethod;')
       ..writeln('}')
       ..writeln()
@@ -1456,6 +1846,7 @@ class ApiGenerator {
       out.writeln("    responseType: '${op.returnType}',");
       out.writeln('    multipart: ${op.multipart},');
       out.writeln('    supportsGet: ${op.supportsGet},');
+      out.writeln('    supportsPagination: ${op.supportsPagination},');
       out.writeln(
         "    handWrittenMethod: ${op.handWrittenMethod == null ? 'null' : "'${op.handWrittenMethod}'"}",
       );
@@ -1488,6 +1879,15 @@ class ApiGenerator {
     }
     api.writeln("export 'api_manifest.dart';");
     _output['lib/src/api/generated/generated.dart'] = api.toString();
+    final models = StringBuffer()
+      ..writeln('// SPDX-License-Identifier: BSD-3-Clause')
+      ..writeln()
+      ..writeln('// GENERATED CODE - DO NOT EDIT BY HAND.')
+      ..writeln();
+    for (final group in _groupOrder) {
+      models.writeln("export '${group}_models.dart';");
+    }
+    _output['lib/src/api/generated/models.dart'] = models.toString();
   }
 
   void _generateFixtures() {
@@ -1623,6 +2023,7 @@ class _Operation {
     required this.requiresAuth,
     required this.generated,
     required this.supportsGet,
+    this.summary,
   });
 
   final String path;
@@ -1631,13 +2032,17 @@ class _Operation {
   final bool requiresAuth;
   final bool generated;
   final bool supportsGet;
+  final String? summary;
   bool multipart = false;
+  bool supportsPagination = false;
   String returnType = 'void';
   String? requestType;
   String? parserType;
   String? itemType;
   String? handWrittenMethod;
   bool unionHasArray = false;
+  ClassDef? requestClass;
+  final List<ClassDef> requestVariants = [];
   _RequestKind requestKind = _RequestKind.none;
   _ResponseKind responseKind = _ResponseKind.voidType;
   final Map<String, String> multipartFields = {};

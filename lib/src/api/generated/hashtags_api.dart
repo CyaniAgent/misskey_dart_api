@@ -10,8 +10,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'hashtags_models.dart';
 
-class HashtagsApi {
-  HashtagsApi(this.client);
+class RawHashtagsApi {
+  RawHashtagsApi(this.client);
 
   final MisskeyClient client;
 
@@ -22,6 +22,7 @@ class HashtagsApi {
     return client.postList<Hashtag>(
       'hashtags/list',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Hashtag.fromJson,
       cancelToken: cancelToken,
     );
@@ -34,6 +35,7 @@ class HashtagsApi {
     return client.postParsed<List<String>>(
       'hashtags/search',
       body: request.toJson(),
+      requiresAuth: false,
       parser: (data) => (data as List).cast<String>(),
       cancelToken: cancelToken,
     );
@@ -46,6 +48,7 @@ class HashtagsApi {
     return client.postModel<Hashtag>(
       'hashtags/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: Hashtag.fromJson,
       cancelToken: cancelToken,
     );
@@ -58,6 +61,7 @@ class HashtagsApi {
     return client.postList<HashtagsTrendResponseItem>(
       'hashtags/trend',
       httpMethod: httpMethod,
+      requiresAuth: false,
       itemParser: HashtagsTrendResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -70,6 +74,7 @@ class HashtagsApi {
     return client.postList<UserDetailed>(
       'hashtags/users',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: UserDetailed.fromJson,
       cancelToken: cancelToken,
     );

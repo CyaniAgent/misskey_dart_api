@@ -10,8 +10,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'charts_models.dart';
 
-class ChartsApi {
-  ChartsApi(this.client);
+class RawChartsApi {
+  RawChartsApi(this.client);
 
   final MisskeyClient client;
 
@@ -24,6 +24,7 @@ class ChartsApi {
       'charts/active-users',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsActiveUsersResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -38,6 +39,7 @@ class ChartsApi {
       'charts/ap-request',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsApRequestResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -52,6 +54,7 @@ class ChartsApi {
       'charts/drive',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsDriveResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -66,6 +69,7 @@ class ChartsApi {
       'charts/federation',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsFederationResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -80,6 +84,7 @@ class ChartsApi {
       'charts/instance',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsInstanceResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -94,6 +99,7 @@ class ChartsApi {
       'charts/notes',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsNotesResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -108,6 +114,7 @@ class ChartsApi {
       'charts/user/drive',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsUserDriveResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -122,6 +129,7 @@ class ChartsApi {
       'charts/user/following',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsUserFollowingResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -136,6 +144,7 @@ class ChartsApi {
       'charts/user/notes',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsUserNotesResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -150,6 +159,7 @@ class ChartsApi {
       'charts/user/pv',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsUserPvResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -164,6 +174,7 @@ class ChartsApi {
       'charts/user/reactions',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsUserReactionsResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -178,6 +189,7 @@ class ChartsApi {
       'charts/users',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: ChartsUsersResponse.fromJson,
       cancelToken: cancelToken,
     );

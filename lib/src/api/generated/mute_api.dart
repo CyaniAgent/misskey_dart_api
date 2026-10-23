@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'mute_models.dart';
 
-class MuteApi {
-  MuteApi(this.client);
+class RawMuteApi {
+  RawMuteApi(this.client);
 
   final MisskeyClient client;
 
@@ -18,6 +18,7 @@ class MuteApi {
     return client.postVoid(
       'mute/create',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -26,6 +27,7 @@ class MuteApi {
     return client.postVoid(
       'mute/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -37,6 +39,7 @@ class MuteApi {
     return client.postList<Muting>(
       'mute/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Muting.fromJson,
       cancelToken: cancelToken,
     );

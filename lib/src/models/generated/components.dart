@@ -352,6 +352,9 @@ sealed class RoleCondFormulaValue {
 sealed class Notification {
   const Notification();
 
+  /// The notification id, shared by every variant.
+  String get id;
+
   factory Notification.fromJson(Map<String, dynamic> json) {
     final type = json['type'];
     switch (type) {

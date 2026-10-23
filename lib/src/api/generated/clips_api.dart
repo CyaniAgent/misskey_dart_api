@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'clips_models.dart';
 
-class ClipsApi {
-  ClipsApi(this.client);
+class RawClipsApi {
+  RawClipsApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class ClipsApi {
     return client.postVoid(
       'clips/add-note',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -29,6 +30,7 @@ class ClipsApi {
     return client.postModel<Clip>(
       'clips/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Clip.fromJson,
       cancelToken: cancelToken,
     );
@@ -38,6 +40,7 @@ class ClipsApi {
     return client.postVoid(
       'clips/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -49,6 +52,7 @@ class ClipsApi {
     return client.postVoid(
       'clips/favorite',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -60,6 +64,7 @@ class ClipsApi {
     return client.postList<Clip>(
       'clips/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Clip.fromJson,
       cancelToken: cancelToken,
     );
@@ -68,6 +73,7 @@ class ClipsApi {
   Future<List<Clip>> myFavorites({CancelToken? cancelToken}) {
     return client.postList<Clip>(
       'clips/my-favorites',
+      requiresAuth: true,
       itemParser: Clip.fromJson,
       cancelToken: cancelToken,
     );
@@ -80,6 +86,7 @@ class ClipsApi {
     return client.postList<Note>(
       'clips/notes',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -92,6 +99,7 @@ class ClipsApi {
     return client.postVoid(
       'clips/remove-note',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -103,6 +111,7 @@ class ClipsApi {
     return client.postModel<Clip>(
       'clips/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: Clip.fromJson,
       cancelToken: cancelToken,
     );
@@ -115,6 +124,7 @@ class ClipsApi {
     return client.postVoid(
       'clips/unfavorite',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -123,6 +133,7 @@ class ClipsApi {
     return client.postModel<Clip>(
       'clips/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Clip.fromJson,
       cancelToken: cancelToken,
     );

@@ -10,8 +10,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'notes_models.dart';
 
-class NotesApi {
-  NotesApi(this.client);
+class RawNotesApi {
+  RawNotesApi(this.client);
 
   final MisskeyClient client;
 
@@ -19,6 +19,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -31,6 +32,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/children',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -43,6 +45,7 @@ class NotesApi {
     return client.postList<Clip>(
       'notes/clips',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Clip.fromJson,
       cancelToken: cancelToken,
     );
@@ -55,6 +58,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/conversation',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -67,6 +71,7 @@ class NotesApi {
     return client.postModel<NotesCreateResponse>(
       'notes/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: NotesCreateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -76,12 +81,17 @@ class NotesApi {
     return client.postVoid(
       'notes/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
 
   Future<JsonMap> draftsCount({CancelToken? cancelToken}) {
-    return client.postMap('notes/drafts/count', cancelToken: cancelToken);
+    return client.postMap(
+      'notes/drafts/count',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<NotesDraftsCreateResponse> draftsCreate(
@@ -91,6 +101,7 @@ class NotesApi {
     return client.postModel<NotesDraftsCreateResponse>(
       'notes/drafts/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: NotesDraftsCreateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -103,6 +114,7 @@ class NotesApi {
     return client.postVoid(
       'notes/drafts/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -114,6 +126,7 @@ class NotesApi {
     return client.postList<NoteDraft>(
       'notes/drafts/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: NoteDraft.fromJson,
       cancelToken: cancelToken,
     );
@@ -126,6 +139,7 @@ class NotesApi {
     return client.postModel<NotesDraftsUpdateResponse>(
       'notes/drafts/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: NotesDraftsUpdateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -138,6 +152,7 @@ class NotesApi {
     return client.postVoid(
       'notes/favorites/create',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -149,6 +164,7 @@ class NotesApi {
     return client.postVoid(
       'notes/favorites/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -162,6 +178,7 @@ class NotesApi {
       'notes/featured',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -174,6 +191,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/global-timeline',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -186,6 +204,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/hybrid-timeline',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -198,6 +217,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/local-timeline',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -210,6 +230,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/mentions',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -222,6 +243,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/polls/recommendation',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -234,6 +256,7 @@ class NotesApi {
     return client.postVoid(
       'notes/polls/vote',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -245,6 +268,7 @@ class NotesApi {
     return client.postList<NoteReaction>(
       'notes/reactions',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: NoteReaction.fromJson,
       cancelToken: cancelToken,
     );
@@ -257,6 +281,7 @@ class NotesApi {
     return client.postVoid(
       'notes/reactions/create',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -268,6 +293,7 @@ class NotesApi {
     return client.postVoid(
       'notes/reactions/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -279,6 +305,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/renotes',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -291,6 +318,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/replies',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -303,6 +331,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/search',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -315,6 +344,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/search-by-tag',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -327,6 +357,7 @@ class NotesApi {
     return client.postModel<Note>(
       'notes/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -339,6 +370,7 @@ class NotesApi {
     return client.postList<NotesShowPartialBulkResponseItem>(
       'notes/show-partial-bulk',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: NotesShowPartialBulkResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -351,6 +383,7 @@ class NotesApi {
     return client.postModel<NotesStateResponse>(
       'notes/state',
       body: request.toJson(),
+      requiresAuth: true,
       parser: NotesStateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -363,6 +396,7 @@ class NotesApi {
     return client.postVoid(
       'notes/thread-muting/create',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -374,6 +408,7 @@ class NotesApi {
     return client.postVoid(
       'notes/thread-muting/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -385,6 +420,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/timeline',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -397,6 +433,7 @@ class NotesApi {
     return client.postModel<NotesTranslateResponse>(
       'notes/translate',
       body: request.toJson(),
+      requiresAuth: true,
       parser: NotesTranslateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -409,6 +446,7 @@ class NotesApi {
     return client.postVoid(
       'notes/unrenote',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -420,6 +458,7 @@ class NotesApi {
     return client.postList<Note>(
       'notes/user-list-timeline',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -432,6 +471,7 @@ class NotesApi {
     return client.postVoid(
       'promo/read',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }

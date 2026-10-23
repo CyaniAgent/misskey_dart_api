@@ -10,8 +10,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'emoji_models.dart';
 
-class EmojiApi {
-  EmojiApi(this.client);
+class RawEmojiApi {
+  RawEmojiApi(this.client);
 
   final MisskeyClient client;
 
@@ -24,6 +24,7 @@ class EmojiApi {
       'emoji',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: EmojiDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -36,12 +37,17 @@ class EmojiApi {
     return client.postModel<EmojiListResponse>(
       'emojis',
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: EmojiListResponse.fromJson,
       cancelToken: cancelToken,
     );
   }
 
   Future<void> exportCustomEmojis({CancelToken? cancelToken}) {
-    return client.postVoid('export-custom-emojis', cancelToken: cancelToken);
+    return client.postVoid(
+      'export-custom-emojis',
+      requiresAuth: true,
+      cancelToken: cancelToken,
+    );
   }
 }

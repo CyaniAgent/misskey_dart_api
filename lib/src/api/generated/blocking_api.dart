@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'blocking_models.dart';
 
-class BlockingApi {
-  BlockingApi(this.client);
+class RawBlockingApi {
+  RawBlockingApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class BlockingApi {
     return client.postModel<UserDetailedNotMe>(
       'blocking/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserDetailedNotMe.fromJson,
       cancelToken: cancelToken,
     );
@@ -33,6 +34,7 @@ class BlockingApi {
     return client.postModel<UserDetailedNotMe>(
       'blocking/delete',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserDetailedNotMe.fromJson,
       cancelToken: cancelToken,
     );
@@ -45,6 +47,7 @@ class BlockingApi {
     return client.postList<Blocking>(
       'blocking/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Blocking.fromJson,
       cancelToken: cancelToken,
     );

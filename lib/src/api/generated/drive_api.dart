@@ -9,14 +9,15 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'drive_models.dart';
 
-class DriveApi {
-  DriveApi(this.client);
+class RawDriveApi {
+  RawDriveApi(this.client);
 
   final MisskeyClient client;
 
   Future<DriveGetResponse> get({CancelToken? cancelToken}) {
     return client.postModel<DriveGetResponse>(
       'drive',
+      requiresAuth: true,
       parser: DriveGetResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -29,6 +30,7 @@ class DriveApi {
     return client.postList<DriveFile>(
       'drive/files',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: DriveFile.fromJson,
       cancelToken: cancelToken,
     );
@@ -41,6 +43,7 @@ class DriveApi {
     return client.postList<ChatMessage>(
       'drive/files/attached-chat-messages',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: ChatMessage.fromJson,
       cancelToken: cancelToken,
     );
@@ -53,6 +56,7 @@ class DriveApi {
     return client.postList<Note>(
       'drive/files/attached-notes',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -65,6 +69,7 @@ class DriveApi {
     return client.postParsed<bool>(
       'drive/files/check-existence',
       body: request.toJson(),
+      requiresAuth: true,
       parser: (data) => data as bool,
       cancelToken: cancelToken,
     );
@@ -95,6 +100,7 @@ class DriveApi {
       'drive/files/create',
       body: form,
       parser: DriveFile.fromJson,
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -106,6 +112,7 @@ class DriveApi {
     return client.postVoid(
       'drive/files/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -117,6 +124,7 @@ class DriveApi {
     return client.postList<DriveFile>(
       'drive/files/find',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: DriveFile.fromJson,
       cancelToken: cancelToken,
     );
@@ -129,6 +137,7 @@ class DriveApi {
     return client.postList<DriveFile>(
       'drive/files/find-by-hash',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: DriveFile.fromJson,
       cancelToken: cancelToken,
     );
@@ -141,6 +150,7 @@ class DriveApi {
     return client.postVoid(
       'drive/files/move-bulk',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -152,6 +162,7 @@ class DriveApi {
     return client.postModel<DriveFile>(
       'drive/files/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: DriveFile.fromJson,
       cancelToken: cancelToken,
     );
@@ -164,6 +175,7 @@ class DriveApi {
     return client.postModel<DriveFile>(
       'drive/files/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: DriveFile.fromJson,
       cancelToken: cancelToken,
     );
@@ -176,6 +188,7 @@ class DriveApi {
     return client.postVoid(
       'drive/files/upload-from-url',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -187,6 +200,7 @@ class DriveApi {
     return client.postList<DriveFolder>(
       'drive/folders',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: DriveFolder.fromJson,
       cancelToken: cancelToken,
     );
@@ -199,6 +213,7 @@ class DriveApi {
     return client.postModel<DriveFolder>(
       'drive/folders/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: DriveFolder.fromJson,
       cancelToken: cancelToken,
     );
@@ -211,6 +226,7 @@ class DriveApi {
     return client.postVoid(
       'drive/folders/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -222,6 +238,7 @@ class DriveApi {
     return client.postList<DriveFolder>(
       'drive/folders/find',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: DriveFolder.fromJson,
       cancelToken: cancelToken,
     );
@@ -234,6 +251,7 @@ class DriveApi {
     return client.postModel<DriveFolder>(
       'drive/folders/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: DriveFolder.fromJson,
       cancelToken: cancelToken,
     );
@@ -246,6 +264,7 @@ class DriveApi {
     return client.postModel<DriveFolder>(
       'drive/folders/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: DriveFolder.fromJson,
       cancelToken: cancelToken,
     );
@@ -258,6 +277,7 @@ class DriveApi {
     return client.postList<DriveFile>(
       'drive/stream',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: DriveFile.fromJson,
       cancelToken: cancelToken,
     );

@@ -10,8 +10,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'federation_models.dart';
 
-class FederationApi {
-  FederationApi(this.client);
+class RawFederationApi {
+  RawFederationApi(this.client);
 
   final MisskeyClient client;
 
@@ -22,6 +22,7 @@ class FederationApi {
     return client.postMap(
       'ap/get',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -33,6 +34,7 @@ class FederationApi {
     return client.postModel<FederationApShowResponse>(
       'ap/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: FederationApShowResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -45,6 +47,7 @@ class FederationApi {
     return client.postList<Following>(
       'federation/followers',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Following.fromJson,
       cancelToken: cancelToken,
     );
@@ -57,6 +60,7 @@ class FederationApi {
     return client.postList<Following>(
       'federation/following',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: Following.fromJson,
       cancelToken: cancelToken,
     );
@@ -71,6 +75,7 @@ class FederationApi {
       'federation/instances',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       itemParser: FederationInstance.fromJson,
       cancelToken: cancelToken,
     );
@@ -83,6 +88,7 @@ class FederationApi {
     return client.postNullableModel<FederationInstance>(
       'federation/show-instance',
       body: request.toJson(),
+      requiresAuth: false,
       parser: FederationInstance.fromJson,
       cancelToken: cancelToken,
     );
@@ -97,6 +103,7 @@ class FederationApi {
       'federation/stats',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       parser: FederationStatsResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -109,6 +116,7 @@ class FederationApi {
     return client.postVoid(
       'federation/update-remote-user',
       body: request.toJson(),
+      requiresAuth: false,
       cancelToken: cancelToken,
     );
   }
@@ -120,6 +128,7 @@ class FederationApi {
     return client.postList<UserDetailedNotMe>(
       'federation/users',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: UserDetailedNotMe.fromJson,
       cancelToken: cancelToken,
     );

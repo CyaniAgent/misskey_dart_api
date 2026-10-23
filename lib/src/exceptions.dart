@@ -43,6 +43,19 @@ class MisskeyApiException implements Exception {
     final status = statusCode == null ? '' : ' ($statusCode)';
     final codeLabel = code == null ? '' : ' [$code]';
     final location = uri == null ? '' : ' at $uri';
-    return 'MisskeyApiException$status$codeLabel: $message$location';
+    return '$runtimeType$status$codeLabel: $message$location';
   }
+}
+
+/// An authentication or token-resolution failure.
+class MisskeyAuthenticationException extends MisskeyApiException {
+  MisskeyAuthenticationException(
+    super.message, {
+    super.uri,
+    super.statusCode,
+    super.code,
+    super.id,
+    super.raw,
+    super.cause,
+  });
 }

@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'auth_models.dart';
 
-class AuthApi {
-  AuthApi(this.client);
+class RawAuthApi {
+  RawAuthApi(this.client);
 
   final MisskeyClient client;
 
@@ -18,6 +18,7 @@ class AuthApi {
     return client.postVoid(
       'auth/accept',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -29,6 +30,7 @@ class AuthApi {
     return client.postModel<AuthSessionGenerateResponse>(
       'auth/session/generate',
       body: request.toJson(),
+      requiresAuth: false,
       parser: AuthSessionGenerateResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -41,6 +43,7 @@ class AuthApi {
     return client.postModel<AuthSessionShowResponse>(
       'auth/session/show',
       body: request.toJson(),
+      requiresAuth: false,
       parser: AuthSessionShowResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -53,6 +56,7 @@ class AuthApi {
     return client.postModel<AuthSessionUserkeyResponse>(
       'auth/session/userkey',
       body: request.toJson(),
+      requiresAuth: false,
       parser: AuthSessionUserkeyResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -65,6 +69,7 @@ class AuthApi {
     return client.postModel<AuthMiAuthGenTokenResponse>(
       'miauth/gen-token',
       body: request.toJson(),
+      requiresAuth: true,
       parser: AuthMiAuthGenTokenResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -77,6 +82,7 @@ class AuthApi {
     return client.postVoid(
       'request-reset-password',
       body: request.toJson(),
+      requiresAuth: false,
       cancelToken: cancelToken,
     );
   }
@@ -88,6 +94,7 @@ class AuthApi {
     return client.postVoid(
       'reset-password',
       body: request.toJson(),
+      requiresAuth: false,
       cancelToken: cancelToken,
     );
   }

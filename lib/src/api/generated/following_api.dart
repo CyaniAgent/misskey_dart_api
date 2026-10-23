@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'following_models.dart';
 
-class FollowingApi {
-  FollowingApi(this.client);
+class RawFollowingApi {
+  RawFollowingApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class FollowingApi {
     return client.postModel<UserLite>(
       'following/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserLite.fromJson,
       cancelToken: cancelToken,
     );
@@ -33,6 +34,7 @@ class FollowingApi {
     return client.postModel<UserLite>(
       'following/delete',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserLite.fromJson,
       cancelToken: cancelToken,
     );
@@ -45,6 +47,7 @@ class FollowingApi {
     return client.postModel<UserLite>(
       'following/invalidate',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserLite.fromJson,
       cancelToken: cancelToken,
     );
@@ -57,6 +60,7 @@ class FollowingApi {
     return client.postList<Following>(
       'following/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Following.fromJson,
       cancelToken: cancelToken,
     );
@@ -69,6 +73,7 @@ class FollowingApi {
     return client.postVoid(
       'following/requests/accept',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -80,6 +85,7 @@ class FollowingApi {
     return client.postModel<UserLite>(
       'following/requests/cancel',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserLite.fromJson,
       cancelToken: cancelToken,
     );
@@ -92,6 +98,7 @@ class FollowingApi {
     return client.postList<FollowingRequestsListResponseItem>(
       'following/requests/list',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: FollowingRequestsListResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -104,6 +111,7 @@ class FollowingApi {
     return client.postVoid(
       'following/requests/reject',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -115,6 +123,7 @@ class FollowingApi {
     return client.postList<FollowingRequestsSentResponseItem>(
       'following/requests/sent',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: FollowingRequestsSentResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -127,6 +136,7 @@ class FollowingApi {
     return client.postModel<UserLite>(
       'following/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: UserLite.fromJson,
       cancelToken: cancelToken,
     );
@@ -139,6 +149,7 @@ class FollowingApi {
     return client.postVoid(
       'following/update-all',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }

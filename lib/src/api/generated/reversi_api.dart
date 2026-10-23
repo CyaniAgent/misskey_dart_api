@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'reversi_models.dart';
 
-class ReversiApi {
-  ReversiApi(this.client);
+class RawReversiApi {
+  RawReversiApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class ReversiApi {
     return client.postVoid(
       'reversi/cancel-match',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -32,6 +33,7 @@ class ReversiApi {
     return client.postList<ReversiGameLite>(
       'reversi/games',
       body: request.toJson(),
+      requiresAuth: false,
       itemParser: ReversiGameLite.fromJson,
       cancelToken: cancelToken,
     );
@@ -40,6 +42,7 @@ class ReversiApi {
   Future<List<UserLite>> invitations({CancelToken? cancelToken}) {
     return client.postList<UserLite>(
       'reversi/invitations',
+      requiresAuth: true,
       itemParser: UserLite.fromJson,
       cancelToken: cancelToken,
     );
@@ -52,6 +55,7 @@ class ReversiApi {
     return client.postModel<ReversiGameDetailed>(
       'reversi/match',
       body: request.toJson(),
+      requiresAuth: true,
       parser: ReversiGameDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -64,6 +68,7 @@ class ReversiApi {
     return client.postModel<ReversiGameDetailed>(
       'reversi/show-game',
       body: request.toJson(),
+      requiresAuth: false,
       parser: ReversiGameDetailed.fromJson,
       cancelToken: cancelToken,
     );
@@ -76,6 +81,7 @@ class ReversiApi {
     return client.postVoid(
       'reversi/surrender',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -87,6 +93,7 @@ class ReversiApi {
     return client.postModel<ReversiVerifyResponse>(
       'reversi/verify',
       body: request.toJson(),
+      requiresAuth: false,
       parser: ReversiVerifyResponse.fromJson,
       cancelToken: cancelToken,
     );

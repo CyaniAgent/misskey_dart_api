@@ -9,8 +9,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'antennas_models.dart';
 
-class AntennasApi {
-  AntennasApi(this.client);
+class RawAntennasApi {
+  RawAntennasApi(this.client);
 
   final MisskeyClient client;
 
@@ -21,6 +21,7 @@ class AntennasApi {
     return client.postModel<Antenna>(
       'antennas/create',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Antenna.fromJson,
       cancelToken: cancelToken,
     );
@@ -33,6 +34,7 @@ class AntennasApi {
     return client.postVoid(
       'antennas/delete',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -40,6 +42,7 @@ class AntennasApi {
   Future<List<Antenna>> list({CancelToken? cancelToken}) {
     return client.postList<Antenna>(
       'antennas/list',
+      requiresAuth: true,
       itemParser: Antenna.fromJson,
       cancelToken: cancelToken,
     );
@@ -52,6 +55,7 @@ class AntennasApi {
     return client.postList<Note>(
       'antennas/notes',
       body: request.toJson(),
+      requiresAuth: true,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );
@@ -64,6 +68,7 @@ class AntennasApi {
     return client.postVoid(
       'antennas/remove-note',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
@@ -75,6 +80,7 @@ class AntennasApi {
     return client.postModel<Antenna>(
       'antennas/show',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Antenna.fromJson,
       cancelToken: cancelToken,
     );
@@ -87,6 +93,7 @@ class AntennasApi {
     return client.postModel<Antenna>(
       'antennas/update',
       body: request.toJson(),
+      requiresAuth: true,
       parser: Antenna.fromJson,
       cancelToken: cancelToken,
     );

@@ -25,7 +25,6 @@ enum MisskeyHttpMethod {
 class MisskeyClientConfig {
   const MisskeyClientConfig({
     required this.baseUri,
-    this.accessToken,
     this.userAgent,
     this.authMode = MisskeyAuthMode.bearer,
     this.connectTimeout = const Duration(seconds: 30),
@@ -36,9 +35,6 @@ class MisskeyClientConfig {
 
   /// The instance origin.
   final Uri baseUri;
-
-  /// The Misskey access token, when authenticated.
-  final String? accessToken;
 
   /// The `User-Agent` header; defaults to [misskeyDartApiUserAgent].
   final String? userAgent;

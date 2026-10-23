@@ -1,30 +1,37 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
+// ignore_for_file: prefer_initializing_formals
+
 import 'dart:async';
 
 import 'package:dio/dio.dart';
 
-import 'api/generated/generated.dart';
+import 'api/high_level/generated.dart';
+import 'client/token_provider.dart';
 import 'config.dart';
 import 'exceptions.dart';
 import 'miauth.dart';
 import 'models/json.dart';
+import 'raw_client.dart';
 import 'streaming/streaming_client.dart';
 
 /// A client for a single Misskey instance.
 class MisskeyClient {
   /// Creates a client for [config].
-  MisskeyClient({required MisskeyClientConfig config, Dio? dio})
-    : _config = config,
-      _baseUri = _normalizeBaseUri(config.baseUri, config.allowInsecureHttp),
-      _dio = dio ?? Dio() {
+  MisskeyClient({
+    required MisskeyClientConfig config,
+    TokenProvider? tokenProvider,
+    Dio? dio,
+  }) : _config = config,
+       _tokenProvider = tokenProvider,
+       _baseUri = _normalizeBaseUri(config.baseUri, config.allowInsecureHttp),
+       _dio = dio ?? Dio() {
     _dio.options
       ..connectTimeout = config.connectTimeout
       ..receiveTimeout = config.receiveTimeout
       ..sendTimeout = config.sendTimeout
       ..headers['User-Agent'] = config.userAgent ?? misskeyDartApiUserAgent;
     account = AccountApi(this);
-    admin = AdminApi(this);
     announcements = AnnouncementsApi(this);
     antennas = AntennasApi(this);
     app = AppApi(this);
@@ -63,29 +70,35 @@ class MisskeyClient {
   factory MisskeyClient.fromHost(
     String host, {
     String? accessToken,
+    TokenProvider? tokenProvider,
     String? userAgent,
     MisskeyAuthMode authMode = MisskeyAuthMode.bearer,
     bool allowInsecureHttp = false,
     Dio? dio,
   }) {
+    if (accessToken != null && tokenProvider != null) {
+      throw ArgumentError(
+        'Provide either accessToken or tokenProvider, not both.',
+      );
+    }
     return MisskeyClient(
       config: MisskeyClientConfig(
         baseUri: _parseHost(host, allowInsecureHttp),
-        accessToken: accessToken,
         userAgent: userAgent,
         authMode: authMode,
         allowInsecureHttp: allowInsecureHttp,
       ),
+      tokenProvider: accessToken == null ? tokenProvider : () => accessToken,
       dio: dio,
     );
   }
 
   final MisskeyClientConfig _config;
+  final TokenProvider? _tokenProvider;
   final Uri _baseUri;
   final Dio _dio;
 
   late final AccountApi account;
-  late final AdminApi admin;
   late final AnnouncementsApi announcements;
   late final AntennasApi antennas;
   late final AppApi app;
@@ -115,11 +128,15 @@ class MisskeyClient {
   late final RolesApi roles;
   late final UsersApi users;
   late final MiAuth miAuth;
+  MisskeyRawClient? _raw;
   MisskeyStreamingClient? _streaming;
+
+  /// The complete generated API, including admin endpoints.
+  MisskeyRawClient get raw => _raw ??= MisskeyRawClient(this);
 
   MisskeyStreamingClient get streaming => _streaming ??= MisskeyStreamingClient(
     baseUri: _baseUri,
-    accessToken: _config.accessToken,
+    tokenProvider: _tokenProvider,
     authMode: _config.authMode,
     allowInsecureHttp: _config.allowInsecureHttp,
   );
@@ -127,14 +144,49 @@ class MisskeyClient {
   /// The instance origin, without a trailing path.
   Uri get baseUri => _baseUri;
 
-  /// Whether this client has a non-empty access token.
-  bool get hasAccessToken => _config.accessToken?.isNotEmpty ?? false;
+  Future<String?> _resolveToken({required bool requiresAuth}) async {
+    if (_config.authMode == MisskeyAuthMode.none) {
+      if (requiresAuth) {
+        throw MisskeyAuthenticationException(
+          'Authentication required.',
+          code: 'NO_TOKEN',
+        );
+      }
+      return null;
+    }
+
+    final provider = _tokenProvider;
+    String? token;
+    if (provider != null) {
+      try {
+        token = await provider();
+      } catch (error) {
+        throw MisskeyAuthenticationException(
+          'Failed to obtain an access token.',
+          code: 'TOKEN_UNAVAILABLE',
+          cause: error,
+        );
+      }
+    }
+
+    if (token == null || token.isEmpty) {
+      if (requiresAuth) {
+        throw MisskeyAuthenticationException(
+          'Authentication required.',
+          code: 'NO_TOKEN',
+        );
+      }
+      return null;
+    }
+    return token;
+  }
 
   /// Sends [endpoint] and parses its response with [parser].
   Future<T> postParsed<T>(
     String endpoint, {
     JsonMap? body,
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
+    bool requiresAuth = false,
     required T Function(Object? data) parser,
     CancelToken? cancelToken,
   }) async {
@@ -142,6 +194,7 @@ class MisskeyClient {
       endpoint,
       body: body,
       httpMethod: httpMethod,
+      requiresAuth: requiresAuth,
       cancelToken: cancelToken,
     );
     try {
@@ -164,6 +217,7 @@ class MisskeyClient {
     String endpoint, {
     JsonMap? body,
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
+    bool requiresAuth = false,
     required T Function(JsonMap json) parser,
     CancelToken? cancelToken,
   }) {
@@ -171,6 +225,7 @@ class MisskeyClient {
       endpoint,
       body: body,
       httpMethod: httpMethod,
+      requiresAuth: requiresAuth,
       cancelToken: cancelToken,
       parser: (data) {
         if (data is! Map) {
@@ -186,12 +241,14 @@ class MisskeyClient {
     String endpoint, {
     JsonMap? body,
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
+    bool requiresAuth = false,
     CancelToken? cancelToken,
   }) {
     return postModel<Map<String, dynamic>>(
       endpoint,
       body: body,
       httpMethod: httpMethod,
+      requiresAuth: requiresAuth,
       cancelToken: cancelToken,
       parser: (json) => json,
     );
@@ -202,6 +259,7 @@ class MisskeyClient {
     String endpoint, {
     JsonMap? body,
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
+    bool requiresAuth = false,
     required T Function(JsonMap json) parser,
     CancelToken? cancelToken,
   }) {
@@ -209,6 +267,7 @@ class MisskeyClient {
       endpoint,
       body: body,
       httpMethod: httpMethod,
+      requiresAuth: requiresAuth,
       cancelToken: cancelToken,
       parser: (data) {
         if (data == null) return null;
@@ -225,16 +284,18 @@ class MisskeyClient {
     String endpoint, {
     required FormData body,
     required T Function(JsonMap json) parser,
+    bool requiresAuth = false,
     CancelToken? cancelToken,
   }) async {
     final uri = _endpointUri(endpoint);
     final headers = <String, dynamic>{};
-    if (hasAccessToken) {
+    final token = await _resolveToken(requiresAuth: requiresAuth);
+    if (token != null) {
       switch (_config.authMode) {
         case MisskeyAuthMode.bearer:
-          headers['Authorization'] = 'Bearer ${_config.accessToken!}';
+          headers['Authorization'] = 'Bearer $token';
         case MisskeyAuthMode.body:
-          body.fields.add(MapEntry('i', _config.accessToken!));
+          body.fields.add(MapEntry('i', token));
         case MisskeyAuthMode.none:
           break;
       }
@@ -278,6 +339,7 @@ class MisskeyClient {
     String endpoint, {
     JsonMap? body,
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
+    bool requiresAuth = false,
     required T Function(Map<String, dynamic> json) itemParser,
     CancelToken? cancelToken,
   }) {
@@ -285,6 +347,7 @@ class MisskeyClient {
       endpoint,
       body: body,
       httpMethod: httpMethod,
+      requiresAuth: requiresAuth,
       cancelToken: cancelToken,
       parser: (data) {
         if (data is! List) {
@@ -307,12 +370,14 @@ class MisskeyClient {
     String endpoint, {
     JsonMap? body,
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
+    bool requiresAuth = false,
     CancelToken? cancelToken,
   }) async {
     await _send(
       endpoint,
       body: body,
       httpMethod: httpMethod,
+      requiresAuth: requiresAuth,
       cancelToken: cancelToken,
     );
   }
@@ -321,18 +386,20 @@ class MisskeyClient {
     String endpoint, {
     JsonMap? body,
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
+    bool requiresAuth = false,
     CancelToken? cancelToken,
   }) async {
     final uri = _endpointUri(endpoint);
     final payload = <String, dynamic>{...?body};
     final headers = <String, dynamic>{};
+    final token = await _resolveToken(requiresAuth: requiresAuth);
 
-    if (hasAccessToken) {
+    if (token != null) {
       switch (_config.authMode) {
         case MisskeyAuthMode.bearer:
-          headers['Authorization'] = 'Bearer ${_config.accessToken!}';
+          headers['Authorization'] = 'Bearer $token';
         case MisskeyAuthMode.body:
-          payload['i'] = _config.accessToken!;
+          payload['i'] = token;
         case MisskeyAuthMode.none:
           break;
       }
@@ -399,10 +466,24 @@ class MisskeyClient {
       }
     }
 
+    final statusCode = error.response?.statusCode;
+    final resolvedMessage =
+        message ?? error.message ?? 'Misskey request failed.';
+    if (statusCode == 401) {
+      return MisskeyAuthenticationException(
+        resolvedMessage,
+        uri: error.requestOptions.uri,
+        statusCode: statusCode,
+        code: code,
+        id: id,
+        raw: data,
+        cause: error,
+      );
+    }
     return MisskeyApiException(
-      message ?? error.message ?? 'Misskey request failed.',
+      resolvedMessage,
       uri: error.requestOptions.uri,
-      statusCode: error.response?.statusCode,
+      statusCode: statusCode,
       code: code,
       id: id,
       raw: data,

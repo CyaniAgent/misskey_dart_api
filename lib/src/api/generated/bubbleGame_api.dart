@@ -10,8 +10,8 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'bubbleGame_models.dart';
 
-class BubbleGameApi {
-  BubbleGameApi(this.client);
+class RawBubbleGameApi {
+  RawBubbleGameApi(this.client);
 
   final MisskeyClient client;
 
@@ -24,6 +24,7 @@ class BubbleGameApi {
       'bubble-game/ranking',
       body: request.toJson(),
       httpMethod: httpMethod,
+      requiresAuth: false,
       itemParser: BubbleGameRankingResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -36,6 +37,7 @@ class BubbleGameApi {
     return client.postVoid(
       'bubble-game/register',
       body: request.toJson(),
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }
