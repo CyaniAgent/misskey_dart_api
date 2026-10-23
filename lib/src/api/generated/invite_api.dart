@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'invite_models.dart';
 
+/// Raw generated endpoints for the `invite` API group.
 class RawInviteApi {
+  /// Creates a raw `invite` API facade.
   RawInviteApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// invite/create
+  ///
+  /// Calls POST /api/invite/create.
+  ///
+  /// Authentication required.
   Future<InviteCode> create({CancelToken? cancelToken}) {
     return client.postModel<InviteCode>(
       'invite/create',
@@ -23,6 +31,11 @@ class RawInviteApi {
     );
   }
 
+  /// invite/delete
+  ///
+  /// Calls POST /api/invite/delete.
+  ///
+  /// Authentication required.
   Future<void> delete(InviteDeleteRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'invite/delete',
@@ -32,6 +45,11 @@ class RawInviteApi {
     );
   }
 
+  /// invite/limit
+  ///
+  /// Calls POST /api/invite/limit.
+  ///
+  /// Authentication required.
   Future<InviteLimitResponse> limit({CancelToken? cancelToken}) {
     return client.postModel<InviteLimitResponse>(
       'invite/limit',
@@ -41,6 +59,11 @@ class RawInviteApi {
     );
   }
 
+  /// invite/list
+  ///
+  /// Calls POST /api/invite/list.
+  ///
+  /// Authentication required.
   Future<List<InviteCode>> list(
     InviteListRequest request, {
     CancelToken? cancelToken,

@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/invite_models.dart';
 
+/// High-level endpoints for the `invite` API group.
 class InviteApi {
+  /// Creates a high-level `invite` API facade.
   InviteApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// invite/create

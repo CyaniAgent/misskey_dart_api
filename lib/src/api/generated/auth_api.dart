@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'auth_models.dart';
 
+/// Raw generated endpoints for the `auth` API group.
 class RawAuthApi {
+  /// Creates a raw `auth` API facade.
   RawAuthApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// auth/accept
+  ///
+  /// Calls POST /api/auth/accept.
+  ///
+  /// Authentication required.
   Future<void> accept(AuthAcceptRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'auth/accept',
@@ -23,6 +31,9 @@ class RawAuthApi {
     );
   }
 
+  /// auth/session/generate
+  ///
+  /// Calls POST /api/auth/session/generate.
   Future<AuthSessionGenerateResponse> sessionGenerate(
     AuthSessionGenerateRequest request, {
     CancelToken? cancelToken,
@@ -36,6 +47,9 @@ class RawAuthApi {
     );
   }
 
+  /// auth/session/show
+  ///
+  /// Calls POST /api/auth/session/show.
   Future<AuthSessionShowResponse> sessionShow(
     AuthSessionShowRequest request, {
     CancelToken? cancelToken,
@@ -49,6 +63,9 @@ class RawAuthApi {
     );
   }
 
+  /// auth/session/userkey
+  ///
+  /// Calls POST /api/auth/session/userkey.
   Future<AuthSessionUserkeyResponse> sessionUserkey(
     AuthSessionUserkeyRequest request, {
     CancelToken? cancelToken,
@@ -62,6 +79,11 @@ class RawAuthApi {
     );
   }
 
+  /// miauth/gen-token
+  ///
+  /// Calls POST /api/miauth/gen-token.
+  ///
+  /// Authentication required.
   Future<AuthMiAuthGenTokenResponse> miAuthGenToken(
     AuthMiAuthGenTokenRequest request, {
     CancelToken? cancelToken,
@@ -75,6 +97,9 @@ class RawAuthApi {
     );
   }
 
+  /// request-reset-password
+  ///
+  /// Calls POST /api/request-reset-password.
   Future<void> requestResetPassword(
     AuthRequestResetPasswordRequest request, {
     CancelToken? cancelToken,
@@ -87,6 +112,9 @@ class RawAuthApi {
     );
   }
 
+  /// reset-password
+  ///
+  /// Calls POST /api/reset-password.
   Future<void> resetPassword(
     AuthResetPasswordRequest request, {
     CancelToken? cancelToken,

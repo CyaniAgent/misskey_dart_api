@@ -9,11 +9,16 @@ import 'models/json.dart';
 
 /// The result of a completed MiAuth check.
 final class MiAuthResult {
+  /// Creates a MiAuth result.
   const MiAuthResult({required this.token, required this.user});
 
+  /// The access token issued by the instance.
   final String token;
+
+  /// The authenticated user payload returned with the token.
   final JsonMap user;
 
+  /// Parses a MiAuth check response.
   factory MiAuthResult.fromJson(Map<String, dynamic> json) {
     return MiAuthResult(
       token: json['token'] as String,
@@ -24,6 +29,7 @@ final class MiAuthResult {
 
 /// Misskey's MiAuth token acquisition flow.
 class MiAuth {
+  /// Creates a MiAuth flow bound to the supplied [MisskeyClient].
   MiAuth(this._client);
 
   final MisskeyClient _client;

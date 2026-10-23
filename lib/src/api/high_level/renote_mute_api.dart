@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/renoteMute_models.dart';
 
+/// High-level endpoints for the `renoteMute` API group.
 class RenoteMuteApi {
+  /// Creates a high-level `renoteMute` API facade.
   RenoteMuteApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// renote-mute/create

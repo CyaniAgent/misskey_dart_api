@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/clips_models.dart';
 
+/// High-level endpoints for the `clips` API group.
 class ClipsApi {
+  /// Creates a high-level `clips` API facade.
   ClipsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// clips/add-note

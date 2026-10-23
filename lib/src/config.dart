@@ -23,6 +23,7 @@ enum MisskeyHttpMethod {
 
 /// Configuration for a [MisskeyClient].
 class MisskeyClientConfig {
+  /// Creates a client configuration.
   const MisskeyClientConfig({
     required this.baseUri,
     this.userAgent,

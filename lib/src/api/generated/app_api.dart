@@ -9,11 +9,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'app_models.dart';
 
+/// Raw generated endpoints for the `app` API group.
 class RawAppApi {
+  /// Creates a raw `app` API facade.
   RawAppApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// app/create
+  ///
+  /// Calls POST /api/app/create.
   Future<App> create(AppCreateRequest request, {CancelToken? cancelToken}) {
     return client.postModel<App>(
       'app/create',
@@ -24,6 +30,9 @@ class RawAppApi {
     );
   }
 
+  /// app/show
+  ///
+  /// Calls POST /api/app/show.
   Future<App> showValue(
     AppShowValueRequest request, {
     CancelToken? cancelToken,

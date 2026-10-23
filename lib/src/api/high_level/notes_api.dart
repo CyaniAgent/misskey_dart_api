@@ -11,9 +11,12 @@ import '../../models/json.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/notes_models.dart';
 
+/// High-level endpoints for the `notes` API group.
 class NotesApi {
+  /// Creates a high-level `notes` API facade.
   NotesApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// notes

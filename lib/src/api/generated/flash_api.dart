@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'flash_models.dart';
 
+/// Raw generated endpoints for the `flash` API group.
 class RawFlashApi {
+  /// Creates a raw `flash` API facade.
   RawFlashApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// flash/create
+  ///
+  /// Calls POST /api/flash/create.
+  ///
+  /// Authentication required.
   Future<Flash> create(FlashCreateRequest request, {CancelToken? cancelToken}) {
     return client.postModel<Flash>(
       'flash/create',
@@ -24,6 +32,11 @@ class RawFlashApi {
     );
   }
 
+  /// flash/delete
+  ///
+  /// Calls POST /api/flash/delete.
+  ///
+  /// Authentication required.
   Future<void> delete(FlashDeleteRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'flash/delete',
@@ -33,6 +46,9 @@ class RawFlashApi {
     );
   }
 
+  /// flash/featured
+  ///
+  /// Calls POST /api/flash/featured.
   Future<List<Flash>> featured(
     FlashFeaturedRequest request, {
     CancelToken? cancelToken,
@@ -46,6 +62,11 @@ class RawFlashApi {
     );
   }
 
+  /// flash/like
+  ///
+  /// Calls POST /api/flash/like.
+  ///
+  /// Authentication required.
   Future<void> like(FlashLikeRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'flash/like',
@@ -55,6 +76,11 @@ class RawFlashApi {
     );
   }
 
+  /// flash/my
+  ///
+  /// Calls POST /api/flash/my.
+  ///
+  /// Authentication required.
   Future<List<Flash>> my(FlashMyRequest request, {CancelToken? cancelToken}) {
     return client.postList<Flash>(
       'flash/my',
@@ -65,6 +91,11 @@ class RawFlashApi {
     );
   }
 
+  /// flash/my-likes
+  ///
+  /// Calls POST /api/flash/my-likes.
+  ///
+  /// Authentication required.
   Future<List<FlashMyLikesResponseItem>> myLikes(
     FlashMyLikesRequest request, {
     CancelToken? cancelToken,
@@ -78,6 +109,9 @@ class RawFlashApi {
     );
   }
 
+  /// flash/search
+  ///
+  /// Calls POST /api/flash/search.
   Future<List<Flash>> search(
     FlashSearchRequest request, {
     CancelToken? cancelToken,
@@ -91,6 +125,9 @@ class RawFlashApi {
     );
   }
 
+  /// flash/show
+  ///
+  /// Calls POST /api/flash/show.
   Future<Flash> showValue(
     FlashShowValueRequest request, {
     CancelToken? cancelToken,
@@ -104,6 +141,11 @@ class RawFlashApi {
     );
   }
 
+  /// flash/unlike
+  ///
+  /// Calls POST /api/flash/unlike.
+  ///
+  /// Authentication required.
   Future<void> unlike(FlashUnlikeRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'flash/unlike',
@@ -113,6 +155,11 @@ class RawFlashApi {
     );
   }
 
+  /// flash/update
+  ///
+  /// Calls POST /api/flash/update.
+  ///
+  /// Authentication required.
   Future<void> update(FlashUpdateRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'flash/update',

@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/flash_models.dart';
 
+/// High-level endpoints for the `flash` API group.
 class FlashApi {
+  /// Creates a high-level `flash` API facade.
   FlashApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// flash/create

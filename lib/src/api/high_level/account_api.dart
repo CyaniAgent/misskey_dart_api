@@ -10,9 +10,12 @@ import '../../models/json.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/account_models.dart';
 
+/// High-level endpoints for the `account` API group.
 class AccountApi {
+  /// Creates a high-level `account` API facade.
   AccountApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// i/2fa/done

@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'chat_models.dart';
 
+/// Raw generated endpoints for the `chat` API group.
 class RawChatApi {
+  /// Creates a raw `chat` API facade.
   RawChatApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// chat/history
+  ///
+  /// Calls POST /api/chat/history.
+  ///
+  /// Authentication required.
   Future<List<ChatMessage>> history(
     ChatHistoryRequest request, {
     CancelToken? cancelToken,
@@ -27,6 +35,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/messages/create-to-room
+  ///
+  /// Calls POST /api/chat/messages/create-to-room.
+  ///
+  /// Authentication required.
   Future<ChatMessageLiteForRoom> messagesCreateToRoom(
     ChatMessagesCreateToRoomRequest request, {
     CancelToken? cancelToken,
@@ -40,6 +53,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/messages/create-to-user
+  ///
+  /// Calls POST /api/chat/messages/create-to-user.
+  ///
+  /// Authentication required.
   Future<ChatMessageLiteFor1on1> messagesCreateToUser(
     ChatMessagesCreateToUserRequest request, {
     CancelToken? cancelToken,
@@ -53,6 +71,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/messages/delete
+  ///
+  /// Calls POST /api/chat/messages/delete.
+  ///
+  /// Authentication required.
   Future<void> messagesDelete(
     ChatMessagesDeleteRequest request, {
     CancelToken? cancelToken,
@@ -65,6 +88,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/messages/react
+  ///
+  /// Calls POST /api/chat/messages/react.
+  ///
+  /// Authentication required.
   Future<void> messagesReact(
     ChatMessagesReactRequest request, {
     CancelToken? cancelToken,
@@ -77,6 +105,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/messages/room-timeline
+  ///
+  /// Calls POST /api/chat/messages/room-timeline.
+  ///
+  /// Authentication required.
   Future<List<ChatMessageLiteForRoom>> messagesRoomTimeline(
     ChatMessagesRoomTimelineRequest request, {
     CancelToken? cancelToken,
@@ -90,6 +123,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/messages/search
+  ///
+  /// Calls POST /api/chat/messages/search.
+  ///
+  /// Authentication required.
   Future<List<ChatMessage>> messagesSearch(
     ChatMessagesSearchRequest request, {
     CancelToken? cancelToken,
@@ -103,6 +141,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/messages/show
+  ///
+  /// Calls POST /api/chat/messages/show.
+  ///
+  /// Authentication required.
   Future<ChatMessage> messagesShow(
     ChatMessagesShowRequest request, {
     CancelToken? cancelToken,
@@ -116,6 +159,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/messages/unreact
+  ///
+  /// Calls POST /api/chat/messages/unreact.
+  ///
+  /// Authentication required.
   Future<void> messagesUnreact(
     ChatMessagesUnreactRequest request, {
     CancelToken? cancelToken,
@@ -128,6 +176,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/messages/user-timeline
+  ///
+  /// Calls POST /api/chat/messages/user-timeline.
+  ///
+  /// Authentication required.
   Future<List<ChatMessageLiteFor1on1>> messagesUserTimeline(
     ChatMessagesUserTimelineRequest request, {
     CancelToken? cancelToken,
@@ -141,6 +194,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/read-all
+  ///
+  /// Calls POST /api/chat/read-all.
+  ///
+  /// Authentication required.
   Future<void> readAll({CancelToken? cancelToken}) {
     return client.postVoid(
       'chat/read-all',
@@ -149,6 +207,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/create
+  ///
+  /// Calls POST /api/chat/rooms/create.
+  ///
+  /// Authentication required.
   Future<ChatRoom> roomsCreate(
     ChatRoomsCreateRequest request, {
     CancelToken? cancelToken,
@@ -162,6 +225,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/delete
+  ///
+  /// Calls POST /api/chat/rooms/delete.
+  ///
+  /// Authentication required.
   Future<void> roomsDelete(
     ChatRoomsDeleteRequest request, {
     CancelToken? cancelToken,
@@ -174,6 +242,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/invitations/create
+  ///
+  /// Calls POST /api/chat/rooms/invitations/create.
+  ///
+  /// Authentication required.
   Future<ChatRoomInvitation> roomsInvitationsCreate(
     ChatRoomsInvitationsCreateRequest request, {
     CancelToken? cancelToken,
@@ -187,6 +260,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/invitations/ignore
+  ///
+  /// Calls POST /api/chat/rooms/invitations/ignore.
+  ///
+  /// Authentication required.
   Future<void> roomsInvitationsIgnore(
     ChatRoomsInvitationsIgnoreRequest request, {
     CancelToken? cancelToken,
@@ -199,6 +277,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/invitations/inbox
+  ///
+  /// Calls POST /api/chat/rooms/invitations/inbox.
+  ///
+  /// Authentication required.
   Future<List<ChatRoomInvitation>> roomsInvitationsInbox(
     ChatRoomsInvitationsInboxRequest request, {
     CancelToken? cancelToken,
@@ -212,6 +295,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/invitations/outbox
+  ///
+  /// Calls POST /api/chat/rooms/invitations/outbox.
+  ///
+  /// Authentication required.
   Future<List<ChatRoomInvitation>> roomsInvitationsOutbox(
     ChatRoomsInvitationsOutboxRequest request, {
     CancelToken? cancelToken,
@@ -225,6 +313,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/join
+  ///
+  /// Calls POST /api/chat/rooms/join.
+  ///
+  /// Authentication required.
   Future<void> roomsJoin(
     ChatRoomsJoinRequest request, {
     CancelToken? cancelToken,
@@ -237,6 +330,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/joining
+  ///
+  /// Calls POST /api/chat/rooms/joining.
+  ///
+  /// Authentication required.
   Future<List<ChatRoomMembership>> roomsJoining(
     ChatRoomsJoiningRequest request, {
     CancelToken? cancelToken,
@@ -250,6 +348,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/leave
+  ///
+  /// Calls POST /api/chat/rooms/leave.
+  ///
+  /// Authentication required.
   Future<void> roomsLeave(
     ChatRoomsLeaveRequest request, {
     CancelToken? cancelToken,
@@ -262,6 +365,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/members
+  ///
+  /// Calls POST /api/chat/rooms/members.
+  ///
+  /// Authentication required.
   Future<List<ChatRoomMembership>> roomsMembers(
     ChatRoomsMembersRequest request, {
     CancelToken? cancelToken,
@@ -275,6 +383,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/mute
+  ///
+  /// Calls POST /api/chat/rooms/mute.
+  ///
+  /// Authentication required.
   Future<void> roomsMute(
     ChatRoomsMuteRequest request, {
     CancelToken? cancelToken,
@@ -287,6 +400,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/owned
+  ///
+  /// Calls POST /api/chat/rooms/owned.
+  ///
+  /// Authentication required.
   Future<List<ChatRoom>> roomsOwned(
     ChatRoomsOwnedRequest request, {
     CancelToken? cancelToken,
@@ -300,6 +418,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/show
+  ///
+  /// Calls POST /api/chat/rooms/show.
+  ///
+  /// Authentication required.
   Future<ChatRoom> roomsShow(
     ChatRoomsShowRequest request, {
     CancelToken? cancelToken,
@@ -313,6 +436,11 @@ class RawChatApi {
     );
   }
 
+  /// chat/rooms/update
+  ///
+  /// Calls POST /api/chat/rooms/update.
+  ///
+  /// Authentication required.
   Future<ChatRoom> roomsUpdate(
     ChatRoomsUpdateRequest request, {
     CancelToken? cancelToken,

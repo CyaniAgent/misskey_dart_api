@@ -9,9 +9,12 @@ import '../../config.dart';
 import '../../models/generated/generated.dart';
 import '../generated/emoji_models.dart';
 
+/// High-level endpoints for the `emoji` API group.
 class EmojiApi {
+  /// Creates a high-level `emoji` API facade.
   EmojiApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// emoji

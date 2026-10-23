@@ -10,11 +10,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'charts_models.dart';
 
+/// Raw generated endpoints for the `charts` API group.
 class RawChartsApi {
+  /// Creates a raw `charts` API facade.
   RawChartsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// charts/active-users
+  ///
+  /// Calls POST /api/charts/active-users.
   Future<ChartsActiveUsersResponse> activeUsers(
     ChartsActiveUsersRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -30,6 +36,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/ap-request
+  ///
+  /// Calls POST /api/charts/ap-request.
   Future<ChartsApRequestResponse> apRequest(
     ChartsApRequestRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -45,6 +54,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/drive
+  ///
+  /// Calls POST /api/charts/drive.
   Future<ChartsDriveResponse> drive(
     ChartsDriveRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -60,6 +72,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/federation
+  ///
+  /// Calls POST /api/charts/federation.
   Future<ChartsFederationResponse> federation(
     ChartsFederationRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -75,6 +90,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/instance
+  ///
+  /// Calls POST /api/charts/instance.
   Future<ChartsInstanceResponse> instance(
     ChartsInstanceRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -90,6 +108,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/notes
+  ///
+  /// Calls POST /api/charts/notes.
   Future<ChartsNotesResponse> notes(
     ChartsNotesRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -105,6 +126,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/user/drive
+  ///
+  /// Calls POST /api/charts/user/drive.
   Future<ChartsUserDriveResponse> userDrive(
     ChartsUserDriveRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -120,6 +144,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/user/following
+  ///
+  /// Calls POST /api/charts/user/following.
   Future<ChartsUserFollowingResponse> userFollowing(
     ChartsUserFollowingRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -135,6 +162,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/user/notes
+  ///
+  /// Calls POST /api/charts/user/notes.
   Future<ChartsUserNotesResponse> userNotes(
     ChartsUserNotesRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -150,6 +180,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/user/pv
+  ///
+  /// Calls POST /api/charts/user/pv.
   Future<ChartsUserPvResponse> userPv(
     ChartsUserPvRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -165,6 +198,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/user/reactions
+  ///
+  /// Calls POST /api/charts/user/reactions.
   Future<ChartsUserReactionsResponse> userReactions(
     ChartsUserReactionsRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -180,6 +216,9 @@ class RawChartsApi {
     );
   }
 
+  /// charts/users
+  ///
+  /// Calls POST /api/charts/users.
   Future<ChartsUsersResponse> users(
     ChartsUsersRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,

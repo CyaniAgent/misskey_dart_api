@@ -8,9 +8,12 @@ import '../../client.dart';
 import '../../config.dart';
 import '../generated/bubbleGame_models.dart';
 
+/// High-level endpoints for the `bubbleGame` API group.
 class BubbleGameApi {
+  /// Creates a high-level `bubbleGame` API facade.
   BubbleGameApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// bubble-game/ranking

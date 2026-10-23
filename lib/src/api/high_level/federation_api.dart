@@ -11,9 +11,12 @@ import '../../models/json.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/federation_models.dart';
 
+/// High-level endpoints for the `federation` API group.
 class FederationApi {
+  /// Creates a high-level `federation` API facade.
   FederationApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// ap/get

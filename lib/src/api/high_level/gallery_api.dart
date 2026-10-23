@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/gallery_models.dart';
 
+/// High-level endpoints for the `gallery` API group.
 class GalleryApi {
+  /// Creates a high-level `gallery` API facade.
   GalleryApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// gallery/featured

@@ -10,11 +10,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'notes_models.dart';
 
+/// Raw generated endpoints for the `notes` API group.
 class RawNotesApi {
+  /// Creates a raw `notes` API facade.
   RawNotesApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// notes
+  ///
+  /// Calls POST /api/notes.
   Future<List<Note>> get(NotesGetRequest request, {CancelToken? cancelToken}) {
     return client.postList<Note>(
       'notes',
@@ -25,6 +31,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/children
+  ///
+  /// Calls POST /api/notes/children.
   Future<List<Note>> children(
     NotesChildrenRequest request, {
     CancelToken? cancelToken,
@@ -38,6 +47,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/clips
+  ///
+  /// Calls POST /api/notes/clips.
   Future<List<Clip>> clips(
     NotesClipsRequest request, {
     CancelToken? cancelToken,
@@ -51,6 +63,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/conversation
+  ///
+  /// Calls POST /api/notes/conversation.
   Future<List<Note>> conversation(
     NotesConversationRequest request, {
     CancelToken? cancelToken,
@@ -64,6 +79,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/create
+  ///
+  /// Calls POST /api/notes/create.
+  ///
+  /// Authentication required.
   Future<NotesCreateResponse> create(
     NotesCreateRequest request, {
     CancelToken? cancelToken,
@@ -77,6 +97,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/delete
+  ///
+  /// Calls POST /api/notes/delete.
+  ///
+  /// Authentication required.
   Future<void> delete(NotesDeleteRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'notes/delete',
@@ -86,6 +111,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/drafts/count
+  ///
+  /// Calls POST /api/notes/drafts/count.
+  ///
+  /// Authentication required.
   Future<JsonMap> draftsCount({CancelToken? cancelToken}) {
     return client.postMap(
       'notes/drafts/count',
@@ -94,6 +124,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/drafts/create
+  ///
+  /// Calls POST /api/notes/drafts/create.
+  ///
+  /// Authentication required.
   Future<NotesDraftsCreateResponse> draftsCreate(
     NotesDraftsCreateRequest request, {
     CancelToken? cancelToken,
@@ -107,6 +142,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/drafts/delete
+  ///
+  /// Calls POST /api/notes/drafts/delete.
+  ///
+  /// Authentication required.
   Future<void> draftsDelete(
     NotesDraftsDeleteRequest request, {
     CancelToken? cancelToken,
@@ -119,6 +159,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/drafts/list
+  ///
+  /// Calls POST /api/notes/drafts/list.
+  ///
+  /// Authentication required.
   Future<List<NoteDraft>> draftsList(
     NotesDraftsListRequest request, {
     CancelToken? cancelToken,
@@ -132,6 +177,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/drafts/update
+  ///
+  /// Calls POST /api/notes/drafts/update.
+  ///
+  /// Authentication required.
   Future<NotesDraftsUpdateResponse> draftsUpdate(
     NotesDraftsUpdateRequest request, {
     CancelToken? cancelToken,
@@ -145,6 +195,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/favorites/create
+  ///
+  /// Calls POST /api/notes/favorites/create.
+  ///
+  /// Authentication required.
   Future<void> favoritesCreate(
     NotesFavoritesCreateRequest request, {
     CancelToken? cancelToken,
@@ -157,6 +212,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/favorites/delete
+  ///
+  /// Calls POST /api/notes/favorites/delete.
+  ///
+  /// Authentication required.
   Future<void> favoritesDelete(
     NotesFavoritesDeleteRequest request, {
     CancelToken? cancelToken,
@@ -169,6 +229,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/featured
+  ///
+  /// Calls POST /api/notes/featured.
   Future<List<Note>> featured(
     NotesFeaturedRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -184,6 +247,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/global-timeline
+  ///
+  /// Calls POST /api/notes/global-timeline.
   Future<List<Note>> globalTimeline(
     NotesGlobalTimelineRequest request, {
     CancelToken? cancelToken,
@@ -197,6 +263,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/hybrid-timeline
+  ///
+  /// Calls POST /api/notes/hybrid-timeline.
+  ///
+  /// Authentication required.
   Future<List<Note>> hybridTimeline(
     NotesHybridTimelineRequest request, {
     CancelToken? cancelToken,
@@ -210,6 +281,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/local-timeline
+  ///
+  /// Calls POST /api/notes/local-timeline.
   Future<List<Note>> localTimeline(
     NotesLocalTimelineRequest request, {
     CancelToken? cancelToken,
@@ -223,6 +297,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/mentions
+  ///
+  /// Calls POST /api/notes/mentions.
+  ///
+  /// Authentication required.
   Future<List<Note>> mentions(
     NotesMentionsRequest request, {
     CancelToken? cancelToken,
@@ -236,6 +315,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/polls/recommendation
+  ///
+  /// Calls POST /api/notes/polls/recommendation.
+  ///
+  /// Authentication required.
   Future<List<Note>> pollsRecommendation(
     NotesPollsRecommendationRequest request, {
     CancelToken? cancelToken,
@@ -249,6 +333,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/polls/vote
+  ///
+  /// Calls POST /api/notes/polls/vote.
+  ///
+  /// Authentication required.
   Future<void> pollsVote(
     NotesPollsVoteRequest request, {
     CancelToken? cancelToken,
@@ -261,6 +350,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/reactions
+  ///
+  /// Calls POST /api/notes/reactions.
   Future<List<NoteReaction>> reactions(
     NotesReactionsRequest request, {
     CancelToken? cancelToken,
@@ -274,6 +366,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/reactions/create
+  ///
+  /// Calls POST /api/notes/reactions/create.
+  ///
+  /// Authentication required.
   Future<void> reactionsCreate(
     NotesReactionsCreateRequest request, {
     CancelToken? cancelToken,
@@ -286,6 +383,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/reactions/delete
+  ///
+  /// Calls POST /api/notes/reactions/delete.
+  ///
+  /// Authentication required.
   Future<void> reactionsDelete(
     NotesReactionsDeleteRequest request, {
     CancelToken? cancelToken,
@@ -298,6 +400,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/renotes
+  ///
+  /// Calls POST /api/notes/renotes.
   Future<List<Note>> renotes(
     NotesRenotesRequest request, {
     CancelToken? cancelToken,
@@ -311,6 +416,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/replies
+  ///
+  /// Calls POST /api/notes/replies.
   Future<List<Note>> replies(
     NotesRepliesRequest request, {
     CancelToken? cancelToken,
@@ -324,6 +432,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/search
+  ///
+  /// Calls POST /api/notes/search.
   Future<List<Note>> search(
     NotesSearchRequest request, {
     CancelToken? cancelToken,
@@ -337,6 +448,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/search-by-tag
+  ///
+  /// Calls POST /api/notes/search-by-tag.
   Future<List<Note>> searchByTag(
     NotesSearchByTagRequest request, {
     CancelToken? cancelToken,
@@ -350,6 +464,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/show
+  ///
+  /// Calls POST /api/notes/show.
   Future<Note> showValue(
     NotesShowValueRequest request, {
     CancelToken? cancelToken,
@@ -363,6 +480,9 @@ class RawNotesApi {
     );
   }
 
+  /// notes/show-partial-bulk
+  ///
+  /// Calls POST /api/notes/show-partial-bulk.
   Future<List<NotesShowPartialBulkResponseItem>> showPartialBulk(
     NotesShowPartialBulkRequest request, {
     CancelToken? cancelToken,
@@ -376,6 +496,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/state
+  ///
+  /// Calls POST /api/notes/state.
+  ///
+  /// Authentication required.
   Future<NotesStateResponse> state(
     NotesStateRequest request, {
     CancelToken? cancelToken,
@@ -389,6 +514,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/thread-muting/create
+  ///
+  /// Calls POST /api/notes/thread-muting/create.
+  ///
+  /// Authentication required.
   Future<void> threadMutingCreate(
     NotesThreadMutingCreateRequest request, {
     CancelToken? cancelToken,
@@ -401,6 +531,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/thread-muting/delete
+  ///
+  /// Calls POST /api/notes/thread-muting/delete.
+  ///
+  /// Authentication required.
   Future<void> threadMutingDelete(
     NotesThreadMutingDeleteRequest request, {
     CancelToken? cancelToken,
@@ -413,6 +548,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/timeline
+  ///
+  /// Calls POST /api/notes/timeline.
+  ///
+  /// Authentication required.
   Future<List<Note>> timeline(
     NotesTimelineRequest request, {
     CancelToken? cancelToken,
@@ -426,6 +566,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/translate
+  ///
+  /// Calls POST /api/notes/translate.
+  ///
+  /// Authentication required.
   Future<NotesTranslateResponse> translate(
     NotesTranslateRequest request, {
     CancelToken? cancelToken,
@@ -439,6 +584,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/unrenote
+  ///
+  /// Calls POST /api/notes/unrenote.
+  ///
+  /// Authentication required.
   Future<void> unrenote(
     NotesUnrenoteRequest request, {
     CancelToken? cancelToken,
@@ -451,6 +601,11 @@ class RawNotesApi {
     );
   }
 
+  /// notes/user-list-timeline
+  ///
+  /// Calls POST /api/notes/user-list-timeline.
+  ///
+  /// Authentication required.
   Future<List<Note>> userListTimeline(
     NotesUserListTimelineRequest request, {
     CancelToken? cancelToken,
@@ -464,6 +619,11 @@ class RawNotesApi {
     );
   }
 
+  /// promo/read
+  ///
+  /// Calls POST /api/promo/read.
+  ///
+  /// Authentication required.
   Future<void> promoRead(
     NotesPromoReadRequest request, {
     CancelToken? cancelToken,

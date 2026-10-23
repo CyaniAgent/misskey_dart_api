@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'reversi_models.dart';
 
+/// Raw generated endpoints for the `reversi` API group.
 class RawReversiApi {
+  /// Creates a raw `reversi` API facade.
   RawReversiApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// reversi/cancel-match
+  ///
+  /// Calls POST /api/reversi/cancel-match.
+  ///
+  /// Authentication required.
   Future<void> cancelMatch(
     ReversiCancelMatchRequest request, {
     CancelToken? cancelToken,
@@ -26,6 +34,9 @@ class RawReversiApi {
     );
   }
 
+  /// reversi/games
+  ///
+  /// Calls POST /api/reversi/games.
   Future<List<ReversiGameLite>> games(
     ReversiGamesRequest request, {
     CancelToken? cancelToken,
@@ -39,6 +50,11 @@ class RawReversiApi {
     );
   }
 
+  /// reversi/invitations
+  ///
+  /// Calls POST /api/reversi/invitations.
+  ///
+  /// Authentication required.
   Future<List<UserLite>> invitations({CancelToken? cancelToken}) {
     return client.postList<UserLite>(
       'reversi/invitations',
@@ -48,6 +64,11 @@ class RawReversiApi {
     );
   }
 
+  /// reversi/match
+  ///
+  /// Calls POST /api/reversi/match.
+  ///
+  /// Authentication required.
   Future<ReversiGameDetailed> match(
     ReversiMatchRequest request, {
     CancelToken? cancelToken,
@@ -61,6 +82,9 @@ class RawReversiApi {
     );
   }
 
+  /// reversi/show-game
+  ///
+  /// Calls POST /api/reversi/show-game.
   Future<ReversiGameDetailed> showGame(
     ReversiShowGameRequest request, {
     CancelToken? cancelToken,
@@ -74,6 +98,11 @@ class RawReversiApi {
     );
   }
 
+  /// reversi/surrender
+  ///
+  /// Calls POST /api/reversi/surrender.
+  ///
+  /// Authentication required.
   Future<void> surrender(
     ReversiSurrenderRequest request, {
     CancelToken? cancelToken,
@@ -86,6 +115,9 @@ class RawReversiApi {
     );
   }
 
+  /// reversi/verify
+  ///
+  /// Calls POST /api/reversi/verify.
   Future<ReversiVerifyResponse> verify(
     ReversiVerifyRequest request, {
     CancelToken? cancelToken,

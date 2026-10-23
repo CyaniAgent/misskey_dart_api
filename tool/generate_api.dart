@@ -368,8 +368,48 @@ class ApiGenerator {
   void _generateComponents() {
     components.addBase(
       'User',
-      'sealed class User {\n'
+      '/// A Misskey user.\n'
+          'sealed class User {\n'
           '  const User._();\n\n'
+          '  /// The unique user id.\n'
+          '  String get id;\n'
+          '\n'
+          '  /// The display name, when set.\n'
+          '  String? get name;\n'
+          '\n'
+          '  /// The unique username on the instance.\n'
+          '  String get username;\n'
+          '\n'
+          '  /// The remote host, or null for a local user.\n'
+          '  String? get host;\n'
+          '\n'
+          '  /// The avatar URL.\n'
+          '  String get avatarUrl;\n'
+          '\n'
+          '  /// The avatar blurhash, when available.\n'
+          '  String? get avatarBlurhash;\n'
+          '\n'
+          '  /// Whether the user is a bot.\n'
+          '  bool? get isBot;\n'
+          '\n'
+          '  /// Whether the user is marked as a cat.\n'
+          '  bool? get isCat;\n'
+          '\n'
+          '  /// Whether signing in is required to view the user\'s contents.\n'
+          '  bool? get requireSigninToViewContents;\n'
+          '\n'
+          '  /// The timestamp before which notes are followers-only.\n'
+          '  num? get makeNotesFollowersOnlyBefore;\n'
+          '\n'
+          '  /// The timestamp before which notes are hidden.\n'
+          '  num? get makeNotesHiddenBefore;\n'
+          '\n'
+          '  /// Custom emoji URLs keyed by shortcode.\n'
+          '  Map<String, String> get emojis;\n'
+          '\n'
+          '  /// The user\'s online status.\n'
+          '  OnlineStatus get onlineStatus;\n'
+          '\n'
           '  factory User.fromJson(Map<String, dynamic> json) {\n'
           "    if (json.containsKey('isAdmin')) return MeDetailed.fromJson(json);\n"
           "    if (json.containsKey('createdAt')) return UserDetailed.fromJson(json);\n"
@@ -381,8 +421,138 @@ class ApiGenerator {
     );
     components.addBase(
       'UserDetailed',
-      'sealed class UserDetailed extends User {\n'
+      '/// A user with detailed profile fields.\n'
+          'sealed class UserDetailed extends User {\n'
           '  const UserDetailed() : super._();\n\n'
+          '  /// The profile URL, when available.\n'
+          '  String? get url;\n'
+          '\n'
+          '  /// The ActivityPub URI, when available.\n'
+          '  String? get uri;\n'
+          '\n'
+          '  /// The account this user moved to, when applicable.\n'
+          '  String? get movedTo;\n'
+          '\n'
+          '  /// Other known account identifiers.\n'
+          '  List<String>? get alsoKnownAs;\n'
+          '\n'
+          '  /// When the account was created.\n'
+          '  DateTime get createdAt;\n'
+          '\n'
+          '  /// When the profile was last updated.\n'
+          '  DateTime? get updatedAt;\n'
+          '\n'
+          '  /// When the profile was last fetched.\n'
+          '  DateTime? get lastFetchedAt;\n'
+          '\n'
+          '  /// The banner URL, when available.\n'
+          '  String? get bannerUrl;\n'
+          '\n'
+          '  /// The banner blurhash, when available.\n'
+          '  String? get bannerBlurhash;\n'
+          '\n'
+          '  /// Whether the account is locked.\n'
+          '  bool get isLocked;\n'
+          '\n'
+          '  /// Whether the account is silenced.\n'
+          '  bool get isSilenced;\n'
+          '\n'
+          '  /// Whether the account is suspended.\n'
+          '  bool get isSuspended;\n'
+          '\n'
+          '  /// The profile description.\n'
+          '  String? get description;\n'
+          '\n'
+          '  /// The profile location.\n'
+          '  String? get location;\n'
+          '\n'
+          '  /// The profile birthday.\n'
+          '  String? get birthday;\n'
+          '\n'
+          '  /// The profile language.\n'
+          '  String? get lang;\n'
+          '\n'
+          '  /// Verified profile links.\n'
+          '  List<String> get verifiedLinks;\n'
+          '\n'
+          '  /// The follower count.\n'
+          '  num get followersCount;\n'
+          '\n'
+          '  /// The following count.\n'
+          '  num get followingCount;\n'
+          '\n'
+          '  /// The note count.\n'
+          '  num get notesCount;\n'
+          '\n'
+          '  /// Pinned note ids.\n'
+          '  List<String> get pinnedNoteIds;\n'
+          '\n'
+          '  /// Pinned notes.\n'
+          '  List<Note> get pinnedNotes;\n'
+          '\n'
+          '  /// The pinned page id, when available.\n'
+          '  String? get pinnedPageId;\n'
+          '\n'
+          '  /// The pinned page, when available.\n'
+          '  Page? get pinnedPage;\n'
+          '\n'
+          '  /// Whether public reactions are enabled.\n'
+          '  bool get publicReactions;\n'
+          '\n'
+          '  /// Who can see this user\'s following list.\n'
+          '  FollowingVisibility get followingVisibility;\n'
+          '\n'
+          '  /// Who can see this user\'s followers list.\n'
+          '  FollowingVisibility get followersVisibility;\n'
+          '\n'
+          '  /// Who can chat with this user.\n'
+          '  ChatScope get chatScope;\n'
+          '\n'
+          '  /// Whether chat is available.\n'
+          '  bool get canChat;\n'
+          '\n'
+          '  /// Roles assigned to this user.\n'
+          '  List<RoleLite> get roles;\n'
+          '\n'
+          '  /// The followed message, when available.\n'
+          '  String? get followedMessage;\n'
+          '\n'
+          '  /// The memo for this user, when available.\n'
+          '  String? get memo;\n'
+          '\n'
+          '  /// A moderation note, when available.\n'
+          '  String? get moderationNote;\n'
+          '\n'
+          '  /// Whether the authenticated user follows this user.\n'
+          '  bool? get isFollowing;\n'
+          '\n'
+          '  /// Whether this user follows the authenticated user.\n'
+          '  bool? get isFollowed;\n'
+          '\n'
+          '  /// Whether a follow request from the authenticated user is pending.\n'
+          '  bool? get hasPendingFollowRequestFromYou;\n'
+          '\n'
+          '  /// Whether a follow request from this user is pending.\n'
+          '  bool? get hasPendingFollowRequestToYou;\n'
+          '\n'
+          '  /// Whether the authenticated user blocks this user.\n'
+          '  bool? get isBlocking;\n'
+          '\n'
+          '  /// Whether this user blocks the authenticated user.\n'
+          '  bool? get isBlocked;\n'
+          '\n'
+          '  /// Whether the authenticated user mutes this user.\n'
+          '  bool? get isMuted;\n'
+          '\n'
+          '  /// Whether the authenticated user renote-mutes this user.\n'
+          '  bool? get isRenoteMuted;\n'
+          '\n'
+          '  /// Notification settings for this user.\n'
+          '  UserNotify? get notify;\n'
+          '\n'
+          '  /// Whether replies are included in the timeline.\n'
+          '  bool? get withReplies;\n'
+          '\n'
           '  factory UserDetailed.fromJson(Map<String, dynamic> json) {\n'
           "    if (json.containsKey('isAdmin')) return MeDetailed.fromJson(json);\n"
           '    return UserDetailedNotMe.fromJson(json);\n'
@@ -538,6 +708,7 @@ class ApiGenerator {
       branchClasses.add(cls);
     }
     final b = StringBuffer()
+      ..writeln('/// A Misskey notification.')
       ..writeln('sealed class Notification {')
       ..writeln('  const Notification();')
       ..writeln()
@@ -1397,9 +1568,14 @@ class ApiGenerator {
       ..writeln("import '../../models/json.dart';")
       ..writeln("import '${group}_models.dart';")
       ..writeln()
+      ..writeln('/// Raw generated endpoints for the `$group` API group.')
       ..writeln('class ${_rawClass(group)} {')
+      ..writeln('  /// Creates a raw `$group` API facade.')
       ..writeln('  ${_rawClass(group)}(this.client);')
       ..writeln()
+      ..writeln(
+        '  /// The shared client used for transport and authentication.',
+      )
       ..writeln('  final MisskeyClient client;');
     for (final op in operations) {
       if (!op.generated) continue;
@@ -1419,7 +1595,21 @@ class ApiGenerator {
     final methodParameter = op.supportsGet
         ? 'MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post, '
         : '';
+    final summary = op.summary?.trim();
+    final docs = StringBuffer()
+      ..writeln(
+        '  /// ${summary?.isNotEmpty == true ? summary : 'Calls POST /api${op.path}.'}',
+      );
+    if (summary?.isNotEmpty == true) {
+      docs.writeln('  ///');
+      docs.writeln('  /// Calls POST /api${op.path}.');
+    }
+    if (op.requiresAuth) {
+      docs.writeln('  ///');
+      docs.writeln('  /// Authentication required.');
+    }
     final b = StringBuffer()
+      ..write(docs)
       ..writeln(
         '  Future<$returnType> ${op.method}($prefix{${methodParameter}CancelToken? cancelToken}) {',
       );
@@ -1522,12 +1712,17 @@ class ApiGenerator {
       ..writeln()
       ..writeln('/// The complete generated Misskey API surface.')
       ..writeln('class MisskeyRawClient {')
+      ..writeln('  /// Creates a raw API facade backed by [client].')
       ..writeln('  MisskeyRawClient(this.client);')
       ..writeln()
+      ..writeln(
+        '  /// The shared client used for transport and authentication.',
+      )
       ..writeln('  final MisskeyClient client;');
     for (final group in _groupOrder) {
       out
         ..writeln()
+        ..writeln('  /// Raw `$group` endpoints.')
         ..writeln(
           '  late final ${_rawClass(group)} $group = ${_rawClass(group)}(client);',
         );
@@ -1575,9 +1770,14 @@ class ApiGenerator {
     }
     out
       ..writeln()
+      ..writeln('/// High-level endpoints for the `$group` API group.')
       ..writeln('class ${_groupClass[group]} {')
+      ..writeln('  /// Creates a high-level `$group` API facade.')
       ..writeln('  ${_groupClass[group]}(this.client);')
       ..writeln()
+      ..writeln(
+        '  /// The shared client used for transport and authentication.',
+      )
       ..writeln('  final MisskeyClient client;');
     final usedNames = <String>{
       if (group == 'account') 'me',
@@ -1807,7 +2007,9 @@ class ApiGenerator {
       ..writeln()
       ..writeln('// GENERATED CODE - DO NOT EDIT BY HAND.')
       ..writeln()
+      ..writeln('/// Metadata for one pinned Misskey endpoint.')
       ..writeln('class EndpointManifest {')
+      ..writeln('  /// Creates endpoint metadata.')
       ..writeln('  const EndpointManifest({')
       ..writeln('    required this.path,')
       ..writeln('    required this.group,')
@@ -1821,18 +2023,38 @@ class ApiGenerator {
       ..writeln('    this.handWrittenMethod,')
       ..writeln('  });')
       ..writeln()
+      ..writeln('  /// The API path relative to `/api`.')
       ..writeln('  final String path;')
+      ..writeln()
+      ..writeln('  /// The API group name.')
       ..writeln('  final String group;')
+      ..writeln()
+      ..writeln('  /// The generated or hand-written method name.')
       ..writeln('  final String method;')
+      ..writeln()
+      ..writeln('  /// Whether the endpoint requires authentication.')
       ..writeln('  final bool requiresAuth;')
+      ..writeln()
+      ..writeln('  /// The generated request type, when present.')
       ..writeln('  final String? requestType;')
+      ..writeln()
+      ..writeln('  /// The generated response type.')
       ..writeln('  final String responseType;')
+      ..writeln()
+      ..writeln('  /// Whether the endpoint accepts multipart form data.')
       ..writeln('  final bool multipart;')
+      ..writeln()
+      ..writeln('  /// Whether the endpoint supports an optional GET request.')
       ..writeln('  final bool supportsGet;')
+      ..writeln()
+      ..writeln('  /// Whether a generated cursor page method is available.')
       ..writeln('  final bool supportsPagination;')
+      ..writeln()
+      ..writeln('  /// The hand-written method path, when applicable.')
       ..writeln('  final String? handWrittenMethod;')
       ..writeln('}')
       ..writeln()
+      ..writeln('/// All endpoints in the pinned OpenAPI document.')
       ..writeln('const List<EndpointManifest> misskeyEndpoints = [');
     for (final op in _operations) {
       out.writeln('  EndpointManifest(');
@@ -1855,6 +2077,7 @@ class ApiGenerator {
     out
       ..writeln('];')
       ..writeln()
+      ..writeln('/// Component schema names in the pinned OpenAPI document.')
       ..writeln('const List<String> misskeyComponentSchemas = [');
     for (final name in schemas.keys) {
       if (name == 'Error') continue;

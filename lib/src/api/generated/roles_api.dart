@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'roles_models.dart';
 
+/// Raw generated endpoints for the `roles` API group.
 class RawRolesApi {
+  /// Creates a raw `roles` API facade.
   RawRolesApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// roles/list
+  ///
+  /// Calls POST /api/roles/list.
+  ///
+  /// Authentication required.
   Future<List<Role>> list({CancelToken? cancelToken}) {
     return client.postList<Role>(
       'roles/list',
@@ -23,6 +31,11 @@ class RawRolesApi {
     );
   }
 
+  /// roles/notes
+  ///
+  /// Calls POST /api/roles/notes.
+  ///
+  /// Authentication required.
   Future<List<Note>> notes(
     RolesNotesRequest request, {
     CancelToken? cancelToken,
@@ -36,6 +49,9 @@ class RawRolesApi {
     );
   }
 
+  /// roles/show
+  ///
+  /// Calls POST /api/roles/show.
   Future<Role> showValue(
     RolesShowValueRequest request, {
     CancelToken? cancelToken,
@@ -49,6 +65,9 @@ class RawRolesApi {
     );
   }
 
+  /// roles/users
+  ///
+  /// Calls POST /api/roles/users.
   Future<List<RolesUsersResponseItem>> users(
     RolesUsersRequest request, {
     CancelToken? cancelToken,

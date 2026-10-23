@@ -9,11 +9,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'gallery_models.dart';
 
+/// Raw generated endpoints for the `gallery` API group.
 class RawGalleryApi {
+  /// Creates a raw `gallery` API facade.
   RawGalleryApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// gallery/featured
+  ///
+  /// Calls POST /api/gallery/featured.
   Future<List<GalleryPost>> featured(
     GalleryFeaturedRequest request, {
     CancelToken? cancelToken,
@@ -27,6 +33,9 @@ class RawGalleryApi {
     );
   }
 
+  /// gallery/popular
+  ///
+  /// Calls POST /api/gallery/popular.
   Future<List<GalleryPost>> popular({CancelToken? cancelToken}) {
     return client.postList<GalleryPost>(
       'gallery/popular',
@@ -36,6 +45,9 @@ class RawGalleryApi {
     );
   }
 
+  /// gallery/posts
+  ///
+  /// Calls POST /api/gallery/posts.
   Future<List<GalleryPost>> posts(
     GalleryPostsRequest request, {
     CancelToken? cancelToken,
@@ -49,6 +61,11 @@ class RawGalleryApi {
     );
   }
 
+  /// gallery/posts/create
+  ///
+  /// Calls POST /api/gallery/posts/create.
+  ///
+  /// Authentication required.
   Future<GalleryPost> postsCreate(
     GalleryPostsCreateRequest request, {
     CancelToken? cancelToken,
@@ -62,6 +79,11 @@ class RawGalleryApi {
     );
   }
 
+  /// gallery/posts/delete
+  ///
+  /// Calls POST /api/gallery/posts/delete.
+  ///
+  /// Authentication required.
   Future<void> postsDelete(
     GalleryPostsDeleteRequest request, {
     CancelToken? cancelToken,
@@ -74,6 +96,11 @@ class RawGalleryApi {
     );
   }
 
+  /// gallery/posts/like
+  ///
+  /// Calls POST /api/gallery/posts/like.
+  ///
+  /// Authentication required.
   Future<void> postsLike(
     GalleryPostsLikeRequest request, {
     CancelToken? cancelToken,
@@ -86,6 +113,9 @@ class RawGalleryApi {
     );
   }
 
+  /// gallery/posts/show
+  ///
+  /// Calls POST /api/gallery/posts/show.
   Future<GalleryPost> postsShow(
     GalleryPostsShowRequest request, {
     CancelToken? cancelToken,
@@ -99,6 +129,11 @@ class RawGalleryApi {
     );
   }
 
+  /// gallery/posts/unlike
+  ///
+  /// Calls POST /api/gallery/posts/unlike.
+  ///
+  /// Authentication required.
   Future<void> postsUnlike(
     GalleryPostsUnlikeRequest request, {
     CancelToken? cancelToken,
@@ -111,6 +146,11 @@ class RawGalleryApi {
     );
   }
 
+  /// gallery/posts/update
+  ///
+  /// Calls POST /api/gallery/posts/update.
+  ///
+  /// Authentication required.
   Future<GalleryPost> postsUpdate(
     GalleryPostsUpdateRequest request, {
     CancelToken? cancelToken,

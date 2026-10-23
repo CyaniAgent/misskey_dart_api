@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import '../generated/pages_models.dart';
 
+/// High-level endpoints for the `pages` API group.
 class PagesApi {
+  /// Creates a high-level `pages` API facade.
   PagesApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// page-push

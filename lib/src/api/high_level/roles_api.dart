@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/roles_models.dart';
 
+/// High-level endpoints for the `roles` API group.
 class RolesApi {
+  /// Creates a high-level `roles` API facade.
   RolesApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// roles/list

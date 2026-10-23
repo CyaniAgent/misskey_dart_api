@@ -8,9 +8,12 @@ import '../../client.dart';
 import '../../config.dart';
 import '../generated/charts_models.dart';
 
+/// High-level endpoints for the `charts` API group.
 class ChartsApi {
+  /// Creates a high-level `charts` API facade.
   ChartsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// charts/active-users

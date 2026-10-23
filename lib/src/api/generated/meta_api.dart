@@ -10,11 +10,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'meta_models.dart';
 
+/// Raw generated endpoints for the `meta` API group.
 class RawMetaApi {
+  /// Creates a raw `meta` API facade.
   RawMetaApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// endpoint
+  ///
+  /// Calls POST /api/endpoint.
   Future<MetaEndpointResponse?> endpoint(
     MetaEndpointRequest request, {
     CancelToken? cancelToken,
@@ -28,6 +34,9 @@ class RawMetaApi {
     );
   }
 
+  /// endpoints
+  ///
+  /// Calls POST /api/endpoints.
   Future<List<String>> endpoints({CancelToken? cancelToken}) {
     return client.postParsed<List<String>>(
       'endpoints',
@@ -37,6 +46,11 @@ class RawMetaApi {
     );
   }
 
+  /// fetch-external-resources
+  ///
+  /// Calls POST /api/fetch-external-resources.
+  ///
+  /// Authentication required.
   Future<MetaFetchExternalResourcesResponse> fetchExternalResources(
     MetaFetchExternalResourcesRequest request, {
     CancelToken? cancelToken,
@@ -50,6 +64,9 @@ class RawMetaApi {
     );
   }
 
+  /// fetch-rss
+  ///
+  /// Calls POST /api/fetch-rss.
   Future<MetaFetchRssResponse> fetchRss(
     MetaFetchRssRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -65,6 +82,9 @@ class RawMetaApi {
     );
   }
 
+  /// get-online-users-count
+  ///
+  /// Calls POST /api/get-online-users-count.
   Future<MetaGetOnlineUsersCountResponse> getOnlineUsersCount({
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
@@ -78,6 +98,9 @@ class RawMetaApi {
     );
   }
 
+  /// ping
+  ///
+  /// Calls POST /api/ping.
   Future<MetaPingResponse> ping({CancelToken? cancelToken}) {
     return client.postModel<MetaPingResponse>(
       'ping',
@@ -87,6 +110,9 @@ class RawMetaApi {
     );
   }
 
+  /// server-info
+  ///
+  /// Calls POST /api/server-info.
   Future<MetaServerInfoResponse> serverInfo({
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
@@ -100,6 +126,9 @@ class RawMetaApi {
     );
   }
 
+  /// stats
+  ///
+  /// Calls POST /api/stats.
   Future<MetaStatsResponse> stats({CancelToken? cancelToken}) {
     return client.postModel<MetaStatsResponse>(
       'stats',

@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'pages_models.dart';
 
+/// Raw generated endpoints for the `pages` API group.
 class RawPagesApi {
+  /// Creates a raw `pages` API facade.
   RawPagesApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// page-push
+  ///
+  /// Calls POST /api/page-push.
+  ///
+  /// Authentication required.
   Future<void> pagePush(
     PagesPagePushRequest request, {
     CancelToken? cancelToken,
@@ -26,6 +34,11 @@ class RawPagesApi {
     );
   }
 
+  /// pages/create
+  ///
+  /// Calls POST /api/pages/create.
+  ///
+  /// Authentication required.
   Future<Page> create(PagesCreateRequest request, {CancelToken? cancelToken}) {
     return client.postModel<Page>(
       'pages/create',
@@ -36,6 +49,11 @@ class RawPagesApi {
     );
   }
 
+  /// pages/delete
+  ///
+  /// Calls POST /api/pages/delete.
+  ///
+  /// Authentication required.
   Future<void> delete(PagesDeleteRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'pages/delete',
@@ -45,6 +63,9 @@ class RawPagesApi {
     );
   }
 
+  /// pages/featured
+  ///
+  /// Calls POST /api/pages/featured.
   Future<List<Page>> featured({CancelToken? cancelToken}) {
     return client.postList<Page>(
       'pages/featured',
@@ -54,6 +75,11 @@ class RawPagesApi {
     );
   }
 
+  /// pages/like
+  ///
+  /// Calls POST /api/pages/like.
+  ///
+  /// Authentication required.
   Future<void> like(PagesLikeRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'pages/like',
@@ -63,6 +89,9 @@ class RawPagesApi {
     );
   }
 
+  /// pages/show
+  ///
+  /// Calls POST /api/pages/show.
   Future<Page> showValue(
     PagesShowValueRequest request, {
     CancelToken? cancelToken,
@@ -76,6 +105,11 @@ class RawPagesApi {
     );
   }
 
+  /// pages/unlike
+  ///
+  /// Calls POST /api/pages/unlike.
+  ///
+  /// Authentication required.
   Future<void> unlike(PagesUnlikeRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'pages/unlike',
@@ -85,6 +119,11 @@ class RawPagesApi {
     );
   }
 
+  /// pages/update
+  ///
+  /// Calls POST /api/pages/update.
+  ///
+  /// Authentication required.
   Future<void> update(PagesUpdateRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'pages/update',

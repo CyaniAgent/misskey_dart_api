@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/blocking_models.dart';
 
+/// High-level endpoints for the `blocking` API group.
 class BlockingApi {
+  /// Creates a high-level `blocking` API facade.
   BlockingApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// blocking/create

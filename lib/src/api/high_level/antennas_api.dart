@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/antennas_models.dart';
 
+/// High-level endpoints for the `antennas` API group.
 class AntennasApi {
+  /// Creates a high-level `antennas` API facade.
   AntennasApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// antennas/create

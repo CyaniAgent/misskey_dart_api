@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/mute_models.dart';
 
+/// High-level endpoints for the `mute` API group.
 class MuteApi {
+  /// Creates a high-level `mute` API facade.
   MuteApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// mute/create

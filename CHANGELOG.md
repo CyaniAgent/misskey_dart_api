@@ -14,6 +14,10 @@
   and preflight checks for required endpoints.
 - `CursorPage<T>` pagination with generated `...Page`, `next()`, and `stream()`
   methods for cursor-based list operations.
+- Common `User` and `UserDetailed` profile fields are available directly on the
+  sealed base types, without variant casts.
+- The generator workflow, pinned spec hash, and `--check` command are documented;
+  public API documentation is enforced by `public_member_api_docs`.
 - Bearer authentication by default, with body and none modes; HTTPS
   enforcement; structured `MisskeyApiException`.
 - The 24 paths that define both GET and POST accept

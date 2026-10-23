@@ -7,9 +7,12 @@ import 'package:dio/dio.dart';
 import '../../client.dart';
 import '../generated/auth_models.dart';
 
+/// High-level endpoints for the `auth` API group.
 class AuthApi {
+  /// Creates a high-level `auth` API facade.
   AuthApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// auth/accept

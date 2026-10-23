@@ -290,8 +290,48 @@ enum PageBlockImageType { image }
 
 enum PageBlockNoteType { note }
 
+/// A Misskey user.
 sealed class User {
   const User._();
+
+  /// The unique user id.
+  String get id;
+
+  /// The display name, when set.
+  String? get name;
+
+  /// The unique username on the instance.
+  String get username;
+
+  /// The remote host, or null for a local user.
+  String? get host;
+
+  /// The avatar URL.
+  String get avatarUrl;
+
+  /// The avatar blurhash, when available.
+  String? get avatarBlurhash;
+
+  /// Whether the user is a bot.
+  bool? get isBot;
+
+  /// Whether the user is marked as a cat.
+  bool? get isCat;
+
+  /// Whether signing in is required to view the user's contents.
+  bool? get requireSigninToViewContents;
+
+  /// The timestamp before which notes are followers-only.
+  num? get makeNotesFollowersOnlyBefore;
+
+  /// The timestamp before which notes are hidden.
+  num? get makeNotesHiddenBefore;
+
+  /// Custom emoji URLs keyed by shortcode.
+  Map<String, String> get emojis;
+
+  /// The user's online status.
+  OnlineStatus get onlineStatus;
 
   factory User.fromJson(Map<String, dynamic> json) {
     if (json.containsKey('isAdmin')) return MeDetailed.fromJson(json);
@@ -302,8 +342,138 @@ sealed class User {
   Map<String, dynamic> toJson();
 }
 
+/// A user with detailed profile fields.
 sealed class UserDetailed extends User {
   const UserDetailed() : super._();
+
+  /// The profile URL, when available.
+  String? get url;
+
+  /// The ActivityPub URI, when available.
+  String? get uri;
+
+  /// The account this user moved to, when applicable.
+  String? get movedTo;
+
+  /// Other known account identifiers.
+  List<String>? get alsoKnownAs;
+
+  /// When the account was created.
+  DateTime get createdAt;
+
+  /// When the profile was last updated.
+  DateTime? get updatedAt;
+
+  /// When the profile was last fetched.
+  DateTime? get lastFetchedAt;
+
+  /// The banner URL, when available.
+  String? get bannerUrl;
+
+  /// The banner blurhash, when available.
+  String? get bannerBlurhash;
+
+  /// Whether the account is locked.
+  bool get isLocked;
+
+  /// Whether the account is silenced.
+  bool get isSilenced;
+
+  /// Whether the account is suspended.
+  bool get isSuspended;
+
+  /// The profile description.
+  String? get description;
+
+  /// The profile location.
+  String? get location;
+
+  /// The profile birthday.
+  String? get birthday;
+
+  /// The profile language.
+  String? get lang;
+
+  /// Verified profile links.
+  List<String> get verifiedLinks;
+
+  /// The follower count.
+  num get followersCount;
+
+  /// The following count.
+  num get followingCount;
+
+  /// The note count.
+  num get notesCount;
+
+  /// Pinned note ids.
+  List<String> get pinnedNoteIds;
+
+  /// Pinned notes.
+  List<Note> get pinnedNotes;
+
+  /// The pinned page id, when available.
+  String? get pinnedPageId;
+
+  /// The pinned page, when available.
+  Page? get pinnedPage;
+
+  /// Whether public reactions are enabled.
+  bool get publicReactions;
+
+  /// Who can see this user's following list.
+  FollowingVisibility get followingVisibility;
+
+  /// Who can see this user's followers list.
+  FollowingVisibility get followersVisibility;
+
+  /// Who can chat with this user.
+  ChatScope get chatScope;
+
+  /// Whether chat is available.
+  bool get canChat;
+
+  /// Roles assigned to this user.
+  List<RoleLite> get roles;
+
+  /// The followed message, when available.
+  String? get followedMessage;
+
+  /// The memo for this user, when available.
+  String? get memo;
+
+  /// A moderation note, when available.
+  String? get moderationNote;
+
+  /// Whether the authenticated user follows this user.
+  bool? get isFollowing;
+
+  /// Whether this user follows the authenticated user.
+  bool? get isFollowed;
+
+  /// Whether a follow request from the authenticated user is pending.
+  bool? get hasPendingFollowRequestFromYou;
+
+  /// Whether a follow request from this user is pending.
+  bool? get hasPendingFollowRequestToYou;
+
+  /// Whether the authenticated user blocks this user.
+  bool? get isBlocking;
+
+  /// Whether this user blocks the authenticated user.
+  bool? get isBlocked;
+
+  /// Whether the authenticated user mutes this user.
+  bool? get isMuted;
+
+  /// Whether the authenticated user renote-mutes this user.
+  bool? get isRenoteMuted;
+
+  /// Notification settings for this user.
+  UserNotify? get notify;
+
+  /// Whether replies are included in the timeline.
+  bool? get withReplies;
 
   factory UserDetailed.fromJson(Map<String, dynamic> json) {
     if (json.containsKey('isAdmin')) return MeDetailed.fromJson(json);
@@ -349,6 +519,7 @@ sealed class RoleCondFormulaValue {
   Map<String, dynamic> toJson();
 }
 
+/// A Misskey notification.
 sealed class Notification {
   const Notification();
 

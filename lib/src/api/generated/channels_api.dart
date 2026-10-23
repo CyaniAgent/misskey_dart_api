@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'channels_models.dart';
 
+/// Raw generated endpoints for the `channels` API group.
 class RawChannelsApi {
+  /// Creates a raw `channels` API facade.
   RawChannelsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// channels/create
+  ///
+  /// Calls POST /api/channels/create.
+  ///
+  /// Authentication required.
   Future<Channel> create(
     ChannelsCreateRequest request, {
     CancelToken? cancelToken,
@@ -27,6 +35,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/favorite
+  ///
+  /// Calls POST /api/channels/favorite.
+  ///
+  /// Authentication required.
   Future<void> favorite(
     ChannelsFavoriteRequest request, {
     CancelToken? cancelToken,
@@ -39,6 +52,9 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/featured
+  ///
+  /// Calls POST /api/channels/featured.
   Future<List<Channel>> featured({CancelToken? cancelToken}) {
     return client.postList<Channel>(
       'channels/featured',
@@ -48,6 +64,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/follow
+  ///
+  /// Calls POST /api/channels/follow.
+  ///
+  /// Authentication required.
   Future<void> follow(
     ChannelsFollowRequest request, {
     CancelToken? cancelToken,
@@ -60,6 +81,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/followed
+  ///
+  /// Calls POST /api/channels/followed.
+  ///
+  /// Authentication required.
   Future<List<Channel>> followed(
     ChannelsFollowedRequest request, {
     CancelToken? cancelToken,
@@ -73,6 +99,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/mute/create
+  ///
+  /// Calls POST /api/channels/mute/create.
+  ///
+  /// Authentication required.
   Future<void> muteCreate(
     ChannelsMuteCreateRequest request, {
     CancelToken? cancelToken,
@@ -85,6 +116,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/mute/delete
+  ///
+  /// Calls POST /api/channels/mute/delete.
+  ///
+  /// Authentication required.
   Future<void> muteDelete(
     ChannelsMuteDeleteRequest request, {
     CancelToken? cancelToken,
@@ -97,6 +133,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/mute/list
+  ///
+  /// Calls POST /api/channels/mute/list.
+  ///
+  /// Authentication required.
   Future<List<Channel>> muteList({CancelToken? cancelToken}) {
     return client.postList<Channel>(
       'channels/mute/list',
@@ -106,6 +147,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/my-favorites
+  ///
+  /// Calls POST /api/channels/my-favorites.
+  ///
+  /// Authentication required.
   Future<List<Channel>> myFavorites({CancelToken? cancelToken}) {
     return client.postList<Channel>(
       'channels/my-favorites',
@@ -115,6 +161,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/owned
+  ///
+  /// Calls POST /api/channels/owned.
+  ///
+  /// Authentication required.
   Future<List<Channel>> owned(
     ChannelsOwnedRequest request, {
     CancelToken? cancelToken,
@@ -128,6 +179,9 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/search
+  ///
+  /// Calls POST /api/channels/search.
   Future<List<Channel>> search(
     ChannelsSearchRequest request, {
     CancelToken? cancelToken,
@@ -141,6 +195,9 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/show
+  ///
+  /// Calls POST /api/channels/show.
   Future<Channel> showValue(
     ChannelsShowValueRequest request, {
     CancelToken? cancelToken,
@@ -154,6 +211,9 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/timeline
+  ///
+  /// Calls POST /api/channels/timeline.
   Future<List<Note>> timeline(
     ChannelsTimelineRequest request, {
     CancelToken? cancelToken,
@@ -167,6 +227,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/unfavorite
+  ///
+  /// Calls POST /api/channels/unfavorite.
+  ///
+  /// Authentication required.
   Future<void> unfavorite(
     ChannelsUnfavoriteRequest request, {
     CancelToken? cancelToken,
@@ -179,6 +244,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/unfollow
+  ///
+  /// Calls POST /api/channels/unfollow.
+  ///
+  /// Authentication required.
   Future<void> unfollow(
     ChannelsUnfollowRequest request, {
     CancelToken? cancelToken,
@@ -191,6 +261,11 @@ class RawChannelsApi {
     );
   }
 
+  /// channels/update
+  ///
+  /// Calls POST /api/channels/update.
+  ///
+  /// Authentication required.
   Future<Channel> update(
     ChannelsUpdateRequest request, {
     CancelToken? cancelToken,

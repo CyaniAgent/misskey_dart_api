@@ -11,9 +11,12 @@ import '../../models/json.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/users_models.dart';
 
+/// High-level endpoints for the `users` API group.
 class UsersApi {
+  /// Creates a high-level `users` API facade.
   UsersApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// email-address/available

@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'drive_models.dart';
 
+/// Raw generated endpoints for the `drive` API group.
 class RawDriveApi {
+  /// Creates a raw `drive` API facade.
   RawDriveApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// drive
+  ///
+  /// Calls POST /api/drive.
+  ///
+  /// Authentication required.
   Future<DriveGetResponse> get({CancelToken? cancelToken}) {
     return client.postModel<DriveGetResponse>(
       'drive',
@@ -23,6 +31,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files
+  ///
+  /// Calls POST /api/drive/files.
+  ///
+  /// Authentication required.
   Future<List<DriveFile>> files(
     DriveFilesRequest request, {
     CancelToken? cancelToken,
@@ -36,6 +49,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/attached-chat-messages
+  ///
+  /// Calls POST /api/drive/files/attached-chat-messages.
+  ///
+  /// Authentication required.
   Future<List<ChatMessage>> filesAttachedChatMessages(
     DriveFilesAttachedChatMessagesRequest request, {
     CancelToken? cancelToken,
@@ -49,6 +67,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/attached-notes
+  ///
+  /// Calls POST /api/drive/files/attached-notes.
+  ///
+  /// Authentication required.
   Future<List<Note>> filesAttachedNotes(
     DriveFilesAttachedNotesRequest request, {
     CancelToken? cancelToken,
@@ -62,6 +85,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/check-existence
+  ///
+  /// Calls POST /api/drive/files/check-existence.
+  ///
+  /// Authentication required.
   Future<bool> filesCheckExistence(
     DriveFilesCheckExistenceRequest request, {
     CancelToken? cancelToken,
@@ -75,6 +103,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/create
+  ///
+  /// Calls POST /api/drive/files/create.
+  ///
+  /// Authentication required.
   Future<DriveFile> filesCreate(
     DriveFilesCreateRequest request, {
     CancelToken? cancelToken,
@@ -105,6 +138,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/delete
+  ///
+  /// Calls POST /api/drive/files/delete.
+  ///
+  /// Authentication required.
   Future<void> filesDelete(
     DriveFilesDeleteRequest request, {
     CancelToken? cancelToken,
@@ -117,6 +155,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/find
+  ///
+  /// Calls POST /api/drive/files/find.
+  ///
+  /// Authentication required.
   Future<List<DriveFile>> filesFind(
     DriveFilesFindRequest request, {
     CancelToken? cancelToken,
@@ -130,6 +173,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/find-by-hash
+  ///
+  /// Calls POST /api/drive/files/find-by-hash.
+  ///
+  /// Authentication required.
   Future<List<DriveFile>> filesFindByHash(
     DriveFilesFindByHashRequest request, {
     CancelToken? cancelToken,
@@ -143,6 +191,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/move-bulk
+  ///
+  /// Calls POST /api/drive/files/move-bulk.
+  ///
+  /// Authentication required.
   Future<void> filesMoveBulk(
     DriveFilesMoveBulkRequest request, {
     CancelToken? cancelToken,
@@ -155,6 +208,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/show
+  ///
+  /// Calls POST /api/drive/files/show.
+  ///
+  /// Authentication required.
   Future<DriveFile> filesShow(
     DriveFilesShowRequest request, {
     CancelToken? cancelToken,
@@ -168,6 +226,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/update
+  ///
+  /// Calls POST /api/drive/files/update.
+  ///
+  /// Authentication required.
   Future<DriveFile> filesUpdate(
     DriveFilesUpdateRequest request, {
     CancelToken? cancelToken,
@@ -181,6 +244,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/files/upload-from-url
+  ///
+  /// Calls POST /api/drive/files/upload-from-url.
+  ///
+  /// Authentication required.
   Future<void> filesUploadFromUrl(
     DriveFilesUploadFromUrlRequest request, {
     CancelToken? cancelToken,
@@ -193,6 +261,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/folders
+  ///
+  /// Calls POST /api/drive/folders.
+  ///
+  /// Authentication required.
   Future<List<DriveFolder>> folders(
     DriveFoldersRequest request, {
     CancelToken? cancelToken,
@@ -206,6 +279,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/folders/create
+  ///
+  /// Calls POST /api/drive/folders/create.
+  ///
+  /// Authentication required.
   Future<DriveFolder> foldersCreate(
     DriveFoldersCreateRequest request, {
     CancelToken? cancelToken,
@@ -219,6 +297,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/folders/delete
+  ///
+  /// Calls POST /api/drive/folders/delete.
+  ///
+  /// Authentication required.
   Future<void> foldersDelete(
     DriveFoldersDeleteRequest request, {
     CancelToken? cancelToken,
@@ -231,6 +314,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/folders/find
+  ///
+  /// Calls POST /api/drive/folders/find.
+  ///
+  /// Authentication required.
   Future<List<DriveFolder>> foldersFind(
     DriveFoldersFindRequest request, {
     CancelToken? cancelToken,
@@ -244,6 +332,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/folders/show
+  ///
+  /// Calls POST /api/drive/folders/show.
+  ///
+  /// Authentication required.
   Future<DriveFolder> foldersShow(
     DriveFoldersShowRequest request, {
     CancelToken? cancelToken,
@@ -257,6 +350,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/folders/update
+  ///
+  /// Calls POST /api/drive/folders/update.
+  ///
+  /// Authentication required.
   Future<DriveFolder> foldersUpdate(
     DriveFoldersUpdateRequest request, {
     CancelToken? cancelToken,
@@ -270,6 +368,11 @@ class RawDriveApi {
     );
   }
 
+  /// drive/stream
+  ///
+  /// Calls POST /api/drive/stream.
+  ///
+  /// Authentication required.
   Future<List<DriveFile>> stream(
     DriveStreamRequest request, {
     CancelToken? cancelToken,

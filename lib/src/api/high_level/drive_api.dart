@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/drive_models.dart';
 
+/// High-level endpoints for the `drive` API group.
 class DriveApi {
+  /// Creates a high-level `drive` API facade.
   DriveApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// drive

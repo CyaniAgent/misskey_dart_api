@@ -49,6 +49,7 @@ class MisskeyApiException implements Exception {
 
 /// An authentication or token-resolution failure.
 class MisskeyAuthenticationException extends MisskeyApiException {
+  /// Creates an authentication failure.
   MisskeyAuthenticationException(
     super.message, {
     super.uri,

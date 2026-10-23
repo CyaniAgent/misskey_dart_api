@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'clips_models.dart';
 
+/// Raw generated endpoints for the `clips` API group.
 class RawClipsApi {
+  /// Creates a raw `clips` API facade.
   RawClipsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// clips/add-note
+  ///
+  /// Calls POST /api/clips/add-note.
+  ///
+  /// Authentication required.
   Future<void> addNote(
     ClipsAddNoteRequest request, {
     CancelToken? cancelToken,
@@ -26,6 +34,11 @@ class RawClipsApi {
     );
   }
 
+  /// clips/create
+  ///
+  /// Calls POST /api/clips/create.
+  ///
+  /// Authentication required.
   Future<Clip> create(ClipsCreateRequest request, {CancelToken? cancelToken}) {
     return client.postModel<Clip>(
       'clips/create',
@@ -36,6 +49,11 @@ class RawClipsApi {
     );
   }
 
+  /// clips/delete
+  ///
+  /// Calls POST /api/clips/delete.
+  ///
+  /// Authentication required.
   Future<void> delete(ClipsDeleteRequest request, {CancelToken? cancelToken}) {
     return client.postVoid(
       'clips/delete',
@@ -45,6 +63,11 @@ class RawClipsApi {
     );
   }
 
+  /// clips/favorite
+  ///
+  /// Calls POST /api/clips/favorite.
+  ///
+  /// Authentication required.
   Future<void> favorite(
     ClipsFavoriteRequest request, {
     CancelToken? cancelToken,
@@ -57,6 +80,11 @@ class RawClipsApi {
     );
   }
 
+  /// clips/list
+  ///
+  /// Calls POST /api/clips/list.
+  ///
+  /// Authentication required.
   Future<List<Clip>> list(
     ClipsListRequest request, {
     CancelToken? cancelToken,
@@ -70,6 +98,11 @@ class RawClipsApi {
     );
   }
 
+  /// clips/my-favorites
+  ///
+  /// Calls POST /api/clips/my-favorites.
+  ///
+  /// Authentication required.
   Future<List<Clip>> myFavorites({CancelToken? cancelToken}) {
     return client.postList<Clip>(
       'clips/my-favorites',
@@ -79,6 +112,9 @@ class RawClipsApi {
     );
   }
 
+  /// clips/notes
+  ///
+  /// Calls POST /api/clips/notes.
   Future<List<Note>> notes(
     ClipsNotesRequest request, {
     CancelToken? cancelToken,
@@ -92,6 +128,11 @@ class RawClipsApi {
     );
   }
 
+  /// clips/remove-note
+  ///
+  /// Calls POST /api/clips/remove-note.
+  ///
+  /// Authentication required.
   Future<void> removeNote(
     ClipsRemoveNoteRequest request, {
     CancelToken? cancelToken,
@@ -104,6 +145,9 @@ class RawClipsApi {
     );
   }
 
+  /// clips/show
+  ///
+  /// Calls POST /api/clips/show.
   Future<Clip> showValue(
     ClipsShowValueRequest request, {
     CancelToken? cancelToken,
@@ -117,6 +161,11 @@ class RawClipsApi {
     );
   }
 
+  /// clips/unfavorite
+  ///
+  /// Calls POST /api/clips/unfavorite.
+  ///
+  /// Authentication required.
   Future<void> unfavorite(
     ClipsUnfavoriteRequest request, {
     CancelToken? cancelToken,
@@ -129,6 +178,11 @@ class RawClipsApi {
     );
   }
 
+  /// clips/update
+  ///
+  /// Calls POST /api/clips/update.
+  ///
+  /// Authentication required.
   Future<Clip> update(ClipsUpdateRequest request, {CancelToken? cancelToken}) {
     return client.postModel<Clip>(
       'clips/update',

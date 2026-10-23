@@ -7,9 +7,12 @@ import 'package:dio/dio.dart';
 import '../../client.dart';
 import '../generated/notifications_models.dart';
 
+/// High-level endpoints for the `notifications` API group.
 class NotificationsApi {
+  /// Creates a high-level `notifications` API facade.
   NotificationsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// notifications/create

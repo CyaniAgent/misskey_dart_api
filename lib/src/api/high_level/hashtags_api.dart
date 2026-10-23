@@ -9,9 +9,12 @@ import '../../config.dart';
 import '../../models/generated/generated.dart';
 import '../generated/hashtags_models.dart';
 
+/// High-level endpoints for the `hashtags` API group.
 class HashtagsApi {
+  /// Creates a high-level `hashtags` API facade.
   HashtagsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// hashtags/list

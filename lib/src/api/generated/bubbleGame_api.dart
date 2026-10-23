@@ -10,11 +10,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'bubbleGame_models.dart';
 
+/// Raw generated endpoints for the `bubbleGame` API group.
 class RawBubbleGameApi {
+  /// Creates a raw `bubbleGame` API facade.
   RawBubbleGameApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// bubble-game/ranking
+  ///
+  /// Calls POST /api/bubble-game/ranking.
   Future<List<BubbleGameRankingResponseItem>> ranking(
     BubbleGameRankingRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -30,6 +36,11 @@ class RawBubbleGameApi {
     );
   }
 
+  /// bubble-game/register
+  ///
+  /// Calls POST /api/bubble-game/register.
+  ///
+  /// Authentication required.
   Future<void> register(
     BubbleGameRegisterRequest request, {
     CancelToken? cancelToken,

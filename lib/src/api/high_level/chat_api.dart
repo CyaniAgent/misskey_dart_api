@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/chat_models.dart';
 
+/// High-level endpoints for the `chat` API group.
 class ChatApi {
+  /// Creates a high-level `chat` API facade.
   ChatApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// chat/history

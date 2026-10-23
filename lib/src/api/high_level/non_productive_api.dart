@@ -7,9 +7,12 @@ import 'package:dio/dio.dart';
 import '../../client.dart';
 import '../generated/nonProductive_models.dart';
 
+/// High-level endpoints for the `nonProductive` API group.
 class NonProductiveApi {
+  /// Creates a high-level `nonProductive` API facade.
   NonProductiveApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// reset-db

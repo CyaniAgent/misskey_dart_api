@@ -10,11 +10,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'hashtags_models.dart';
 
+/// Raw generated endpoints for the `hashtags` API group.
 class RawHashtagsApi {
+  /// Creates a raw `hashtags` API facade.
   RawHashtagsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// hashtags/list
+  ///
+  /// Calls POST /api/hashtags/list.
   Future<List<Hashtag>> list(
     HashtagsListRequest request, {
     CancelToken? cancelToken,
@@ -28,6 +34,9 @@ class RawHashtagsApi {
     );
   }
 
+  /// hashtags/search
+  ///
+  /// Calls POST /api/hashtags/search.
   Future<List<String>> search(
     HashtagsSearchRequest request, {
     CancelToken? cancelToken,
@@ -41,6 +50,9 @@ class RawHashtagsApi {
     );
   }
 
+  /// hashtags/show
+  ///
+  /// Calls POST /api/hashtags/show.
   Future<Hashtag> showValue(
     HashtagsShowValueRequest request, {
     CancelToken? cancelToken,
@@ -54,6 +66,9 @@ class RawHashtagsApi {
     );
   }
 
+  /// hashtags/trend
+  ///
+  /// Calls POST /api/hashtags/trend.
   Future<List<HashtagsTrendResponseItem>> trend({
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
@@ -67,6 +82,9 @@ class RawHashtagsApi {
     );
   }
 
+  /// hashtags/users
+  ///
+  /// Calls POST /api/hashtags/users.
   Future<List<UserDetailed>> users(
     HashtagsUsersRequest request, {
     CancelToken? cancelToken,

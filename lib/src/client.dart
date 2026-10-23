@@ -98,35 +98,94 @@ class MisskeyClient {
   final Uri _baseUri;
   final Dio _dio;
 
+  /// Account and current-user endpoints.
   late final AccountApi account;
+
+  /// Announcement endpoints.
   late final AnnouncementsApi announcements;
+
+  /// Antenna endpoints.
   late final AntennasApi antennas;
+
+  /// Application endpoints.
   late final AppApi app;
+
+  /// Authentication endpoints.
   late final AuthApi auth;
+
+  /// Blocking endpoints.
   late final BlockingApi blocking;
+
+  /// Bubble game endpoints.
   late final BubbleGameApi bubbleGame;
+
+  /// Channel endpoints.
   late final ChannelsApi channels;
+
+  /// Chart endpoints.
   late final ChartsApi charts;
+
+  /// Chat endpoints.
   late final ChatApi chat;
+
+  /// Clip endpoints.
   late final ClipsApi clips;
+
+  /// Drive endpoints.
   late final DriveApi drive;
+
+  /// Custom emoji endpoints.
   late final EmojiApi emoji;
+
+  /// Federation endpoints.
   late final FederationApi federation;
+
+  /// Flash endpoints.
   late final FlashApi flash;
+
+  /// Following endpoints.
   late final FollowingApi following;
+
+  /// Gallery endpoints.
   late final GalleryApi gallery;
+
+  /// Hashtag endpoints.
   late final HashtagsApi hashtags;
+
+  /// Invite endpoints.
   late final InviteApi invite;
+
+  /// Instance metadata endpoints.
   late final MetaApi meta;
+
+  /// Mute endpoints.
   late final MuteApi mute;
+
+  /// Non-production utility endpoints.
   late final NonProductiveApi nonProductive;
+
+  /// Note endpoints.
   late final NotesApi notes;
+
+  /// Notification endpoints.
   late final NotificationsApi notifications;
+
+  /// Page endpoints.
   late final PagesApi pages;
+
+  /// Renote-mute endpoints.
   late final RenoteMuteApi renoteMute;
+
+  /// Reversi endpoints.
   late final ReversiApi reversi;
+
+  /// Role endpoints.
   late final RolesApi roles;
+
+  /// User endpoints.
   late final UsersApi users;
+
+  /// MiAuth URL generation and token checks.
   late final MiAuth miAuth;
   MisskeyRawClient? _raw;
   MisskeyStreamingClient? _streaming;
@@ -134,6 +193,7 @@ class MisskeyClient {
   /// The complete generated API, including admin endpoints.
   MisskeyRawClient get raw => _raw ??= MisskeyRawClient(this);
 
+  /// The WebSocket streaming client.
   MisskeyStreamingClient get streaming => _streaming ??= MisskeyStreamingClient(
     baseUri: _baseUri,
     tokenProvider: _tokenProvider,

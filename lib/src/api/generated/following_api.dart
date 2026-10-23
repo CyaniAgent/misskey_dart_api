@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'following_models.dart';
 
+/// Raw generated endpoints for the `following` API group.
 class RawFollowingApi {
+  /// Creates a raw `following` API facade.
   RawFollowingApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// following/create
+  ///
+  /// Calls POST /api/following/create.
+  ///
+  /// Authentication required.
   Future<UserLite> create(
     FollowingCreateRequest request, {
     CancelToken? cancelToken,
@@ -27,6 +35,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/delete
+  ///
+  /// Calls POST /api/following/delete.
+  ///
+  /// Authentication required.
   Future<UserLite> delete(
     FollowingDeleteRequest request, {
     CancelToken? cancelToken,
@@ -40,6 +53,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/invalidate
+  ///
+  /// Calls POST /api/following/invalidate.
+  ///
+  /// Authentication required.
   Future<UserLite> invalidate(
     FollowingInvalidateRequest request, {
     CancelToken? cancelToken,
@@ -53,6 +71,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/list
+  ///
+  /// Calls POST /api/following/list.
+  ///
+  /// Authentication required.
   Future<List<Following>> list(
     FollowingListRequest request, {
     CancelToken? cancelToken,
@@ -66,6 +89,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/requests/accept
+  ///
+  /// Calls POST /api/following/requests/accept.
+  ///
+  /// Authentication required.
   Future<void> requestsAccept(
     FollowingRequestsAcceptRequest request, {
     CancelToken? cancelToken,
@@ -78,6 +106,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/requests/cancel
+  ///
+  /// Calls POST /api/following/requests/cancel.
+  ///
+  /// Authentication required.
   Future<UserLite> requestsCancel(
     FollowingRequestsCancelRequest request, {
     CancelToken? cancelToken,
@@ -91,6 +124,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/requests/list
+  ///
+  /// Calls POST /api/following/requests/list.
+  ///
+  /// Authentication required.
   Future<List<FollowingRequestsListResponseItem>> requestsList(
     FollowingRequestsListRequest request, {
     CancelToken? cancelToken,
@@ -104,6 +142,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/requests/reject
+  ///
+  /// Calls POST /api/following/requests/reject.
+  ///
+  /// Authentication required.
   Future<void> requestsReject(
     FollowingRequestsRejectRequest request, {
     CancelToken? cancelToken,
@@ -116,6 +159,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/requests/sent
+  ///
+  /// Calls POST /api/following/requests/sent.
+  ///
+  /// Authentication required.
   Future<List<FollowingRequestsSentResponseItem>> requestsSent(
     FollowingRequestsSentRequest request, {
     CancelToken? cancelToken,
@@ -129,6 +177,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/update
+  ///
+  /// Calls POST /api/following/update.
+  ///
+  /// Authentication required.
   Future<UserLite> update(
     FollowingUpdateRequest request, {
     CancelToken? cancelToken,
@@ -142,6 +195,11 @@ class RawFollowingApi {
     );
   }
 
+  /// following/update-all
+  ///
+  /// Calls POST /api/following/update-all.
+  ///
+  /// Authentication required.
   Future<void> updateAll(
     FollowingUpdateAllRequest request, {
     CancelToken? cancelToken,

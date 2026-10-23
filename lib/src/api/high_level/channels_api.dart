@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/channels_models.dart';
 
+/// High-level endpoints for the `channels` API group.
 class ChannelsApi {
+  /// Creates a high-level `channels` API facade.
   ChannelsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// channels/create

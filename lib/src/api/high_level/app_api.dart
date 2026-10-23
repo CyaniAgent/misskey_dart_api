@@ -8,9 +8,12 @@ import '../../client.dart';
 import '../../models/generated/generated.dart';
 import '../generated/app_models.dart';
 
+/// High-level endpoints for the `app` API group.
 class AppApi {
+  /// Creates a high-level `app` API facade.
   AppApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// app/create

@@ -9,11 +9,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'nonProductive_models.dart';
 
+/// Raw generated endpoints for the `nonProductive` API group.
 class RawNonProductiveApi {
+  /// Creates a raw `nonProductive` API facade.
   RawNonProductiveApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// reset-db
+  ///
+  /// Calls POST /api/reset-db.
   Future<void> resetDb({CancelToken? cancelToken}) {
     return client.postVoid(
       'reset-db',
@@ -22,6 +28,9 @@ class RawNonProductiveApi {
     );
   }
 
+  /// test
+  ///
+  /// Calls POST /api/test.
   Future<NonProductiveTestResponse> test(
     NonProductiveTestRequest request, {
     CancelToken? cancelToken,

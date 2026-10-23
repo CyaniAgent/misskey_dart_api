@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/reversi_models.dart';
 
+/// High-level endpoints for the `reversi` API group.
 class ReversiApi {
+  /// Creates a high-level `reversi` API facade.
   ReversiApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// reversi/cancel-match

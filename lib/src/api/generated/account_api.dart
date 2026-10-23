@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'account_models.dart';
 
+/// Raw generated endpoints for the `account` API group.
 class RawAccountApi {
+  /// Creates a raw `account` API facade.
   RawAccountApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// i/2fa/done
+  ///
+  /// Calls POST /api/i/2fa/done.
+  ///
+  /// Authentication required.
   Future<AccountTwoFactorDoneResponse> twoFactorDone(
     AccountTwoFactorDoneRequest request, {
     CancelToken? cancelToken,
@@ -27,6 +35,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/2fa/key-done
+  ///
+  /// Calls POST /api/i/2fa/key-done.
+  ///
+  /// Authentication required.
   Future<AccountTwoFactorKeyDoneResponse> twoFactorKeyDone(
     AccountTwoFactorKeyDoneRequest request, {
     CancelToken? cancelToken,
@@ -40,6 +53,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/2fa/password-less
+  ///
+  /// Calls POST /api/i/2fa/password-less.
+  ///
+  /// Authentication required.
   Future<void> twoFactorPasswordLess(
     AccountTwoFactorPasswordLessRequest request, {
     CancelToken? cancelToken,
@@ -52,6 +70,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/2fa/register
+  ///
+  /// Calls POST /api/i/2fa/register.
+  ///
+  /// Authentication required.
   Future<AccountTwoFactorRegisterResponse> twoFactorRegister(
     AccountTwoFactorRegisterRequest request, {
     CancelToken? cancelToken,
@@ -65,6 +88,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/2fa/register-key
+  ///
+  /// Calls POST /api/i/2fa/register-key.
+  ///
+  /// Authentication required.
   Future<JsonMap> twoFactorRegisterKey(
     AccountTwoFactorRegisterKeyRequest request, {
     CancelToken? cancelToken,
@@ -77,6 +105,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/2fa/remove-key
+  ///
+  /// Calls POST /api/i/2fa/remove-key.
+  ///
+  /// Authentication required.
   Future<void> twoFactorRemoveKey(
     AccountTwoFactorRemoveKeyRequest request, {
     CancelToken? cancelToken,
@@ -89,6 +122,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/2fa/unregister
+  ///
+  /// Calls POST /api/i/2fa/unregister.
+  ///
+  /// Authentication required.
   Future<void> twoFactorUnregister(
     AccountTwoFactorUnregisterRequest request, {
     CancelToken? cancelToken,
@@ -101,6 +139,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/2fa/update-key
+  ///
+  /// Calls POST /api/i/2fa/update-key.
+  ///
+  /// Authentication required.
   Future<void> twoFactorUpdateKey(
     AccountTwoFactorUpdateKeyRequest request, {
     CancelToken? cancelToken,
@@ -113,6 +156,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/apps
+  ///
+  /// Calls POST /api/i/apps.
+  ///
+  /// Authentication required.
   Future<List<AccountAppsResponseItem>> apps(
     AccountAppsRequest request, {
     CancelToken? cancelToken,
@@ -126,6 +174,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/authorized-apps
+  ///
+  /// Calls POST /api/i/authorized-apps.
+  ///
+  /// Authentication required.
   Future<List<AccountAuthorizedAppsResponseItem>> authorizedApps(
     AccountAuthorizedAppsRequest request, {
     CancelToken? cancelToken,
@@ -139,6 +192,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/change-password
+  ///
+  /// Calls POST /api/i/change-password.
+  ///
+  /// Authentication required.
   Future<void> changePassword(
     AccountChangePasswordRequest request, {
     CancelToken? cancelToken,
@@ -151,6 +209,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/claim-achievement
+  ///
+  /// Calls POST /api/i/claim-achievement.
+  ///
+  /// Authentication required.
   Future<void> claimAchievement(
     AccountClaimAchievementRequest request, {
     CancelToken? cancelToken,
@@ -163,6 +226,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/delete-account
+  ///
+  /// Calls POST /api/i/delete-account.
+  ///
+  /// Authentication required.
   Future<void> deleteAccount(
     AccountDeleteAccountRequest request, {
     CancelToken? cancelToken,
@@ -175,6 +243,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/export-antennas
+  ///
+  /// Calls POST /api/i/export-antennas.
+  ///
+  /// Authentication required.
   Future<void> exportAntennas({CancelToken? cancelToken}) {
     return client.postVoid(
       'i/export-antennas',
@@ -183,6 +256,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/export-blocking
+  ///
+  /// Calls POST /api/i/export-blocking.
+  ///
+  /// Authentication required.
   Future<void> exportBlocking({CancelToken? cancelToken}) {
     return client.postVoid(
       'i/export-blocking',
@@ -191,6 +269,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/export-clips
+  ///
+  /// Calls POST /api/i/export-clips.
+  ///
+  /// Authentication required.
   Future<void> exportClips({CancelToken? cancelToken}) {
     return client.postVoid(
       'i/export-clips',
@@ -199,6 +282,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/export-favorites
+  ///
+  /// Calls POST /api/i/export-favorites.
+  ///
+  /// Authentication required.
   Future<void> exportFavorites({CancelToken? cancelToken}) {
     return client.postVoid(
       'i/export-favorites',
@@ -207,6 +295,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/export-following
+  ///
+  /// Calls POST /api/i/export-following.
+  ///
+  /// Authentication required.
   Future<void> exportFollowing(
     AccountExportFollowingRequest request, {
     CancelToken? cancelToken,
@@ -219,6 +312,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/export-mute
+  ///
+  /// Calls POST /api/i/export-mute.
+  ///
+  /// Authentication required.
   Future<void> exportMute({CancelToken? cancelToken}) {
     return client.postVoid(
       'i/export-mute',
@@ -227,6 +325,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/export-notes
+  ///
+  /// Calls POST /api/i/export-notes.
+  ///
+  /// Authentication required.
   Future<void> exportNotes({CancelToken? cancelToken}) {
     return client.postVoid(
       'i/export-notes',
@@ -235,6 +338,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/export-user-lists
+  ///
+  /// Calls POST /api/i/export-user-lists.
+  ///
+  /// Authentication required.
   Future<void> exportUserLists({CancelToken? cancelToken}) {
     return client.postVoid(
       'i/export-user-lists',
@@ -243,6 +351,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/favorites
+  ///
+  /// Calls POST /api/i/favorites.
+  ///
+  /// Authentication required.
   Future<List<NoteFavorite>> favorites(
     AccountFavoritesRequest request, {
     CancelToken? cancelToken,
@@ -256,6 +369,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/gallery/likes
+  ///
+  /// Calls POST /api/i/gallery/likes.
+  ///
+  /// Authentication required.
   Future<List<AccountGalleryLikesResponseItem>> galleryLikes(
     AccountGalleryLikesRequest request, {
     CancelToken? cancelToken,
@@ -269,6 +387,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/gallery/posts
+  ///
+  /// Calls POST /api/i/gallery/posts.
+  ///
+  /// Authentication required.
   Future<List<GalleryPost>> galleryPosts(
     AccountGalleryPostsRequest request, {
     CancelToken? cancelToken,
@@ -282,6 +405,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/import-antennas
+  ///
+  /// Calls POST /api/i/import-antennas.
+  ///
+  /// Authentication required.
   Future<void> importAntennas(
     AccountImportAntennasRequest request, {
     CancelToken? cancelToken,
@@ -294,6 +422,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/import-blocking
+  ///
+  /// Calls POST /api/i/import-blocking.
+  ///
+  /// Authentication required.
   Future<void> importBlocking(
     AccountImportBlockingRequest request, {
     CancelToken? cancelToken,
@@ -306,6 +439,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/import-following
+  ///
+  /// Calls POST /api/i/import-following.
+  ///
+  /// Authentication required.
   Future<void> importFollowing(
     AccountImportFollowingRequest request, {
     CancelToken? cancelToken,
@@ -318,6 +456,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/import-muting
+  ///
+  /// Calls POST /api/i/import-muting.
+  ///
+  /// Authentication required.
   Future<void> importMuting(
     AccountImportMutingRequest request, {
     CancelToken? cancelToken,
@@ -330,6 +473,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/import-user-lists
+  ///
+  /// Calls POST /api/i/import-user-lists.
+  ///
+  /// Authentication required.
   Future<void> importUserLists(
     AccountImportUserListsRequest request, {
     CancelToken? cancelToken,
@@ -342,6 +490,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/move
+  ///
+  /// Calls POST /api/i/move.
+  ///
+  /// Authentication required.
   Future<JsonMap> move(AccountMoveRequest request, {CancelToken? cancelToken}) {
     return client.postMap(
       'i/move',
@@ -351,6 +504,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/notifications
+  ///
+  /// Calls POST /api/i/notifications.
+  ///
+  /// Authentication required.
   Future<List<Notification>> notifications(
     AccountNotificationsRequest request, {
     CancelToken? cancelToken,
@@ -364,6 +522,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/notifications-grouped
+  ///
+  /// Calls POST /api/i/notifications-grouped.
+  ///
+  /// Authentication required.
   Future<List<Notification>> notificationsGrouped(
     AccountNotificationsGroupedRequest request, {
     CancelToken? cancelToken,
@@ -377,6 +540,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/page-likes
+  ///
+  /// Calls POST /api/i/page-likes.
+  ///
+  /// Authentication required.
   Future<List<AccountPageLikesResponseItem>> pageLikes(
     AccountPageLikesRequest request, {
     CancelToken? cancelToken,
@@ -390,6 +558,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/pages
+  ///
+  /// Calls POST /api/i/pages.
+  ///
+  /// Authentication required.
   Future<List<Page>> pages(
     AccountPagesRequest request, {
     CancelToken? cancelToken,
@@ -403,6 +576,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/pin
+  ///
+  /// Calls POST /api/i/pin.
+  ///
+  /// Authentication required.
   Future<MeDetailed> pin(
     AccountPinRequest request, {
     CancelToken? cancelToken,
@@ -416,6 +594,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/read-announcement
+  ///
+  /// Calls POST /api/i/read-announcement.
+  ///
+  /// Authentication required.
   Future<void> readAnnouncement(
     AccountReadAnnouncementRequest request, {
     CancelToken? cancelToken,
@@ -428,6 +611,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/regenerate-token
+  ///
+  /// Calls POST /api/i/regenerate-token.
+  ///
+  /// Authentication required.
   Future<void> regenerateToken(
     AccountRegenerateTokenRequest request, {
     CancelToken? cancelToken,
@@ -440,6 +628,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/registry/get
+  ///
+  /// Calls POST /api/i/registry/get.
+  ///
+  /// Authentication required.
   Future<JsonMap> registryGet(
     AccountRegistryGetRequest request, {
     CancelToken? cancelToken,
@@ -452,6 +645,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/registry/get-all
+  ///
+  /// Calls POST /api/i/registry/get-all.
+  ///
+  /// Authentication required.
   Future<JsonMap> registryGetAll(
     AccountRegistryGetAllRequest request, {
     CancelToken? cancelToken,
@@ -464,6 +662,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/registry/get-detail
+  ///
+  /// Calls POST /api/i/registry/get-detail.
+  ///
+  /// Authentication required.
   Future<AccountRegistryGetDetailResponse> registryGetDetail(
     AccountRegistryGetDetailRequest request, {
     CancelToken? cancelToken,
@@ -477,6 +680,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/registry/keys
+  ///
+  /// Calls POST /api/i/registry/keys.
+  ///
+  /// Authentication required.
   Future<List<String>> registryKeys(
     AccountRegistryKeysRequest request, {
     CancelToken? cancelToken,
@@ -490,6 +698,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/registry/keys-with-type
+  ///
+  /// Calls POST /api/i/registry/keys-with-type.
+  ///
+  /// Authentication required.
   Future<JsonMap> registryKeysWithType(
     AccountRegistryKeysWithTypeRequest request, {
     CancelToken? cancelToken,
@@ -502,6 +715,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/registry/remove
+  ///
+  /// Calls POST /api/i/registry/remove.
+  ///
+  /// Authentication required.
   Future<void> registryRemove(
     AccountRegistryRemoveRequest request, {
     CancelToken? cancelToken,
@@ -514,6 +732,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/registry/scopes-with-domain
+  ///
+  /// Calls POST /api/i/registry/scopes-with-domain.
+  ///
+  /// Authentication required.
   Future<List<AccountRegistryScopesWithDomainResponseItem>>
   registryScopesWithDomain({CancelToken? cancelToken}) {
     return client.postList<AccountRegistryScopesWithDomainResponseItem>(
@@ -524,6 +747,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/registry/set
+  ///
+  /// Calls POST /api/i/registry/set.
+  ///
+  /// Authentication required.
   Future<void> registrySet(
     AccountRegistrySetRequest request, {
     CancelToken? cancelToken,
@@ -536,6 +764,9 @@ class RawAccountApi {
     );
   }
 
+  /// i/revoke-token
+  ///
+  /// Calls POST /api/i/revoke-token.
   Future<void> revokeToken(
     AccountRevokeTokenRequest request, {
     CancelToken? cancelToken,
@@ -548,6 +779,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/signin-history
+  ///
+  /// Calls POST /api/i/signin-history.
+  ///
+  /// Authentication required.
   Future<List<Signin>> signinHistory(
     AccountSigninHistoryRequest request, {
     CancelToken? cancelToken,
@@ -561,6 +797,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/unpin
+  ///
+  /// Calls POST /api/i/unpin.
+  ///
+  /// Authentication required.
   Future<MeDetailed> unpin(
     AccountUnpinRequest request, {
     CancelToken? cancelToken,
@@ -574,6 +815,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/update
+  ///
+  /// Calls POST /api/i/update.
+  ///
+  /// Authentication required.
   Future<MeDetailed> update(
     AccountUpdateRequest request, {
     CancelToken? cancelToken,
@@ -587,6 +833,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/update-email
+  ///
+  /// Calls POST /api/i/update-email.
+  ///
+  /// Authentication required.
   Future<MeDetailed> updateEmail(
     AccountUpdateEmailRequest request, {
     CancelToken? cancelToken,
@@ -600,6 +851,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/webhooks/create
+  ///
+  /// Calls POST /api/i/webhooks/create.
+  ///
+  /// Authentication required.
   Future<AccountWebhooksCreateResponse> webhooksCreate(
     AccountWebhooksCreateRequest request, {
     CancelToken? cancelToken,
@@ -613,6 +869,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/webhooks/delete
+  ///
+  /// Calls POST /api/i/webhooks/delete.
+  ///
+  /// Authentication required.
   Future<void> webhooksDelete(
     AccountWebhooksDeleteRequest request, {
     CancelToken? cancelToken,
@@ -625,6 +886,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/webhooks/list
+  ///
+  /// Calls POST /api/i/webhooks/list.
+  ///
+  /// Authentication required.
   Future<List<UserWebhook>> webhooksList({CancelToken? cancelToken}) {
     return client.postList<UserWebhook>(
       'i/webhooks/list',
@@ -634,6 +900,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/webhooks/show
+  ///
+  /// Calls POST /api/i/webhooks/show.
+  ///
+  /// Authentication required.
   Future<UserWebhook> webhooksShow(
     AccountWebhooksShowRequest request, {
     CancelToken? cancelToken,
@@ -647,6 +918,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/webhooks/test
+  ///
+  /// Calls POST /api/i/webhooks/test.
+  ///
+  /// Authentication required.
   Future<void> webhooksTest(
     AccountWebhooksTestRequest request, {
     CancelToken? cancelToken,
@@ -659,6 +935,11 @@ class RawAccountApi {
     );
   }
 
+  /// i/webhooks/update
+  ///
+  /// Calls POST /api/i/webhooks/update.
+  ///
+  /// Authentication required.
   Future<void> webhooksUpdate(
     AccountWebhooksUpdateRequest request, {
     CancelToken? cancelToken,
@@ -671,6 +952,11 @@ class RawAccountApi {
     );
   }
 
+  /// my/apps
+  ///
+  /// Calls POST /api/my/apps.
+  ///
+  /// Authentication required.
   Future<List<App>> myApps(
     AccountMyAppsRequest request, {
     CancelToken? cancelToken,
@@ -684,6 +970,11 @@ class RawAccountApi {
     );
   }
 
+  /// sw/register
+  ///
+  /// Calls POST /api/sw/register.
+  ///
+  /// Authentication required.
   Future<AccountSwRegisterResponse> swRegister(
     AccountSwRegisterRequest request, {
     CancelToken? cancelToken,
@@ -697,6 +988,11 @@ class RawAccountApi {
     );
   }
 
+  /// sw/show-registration
+  ///
+  /// Calls POST /api/sw/show-registration.
+  ///
+  /// Authentication required.
   Future<AccountSwShowRegistrationResponse?> swShowRegistration(
     AccountSwShowRegistrationRequest request, {
     CancelToken? cancelToken,
@@ -710,6 +1006,9 @@ class RawAccountApi {
     );
   }
 
+  /// sw/unregister
+  ///
+  /// Calls POST /api/sw/unregister.
   Future<void> swUnregister(
     AccountSwUnregisterRequest request, {
     CancelToken? cancelToken,
@@ -722,6 +1021,11 @@ class RawAccountApi {
     );
   }
 
+  /// sw/update-registration
+  ///
+  /// Calls POST /api/sw/update-registration.
+  ///
+  /// Authentication required.
   Future<AccountSwUpdateRegistrationResponse> swUpdateRegistration(
     AccountSwUpdateRegistrationRequest request, {
     CancelToken? cancelToken,
@@ -735,6 +1039,9 @@ class RawAccountApi {
     );
   }
 
+  /// verify-email
+  ///
+  /// Calls POST /api/verify-email.
   Future<void> verifyEmail(
     AccountVerifyEmailRequest request, {
     CancelToken? cancelToken,

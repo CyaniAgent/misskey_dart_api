@@ -187,6 +187,26 @@ The streaming token is resolved when the connection opens. Changing the token
 source does not mutate an active stream; close it and create a new streaming
 client (or a new `MisskeyClient`) after changing credentials.
 
+## Regenerating the API
+
+The generated client is committed. The pinned Misskey OpenAPI document is not
+distributed; use Misskey OpenAPI **2026.9.0** with SHA-256
+`c5e9547bd553c7a63a16c912410e791f20e2b393feecab14165f3ddd31af6ebf`.
+
+```powershell
+dart run tool/generate_api.dart --spec <path-to-misskey_api_2026.9.0.json>
+dart run build_runner build
+dart run tool/generate_api.dart --spec <path-to-misskey_api_2026.9.0.json> --check
+dart format .
+dart analyze
+dart test
+```
+
+`--check` exits non-zero when generated files are stale. CI analyzes and tests
+the committed output, but the spec is intentionally not committed, so the
+generator check must be run locally with the pinned spec. Do not hand-edit files
+under `lib/src/api/generated/` or `lib/src/api/high_level/`.
+
 ## Current API
 
 - High-level flat methods for every non-admin group, exposed as `client.notes`,

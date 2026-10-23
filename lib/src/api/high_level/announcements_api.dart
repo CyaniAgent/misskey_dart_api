@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/announcements_models.dart';
 
+/// High-level endpoints for the `announcements` API group.
 class AnnouncementsApi {
+  /// Creates a high-level `announcements` API facade.
   AnnouncementsApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// announcements

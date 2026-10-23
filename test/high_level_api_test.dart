@@ -68,15 +68,18 @@ void main() {
         addTearDown(client.close);
 
         final byId = await client.users.showByUserId(userId: 'user-1');
-        expect((byId as MeDetailed).id, 'user-1');
+        expect(byId.id, 'user-1');
+        expect(byId.username, 'alice');
         expect(adapter.requests.last.data, containsPair('userId', 'user-1'));
 
         final byName = await client.users.showByUsername(username: 'alice');
-        expect((byName as MeDetailed).id, 'user-1');
+        expect(byName.id, 'user-1');
+        expect(byName.username, 'alice');
         expect(adapter.requests.last.data, containsPair('username', 'alice'));
 
         final byIds = await client.users.showByUserIds(userIds: ['a', 'b']);
-        expect((byIds.single as MeDetailed).id, 'user-1');
+        expect(byIds.single.id, 'user-1');
+        expect(byIds.single.username, 'alice');
         expect(adapter.requests.last.data, containsPair('userIds', ['a', 'b']));
       },
     );

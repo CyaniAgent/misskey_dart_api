@@ -8,9 +8,12 @@ import '../../client.dart';
 import '../../config.dart';
 import '../generated/meta_models.dart';
 
+/// High-level endpoints for the `meta` API group.
 class MetaApi {
+  /// Creates a high-level `meta` API facade.
   MetaApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// endpoint

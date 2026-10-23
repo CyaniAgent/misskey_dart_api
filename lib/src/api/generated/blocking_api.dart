@@ -9,11 +9,19 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'blocking_models.dart';
 
+/// Raw generated endpoints for the `blocking` API group.
 class RawBlockingApi {
+  /// Creates a raw `blocking` API facade.
   RawBlockingApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// blocking/create
+  ///
+  /// Calls POST /api/blocking/create.
+  ///
+  /// Authentication required.
   Future<UserDetailedNotMe> create(
     BlockingCreateRequest request, {
     CancelToken? cancelToken,
@@ -27,6 +35,11 @@ class RawBlockingApi {
     );
   }
 
+  /// blocking/delete
+  ///
+  /// Calls POST /api/blocking/delete.
+  ///
+  /// Authentication required.
   Future<UserDetailedNotMe> delete(
     BlockingDeleteRequest request, {
     CancelToken? cancelToken,
@@ -40,6 +53,11 @@ class RawBlockingApi {
     );
   }
 
+  /// blocking/list
+  ///
+  /// Calls POST /api/blocking/list.
+  ///
+  /// Authentication required.
   Future<List<Blocking>> list(
     BlockingListRequest request, {
     CancelToken? cancelToken,

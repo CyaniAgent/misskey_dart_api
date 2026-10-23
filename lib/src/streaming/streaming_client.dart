@@ -12,7 +12,13 @@ import 'streaming_exceptions.dart';
 import 'streaming_transport.dart';
 import 'web_socket_transport.dart';
 
+/// A WebSocket client for Misskey's streaming API.
+///
+/// Tokens are resolved through [tokenProvider] when [connect] runs. A token
+/// change does not affect an active connection; close this client and create a
+/// new one to reconnect with new credentials.
 class MisskeyStreamingClient {
+  /// Creates a streaming client for [baseUri].
   MisskeyStreamingClient({
     required this.baseUri,
     this.tokenProvider,
@@ -21,10 +27,19 @@ class MisskeyStreamingClient {
     this.connector,
   }) : _events = StreamController<MisskeyStreamEvent>.broadcast();
 
+  /// The instance origin.
   final Uri baseUri;
+
+  /// Resolves the access token when a connection opens.
   final TokenProvider? tokenProvider;
+
+  /// How the token is sent; streaming uses the `i` query parameter.
   final MisskeyAuthMode authMode;
+
+  /// Whether plain HTTP is allowed for local development.
   final bool allowInsecureHttp;
+
+  /// Overrides the WebSocket transport, primarily for tests.
   final StreamingConnector? connector;
 
   final StreamController<MisskeyStreamEvent> _events;
@@ -36,8 +51,10 @@ class MisskeyStreamingClient {
   var _connected = false;
   var _closed = false;
 
+  /// Connection-level and raw streaming events.
   Stream<MisskeyStreamEvent> get events => _events.stream;
 
+  /// Opens the WebSocket connection if it is not open yet.
   Future<void> connect() {
     if (_closed) {
       throw StateError('The streaming client is closed.');
@@ -63,6 +80,7 @@ class MisskeyStreamingClient {
     }
   }
 
+  /// Connects if needed and subscribes to [channel].
   Future<Stream<StreamingChannelEvent<T>>> subscribe<T>(
     StreamingChannel<T> channel,
   ) async {
@@ -103,6 +121,7 @@ class MisskeyStreamingClient {
     return controller.stream;
   }
 
+  /// Subscribes to updates for [noteId].
   Future<void> subscribeNote(String noteId) async {
     await connect();
     _send(<String, dynamic>{
@@ -111,6 +130,7 @@ class MisskeyStreamingClient {
     });
   }
 
+  /// Stops updates for [noteId].
   Future<void> unsubscribeNote(String noteId) async {
     _send(<String, dynamic>{
       'type': 'unsubNote',
@@ -118,6 +138,7 @@ class MisskeyStreamingClient {
     });
   }
 
+  /// Closes subscriptions, the transport, and the event stream.
   Future<void> close() async {
     if (_closed) return;
     for (final subscription in _subscriptions.values.toList()) {

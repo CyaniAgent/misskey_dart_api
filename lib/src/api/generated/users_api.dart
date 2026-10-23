@@ -10,11 +10,17 @@ import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'users_models.dart';
 
+/// Raw generated endpoints for the `users` API group.
 class RawUsersApi {
+  /// Creates a raw `users` API facade.
   RawUsersApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
+  /// email-address/available
+  ///
+  /// Calls POST /api/email-address/available.
   Future<UsersEmailAddressAvailableResponse> emailAddressAvailable(
     UsersEmailAddressAvailableRequest request, {
     CancelToken? cancelToken,
@@ -28,6 +34,9 @@ class RawUsersApi {
     );
   }
 
+  /// get-avatar-decorations
+  ///
+  /// Calls POST /api/get-avatar-decorations.
   Future<List<UsersGetAvatarDecorationsResponseItem>> getAvatarDecorations({
     CancelToken? cancelToken,
   }) {
@@ -39,6 +48,9 @@ class RawUsersApi {
     );
   }
 
+  /// pinned-users
+  ///
+  /// Calls POST /api/pinned-users.
   Future<List<UserDetailed>> pinnedUsers({CancelToken? cancelToken}) {
     return client.postList<UserDetailed>(
       'pinned-users',
@@ -48,6 +60,9 @@ class RawUsersApi {
     );
   }
 
+  /// retention
+  ///
+  /// Calls POST /api/retention.
   Future<List<UsersRetentionResponseItem>> retention({
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
@@ -61,6 +76,9 @@ class RawUsersApi {
     );
   }
 
+  /// username/available
+  ///
+  /// Calls POST /api/username/available.
   Future<UsersUsernameAvailableResponse> usernameAvailable(
     UsersUsernameAvailableRequest request, {
     CancelToken? cancelToken,
@@ -74,6 +92,9 @@ class RawUsersApi {
     );
   }
 
+  /// users
+  ///
+  /// Calls POST /api/users.
   Future<List<UserDetailed>> get(
     UsersGetRequest request, {
     CancelToken? cancelToken,
@@ -87,6 +108,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/achievements
+  ///
+  /// Calls POST /api/users/achievements.
   Future<List<Achievement>> achievements(
     UsersAchievementsRequest request, {
     CancelToken? cancelToken,
@@ -100,6 +124,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/clips
+  ///
+  /// Calls POST /api/users/clips.
   Future<List<Clip>> clips(
     UsersClipsRequest request, {
     CancelToken? cancelToken,
@@ -113,6 +140,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/featured-notes
+  ///
+  /// Calls POST /api/users/featured-notes.
   Future<List<Note>> featuredNotes(
     UsersFeaturedNotesRequest request, {
     MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
@@ -128,6 +158,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/flashs
+  ///
+  /// Calls POST /api/users/flashs.
   Future<List<Flash>> flashs(
     UsersFlashsRequest request, {
     CancelToken? cancelToken,
@@ -141,6 +174,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/followers
+  ///
+  /// Calls POST /api/users/followers.
   Future<List<Following>> followers(
     UsersFollowersRequest request, {
     CancelToken? cancelToken,
@@ -154,6 +190,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/following
+  ///
+  /// Calls POST /api/users/following.
   Future<List<Following>> following(
     UsersFollowingRequest request, {
     CancelToken? cancelToken,
@@ -167,6 +206,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/gallery/posts
+  ///
+  /// Calls POST /api/users/gallery/posts.
   Future<List<GalleryPost>> galleryPosts(
     UsersGalleryPostsRequest request, {
     CancelToken? cancelToken,
@@ -180,6 +222,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/get-following-users-by-birthday
+  ///
+  /// Calls POST /api/users/get-following-users-by-birthday.
+  ///
+  /// Authentication required.
   Future<List<UsersGetFollowingUsersByBirthdayResponseItem>>
   getFollowingUsersByBirthday(
     UsersGetFollowingUsersByBirthdayRequest request, {
@@ -194,6 +241,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/get-frequently-replied-users
+  ///
+  /// Calls POST /api/users/get-frequently-replied-users.
   Future<List<UsersGetFrequentlyRepliedUsersResponseItem>>
   getFrequentlyRepliedUsers(
     UsersGetFrequentlyRepliedUsersRequest request, {
@@ -208,6 +258,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/create
+  ///
+  /// Calls POST /api/users/lists/create.
+  ///
+  /// Authentication required.
   Future<UserList> listsCreate(
     UsersListsCreateRequest request, {
     CancelToken? cancelToken,
@@ -221,6 +276,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/create-from-public
+  ///
+  /// Calls POST /api/users/lists/create-from-public.
+  ///
+  /// Authentication required.
   Future<UserList> listsCreateFromPublic(
     UsersListsCreateFromPublicRequest request, {
     CancelToken? cancelToken,
@@ -234,6 +294,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/delete
+  ///
+  /// Calls POST /api/users/lists/delete.
+  ///
+  /// Authentication required.
   Future<void> listsDelete(
     UsersListsDeleteRequest request, {
     CancelToken? cancelToken,
@@ -246,6 +311,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/favorite
+  ///
+  /// Calls POST /api/users/lists/favorite.
+  ///
+  /// Authentication required.
   Future<void> listsFavorite(
     UsersListsFavoriteRequest request, {
     CancelToken? cancelToken,
@@ -258,6 +328,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/get-memberships
+  ///
+  /// Calls POST /api/users/lists/get-memberships.
   Future<List<UsersListsGetMembershipsResponseItem>> listsGetMemberships(
     UsersListsGetMembershipsRequest request, {
     CancelToken? cancelToken,
@@ -271,6 +344,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/list
+  ///
+  /// Calls POST /api/users/lists/list.
   Future<List<UserList>> listsList(
     UsersListsListRequest request, {
     CancelToken? cancelToken,
@@ -284,6 +360,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/pull
+  ///
+  /// Calls POST /api/users/lists/pull.
+  ///
+  /// Authentication required.
   Future<void> listsPull(
     UsersListsPullRequest request, {
     CancelToken? cancelToken,
@@ -296,6 +377,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/push
+  ///
+  /// Calls POST /api/users/lists/push.
+  ///
+  /// Authentication required.
   Future<void> listsPush(
     UsersListsPushRequest request, {
     CancelToken? cancelToken,
@@ -308,6 +394,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/show
+  ///
+  /// Calls POST /api/users/lists/show.
   Future<UsersListsShowResponse> listsShow(
     UsersListsShowRequest request, {
     CancelToken? cancelToken,
@@ -321,6 +410,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/unfavorite
+  ///
+  /// Calls POST /api/users/lists/unfavorite.
+  ///
+  /// Authentication required.
   Future<void> listsUnfavorite(
     UsersListsUnfavoriteRequest request, {
     CancelToken? cancelToken,
@@ -333,6 +427,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/update
+  ///
+  /// Calls POST /api/users/lists/update.
+  ///
+  /// Authentication required.
   Future<UserList> listsUpdate(
     UsersListsUpdateRequest request, {
     CancelToken? cancelToken,
@@ -346,6 +445,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/lists/update-membership
+  ///
+  /// Calls POST /api/users/lists/update-membership.
+  ///
+  /// Authentication required.
   Future<void> listsUpdateMembership(
     UsersListsUpdateMembershipRequest request, {
     CancelToken? cancelToken,
@@ -358,6 +462,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/notes
+  ///
+  /// Calls POST /api/users/notes.
   Future<List<Note>> notes(
     UsersNotesRequest request, {
     CancelToken? cancelToken,
@@ -371,6 +478,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/pages
+  ///
+  /// Calls POST /api/users/pages.
   Future<List<Page>> pages(
     UsersPagesRequest request, {
     CancelToken? cancelToken,
@@ -384,6 +494,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/reactions
+  ///
+  /// Calls POST /api/users/reactions.
   Future<List<NoteReactionWithNote>> reactions(
     UsersReactionsRequest request, {
     CancelToken? cancelToken,
@@ -397,6 +510,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/recommendation
+  ///
+  /// Calls POST /api/users/recommendation.
+  ///
+  /// Authentication required.
   Future<List<UserDetailed>> recommendation(
     UsersRecommendationRequest request, {
     CancelToken? cancelToken,
@@ -410,6 +528,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/relation
+  ///
+  /// Calls POST /api/users/relation.
+  ///
+  /// Authentication required.
   Future<UsersRelationResponse> relation(
     UsersRelationRequest request, {
     CancelToken? cancelToken,
@@ -423,6 +546,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/report-abuse
+  ///
+  /// Calls POST /api/users/report-abuse.
+  ///
+  /// Authentication required.
   Future<void> reportAbuse(
     UsersReportAbuseRequest request, {
     CancelToken? cancelToken,
@@ -435,6 +563,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/search
+  ///
+  /// Calls POST /api/users/search.
   Future<List<User>> search(
     UsersSearchRequest request, {
     CancelToken? cancelToken,
@@ -448,6 +579,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/search-by-username-and-host
+  ///
+  /// Calls POST /api/users/search-by-username-and-host.
   Future<List<User>> searchByUsernameAndHost(
     UsersSearchByUsernameAndHostRequest request, {
     CancelToken? cancelToken,
@@ -461,6 +595,9 @@ class RawUsersApi {
     );
   }
 
+  /// users/show
+  ///
+  /// Calls POST /api/users/show.
   Future<UsersShowValueResponse> showValue(
     UsersShowValueRequest request, {
     CancelToken? cancelToken,
@@ -474,6 +611,11 @@ class RawUsersApi {
     );
   }
 
+  /// users/update-memo
+  ///
+  /// Calls POST /api/users/update-memo.
+  ///
+  /// Authentication required.
   Future<void> updateMemo(
     UsersUpdateMemoRequest request, {
     CancelToken? cancelToken,

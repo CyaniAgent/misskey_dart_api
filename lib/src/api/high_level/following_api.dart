@@ -9,9 +9,12 @@ import '../../models/generated/generated.dart';
 import '../../pagination/cursor_page.dart';
 import '../generated/following_models.dart';
 
+/// High-level endpoints for the `following` API group.
 class FollowingApi {
+  /// Creates a high-level `following` API facade.
   FollowingApi(this.client);
 
+  /// The shared client used for transport and authentication.
   final MisskeyClient client;
 
   /// following/create

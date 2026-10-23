@@ -2,7 +2,9 @@
 
 // GENERATED CODE - DO NOT EDIT BY HAND.
 
+/// Metadata for one pinned Misskey endpoint.
 class EndpointManifest {
+  /// Creates endpoint metadata.
   const EndpointManifest({
     required this.path,
     required this.group,
@@ -16,18 +18,38 @@ class EndpointManifest {
     this.handWrittenMethod,
   });
 
+  /// The API path relative to `/api`.
   final String path;
+
+  /// The API group name.
   final String group;
+
+  /// The generated or hand-written method name.
   final String method;
+
+  /// Whether the endpoint requires authentication.
   final bool requiresAuth;
+
+  /// The generated request type, when present.
   final String? requestType;
+
+  /// The generated response type.
   final String responseType;
+
+  /// Whether the endpoint accepts multipart form data.
   final bool multipart;
+
+  /// Whether the endpoint supports an optional GET request.
   final bool supportsGet;
+
+  /// Whether a generated cursor page method is available.
   final bool supportsPagination;
+
+  /// The hand-written method path, when applicable.
   final String? handWrittenMethod;
 }
 
+/// All endpoints in the pinned OpenAPI document.
 const List<EndpointManifest> misskeyEndpoints = [
   EndpointManifest(
     path: '/admin/abuse-report/notification-recipient/create',
@@ -5287,6 +5309,7 @@ const List<EndpointManifest> misskeyEndpoints = [
   ),
 ];
 
+/// Component schema names in the pinned OpenAPI document.
 const List<String> misskeyComponentSchemas = [
   'UserLite',
   'UserDetailedNotMeOnly',
