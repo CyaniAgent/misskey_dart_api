@@ -1,0 +1,46 @@
+name: Publish to pub.dev
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.check.outputs.published }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read and verify version
+        id: version
+        run: |
+          VERSION=$(sed -n 's/^version:[[:space:]]*//p' pubspec.yaml | head -n1)
+          test -n "$VERSION"
+          test "v$VERSION" = "$GITHUB_REF_NAME"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+      - name: Check pub.dev for this version
+        id: check
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if curl -fsS "https://pub.dev/api/packages/misskey_dart_api" -o package.json; then
+            if python3 -c "import json, os; data = json.load(open('package.json')); raise SystemExit(0 if any(v['version'] == os.environ['VERSION'] for v in data['versions']) else 1)"; then
+              echo "published=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "published=false" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  publish:
+    needs: check
+    if: needs.check.outputs.published == 'false'
+    permissions:
+      contents: read
+      id-token: write
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1

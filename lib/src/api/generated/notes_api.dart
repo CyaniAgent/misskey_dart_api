@@ -5,6 +5,7 @@
 import 'package:dio/dio.dart';
 
 import '../../client.dart';
+import '../../config.dart';
 import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'notes_models.dart';
@@ -154,11 +155,13 @@ class NotesApi {
 
   Future<List<Note>> featured(
     NotesFeaturedRequest request, {
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) {
     return client.postList<Note>(
       'notes/featured',
       body: request.toJson(),
+      httpMethod: httpMethod,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );

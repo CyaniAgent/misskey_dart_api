@@ -11,6 +11,7 @@ class EndpointManifest {
     required this.requestType,
     required this.responseType,
     required this.multipart,
+    required this.supportsGet,
     this.handWrittenMethod,
   });
 
@@ -21,6 +22,7 @@ class EndpointManifest {
   final String? requestType;
   final String responseType;
   final bool multipart;
+  final bool supportsGet;
   final String? handWrittenMethod;
 }
 
@@ -33,6 +35,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAbuseReportNotificationRecipientCreateRequest',
     responseType: 'AbuseReportNotificationRecipient',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -43,6 +46,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAbuseReportNotificationRecipientDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -53,6 +57,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAbuseReportNotificationRecipientListRequest',
     responseType: 'List<AbuseReportNotificationRecipient>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -63,6 +68,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAbuseReportNotificationRecipientShowRequest',
     responseType: 'AbuseReportNotificationRecipient',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -73,6 +79,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAbuseReportNotificationRecipientUpdateRequest',
     responseType: 'AbuseReportNotificationRecipient',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -83,6 +90,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAbuseUserReportsRequest',
     responseType: 'List<AdminAbuseUserReportsResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -93,6 +101,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAccountsCreateRequest',
     responseType: 'AdminAccountsCreateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -103,6 +112,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAccountsDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -113,6 +123,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAccountsFindByEmailRequest',
     responseType: 'UserDetailedNotMe',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -123,6 +134,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAdCreateRequest',
     responseType: 'Ad',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -133,6 +145,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAdDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -143,6 +156,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAdListRequest',
     responseType: 'List<Ad>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -153,6 +167,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAdUpdateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -163,6 +178,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAnnouncementsCreateRequest',
     responseType: 'AdminAnnouncementsCreateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -173,6 +189,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAnnouncementsDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -183,6 +200,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAnnouncementsListRequest',
     responseType: 'List<AdminAnnouncementsListResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -193,6 +211,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAnnouncementsUpdateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -203,6 +222,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAvatarDecorationsCreateRequest',
     responseType: 'AdminAvatarDecorationsCreateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -213,6 +233,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAvatarDecorationsDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -223,6 +244,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAvatarDecorationsListRequest',
     responseType: 'List<AdminAvatarDecorationsListResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -233,6 +255,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminAvatarDecorationsUpdateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -243,6 +266,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'AdminCaptchaCurrentResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -253,6 +277,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminCaptchaSaveRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -263,6 +288,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminDeleteAccountRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -273,6 +299,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminDeleteAllFilesOfAUserRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -283,6 +310,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -293,6 +321,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -303,6 +332,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminDriveFilesRequest',
     responseType: 'List<DriveFile>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -313,6 +343,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminDriveShowFileRequest',
     responseType: 'AdminDriveShowFileResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -323,6 +354,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiAddRequest',
     responseType: 'EmojiDetailed',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -333,6 +365,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiAddAliasesBulkRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -343,6 +376,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiCopyRequest',
     responseType: 'AdminEmojiCopyResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -353,6 +387,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -363,6 +398,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiDeleteBulkRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -373,6 +409,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiImportZipRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -383,6 +420,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiListRequest',
     responseType: 'List<EmojiDetailed>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -393,6 +431,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiListRemoteRequest',
     responseType: 'List<EmojiDetailed>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -403,6 +442,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiRemoveAliasesBulkRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -413,6 +453,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiSetAliasesBulkRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -423,6 +464,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiSetCategoryBulkRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -433,6 +475,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiSetLicenseBulkRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -443,6 +486,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminEmojiUpdateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -453,6 +497,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminFederationDeleteAllFilesRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -463,6 +508,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminFederationRefreshRemoteInstanceMetadataRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -473,6 +519,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminFederationRemoveAllFollowingRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -483,6 +530,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminFederationUpdateInstanceRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -493,6 +541,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminForwardAbuseUserReportRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -503,6 +552,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<AdminGetIndexStatsResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -513,6 +563,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'JsonMap',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -523,6 +574,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminGetUserIpsRequest',
     responseType: 'List<AdminGetUserIpsResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -533,6 +585,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminInviteCreateRequest',
     responseType: 'List<InviteCode>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -543,6 +596,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminInviteListRequest',
     responseType: 'List<InviteCode>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -553,6 +607,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'AdminMetaResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -563,6 +618,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminPromoCreateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -573,6 +629,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueueClearRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -583,6 +640,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<List<Object>>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -593,6 +651,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<List<Object>>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -603,6 +662,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueueJobsRequest',
     responseType: 'List<QueueJob>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -613,6 +673,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueuePauseRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -623,6 +684,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueuePromoteJobsRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -633,6 +695,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueueQueueStatsRequest',
     responseType: 'AdminQueueQueueStatsResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -643,6 +706,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<AdminQueueQueuesResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -653,6 +717,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueueRemoveJobRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -663,6 +728,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueueResumeRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -673,6 +739,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueueRetryJobRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -683,6 +750,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueueShowJobRequest',
     responseType: 'QueueJob',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -693,6 +761,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminQueueShowJobLogsRequest',
     responseType: 'List<String>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -703,6 +772,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'AdminQueueStatsResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -713,6 +783,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRelaysAddRequest',
     responseType: 'AdminRelaysAddResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -723,6 +794,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<AdminRelaysListResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -733,6 +805,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRelaysRemoveRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -743,6 +816,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminResetPasswordRequest',
     responseType: 'AdminResetPasswordResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -753,6 +827,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminResolveAbuseUserReportRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -763,6 +838,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRolesAssignRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -773,6 +849,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRolesCreateRequest',
     responseType: 'Role',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -783,6 +860,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRolesDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -793,6 +871,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<Role>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -803,6 +882,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRolesShowRequest',
     responseType: 'Role',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -813,6 +893,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRolesUnassignRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -823,6 +904,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRolesUpdateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -833,6 +915,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRolesUpdateDefaultPoliciesRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -843,6 +926,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminRolesUsersRequest',
     responseType: 'List<AdminRolesUsersResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -853,6 +937,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminSendEmailRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -863,6 +948,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'AdminServerInfoResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -873,6 +959,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminShowModerationLogsRequest',
     responseType: 'List<AdminShowModerationLogsResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -883,6 +970,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminShowUserRequest',
     responseType: 'AdminShowUserResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -893,6 +981,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminShowUsersRequest',
     responseType: 'List<UserDetailed>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -903,6 +992,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminSuspendUserRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -913,6 +1003,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminSystemWebhookCreateRequest',
     responseType: 'SystemWebhook',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -923,6 +1014,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminSystemWebhookDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -933,6 +1025,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminSystemWebhookListRequest',
     responseType: 'List<SystemWebhook>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -943,6 +1036,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminSystemWebhookShowRequest',
     responseType: 'SystemWebhook',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -953,6 +1047,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminSystemWebhookTestRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -963,6 +1058,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminSystemWebhookUpdateRequest',
     responseType: 'SystemWebhook',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -973,6 +1069,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminUnsetMfaRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -983,6 +1080,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminUnsetUserAvatarRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -993,6 +1091,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminUnsetUserBannerRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1003,6 +1102,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminUnsuspendUserRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1013,6 +1113,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminUpdateAbuseUserReportRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1023,6 +1124,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminUpdateMetaRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1033,6 +1135,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminUpdateProxyAccountRequest',
     responseType: 'UserDetailed',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1043,6 +1146,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminUpdateUserNoteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1053,6 +1157,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AnnouncementsListRequest',
     responseType: 'List<Announcement>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1063,6 +1168,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AnnouncementsShowValueRequest',
     responseType: 'Announcement',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1073,6 +1179,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AntennasCreateRequest',
     responseType: 'Antenna',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1083,6 +1190,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AntennasDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1093,6 +1201,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<Antenna>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1103,6 +1212,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AntennasNotesRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1113,6 +1223,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AntennasRemoveNoteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1123,6 +1234,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AntennasShowValueRequest',
     responseType: 'Antenna',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1133,6 +1245,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AntennasUpdateRequest',
     responseType: 'Antenna',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1143,6 +1256,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FederationApGetRequest',
     responseType: 'JsonMap',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1153,6 +1267,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FederationApShowRequest',
     responseType: 'FederationApShowResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1163,6 +1278,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AppCreateRequest',
     responseType: 'App',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1173,6 +1289,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AppShowValueRequest',
     responseType: 'App',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1183,6 +1300,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AuthAcceptRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1193,6 +1311,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AuthSessionGenerateRequest',
     responseType: 'AuthSessionGenerateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1203,6 +1322,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AuthSessionShowRequest',
     responseType: 'AuthSessionShowResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1213,6 +1333,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AuthSessionUserkeyRequest',
     responseType: 'AuthSessionUserkeyResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1223,6 +1344,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'BlockingCreateRequest',
     responseType: 'UserDetailedNotMe',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1233,6 +1355,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'BlockingDeleteRequest',
     responseType: 'UserDetailedNotMe',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1243,6 +1366,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'BlockingListRequest',
     responseType: 'List<Blocking>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1253,6 +1377,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'BubbleGameRankingRequest',
     responseType: 'List<BubbleGameRankingResponseItem>',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1263,6 +1388,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'BubbleGameRegisterRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1273,6 +1399,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsCreateRequest',
     responseType: 'Channel',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1283,6 +1410,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsFavoriteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1293,6 +1421,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<Channel>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1303,6 +1432,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsFollowRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1313,6 +1443,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsFollowedRequest',
     responseType: 'List<Channel>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1323,6 +1454,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsMuteCreateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1333,6 +1465,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsMuteDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1343,6 +1476,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<Channel>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1353,6 +1487,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<Channel>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1363,6 +1498,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsOwnedRequest',
     responseType: 'List<Channel>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1373,6 +1509,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsSearchRequest',
     responseType: 'List<Channel>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1383,6 +1520,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsShowValueRequest',
     responseType: 'Channel',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1393,6 +1531,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsTimelineRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1403,6 +1542,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsUnfavoriteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1413,6 +1553,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsUnfollowRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1423,6 +1564,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChannelsUpdateRequest',
     responseType: 'Channel',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1433,6 +1575,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsActiveUsersRequest',
     responseType: 'ChartsActiveUsersResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1443,6 +1586,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsApRequestRequest',
     responseType: 'ChartsApRequestResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1453,6 +1597,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsDriveRequest',
     responseType: 'ChartsDriveResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1463,6 +1608,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsFederationRequest',
     responseType: 'ChartsFederationResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1473,6 +1619,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsInstanceRequest',
     responseType: 'ChartsInstanceResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1483,6 +1630,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsNotesRequest',
     responseType: 'ChartsNotesResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1493,6 +1641,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsUserDriveRequest',
     responseType: 'ChartsUserDriveResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1503,6 +1652,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsUserFollowingRequest',
     responseType: 'ChartsUserFollowingResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1513,6 +1663,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsUserNotesRequest',
     responseType: 'ChartsUserNotesResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1523,6 +1674,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsUserPvRequest',
     responseType: 'ChartsUserPvResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1533,6 +1685,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsUserReactionsRequest',
     responseType: 'ChartsUserReactionsResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1543,6 +1696,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChartsUsersRequest',
     responseType: 'ChartsUsersResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1553,6 +1707,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatHistoryRequest',
     responseType: 'List<ChatMessage>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1563,6 +1718,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatMessagesCreateToRoomRequest',
     responseType: 'ChatMessageLiteForRoom',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1573,6 +1729,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatMessagesCreateToUserRequest',
     responseType: 'ChatMessageLiteFor1on1',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1583,6 +1740,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatMessagesDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1593,6 +1751,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatMessagesReactRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1603,6 +1762,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatMessagesRoomTimelineRequest',
     responseType: 'List<ChatMessageLiteForRoom>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1613,6 +1773,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatMessagesSearchRequest',
     responseType: 'List<ChatMessage>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1623,6 +1784,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatMessagesShowRequest',
     responseType: 'ChatMessage',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1633,6 +1795,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatMessagesUnreactRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1643,6 +1806,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatMessagesUserTimelineRequest',
     responseType: 'List<ChatMessageLiteFor1on1>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1653,6 +1817,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1663,6 +1828,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsCreateRequest',
     responseType: 'ChatRoom',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1673,6 +1839,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1683,6 +1850,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsInvitationsCreateRequest',
     responseType: 'ChatRoomInvitation',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1693,6 +1861,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsInvitationsIgnoreRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1703,6 +1872,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsInvitationsInboxRequest',
     responseType: 'List<ChatRoomInvitation>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1713,6 +1883,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsInvitationsOutboxRequest',
     responseType: 'List<ChatRoomInvitation>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1723,6 +1894,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsJoinRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1733,6 +1905,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsJoiningRequest',
     responseType: 'List<ChatRoomMembership>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1743,6 +1916,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsLeaveRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1753,6 +1927,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsMembersRequest',
     responseType: 'List<ChatRoomMembership>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1763,6 +1938,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsMuteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1773,6 +1949,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsOwnedRequest',
     responseType: 'List<ChatRoom>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1783,6 +1960,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsShowRequest',
     responseType: 'ChatRoom',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1793,6 +1971,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ChatRoomsUpdateRequest',
     responseType: 'ChatRoom',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1803,6 +1982,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsAddNoteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1813,6 +1993,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsCreateRequest',
     responseType: 'Clip',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1823,6 +2004,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1833,6 +2015,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsFavoriteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1843,6 +2026,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsListRequest',
     responseType: 'List<Clip>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1853,6 +2037,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<Clip>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1863,6 +2048,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsNotesRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1873,6 +2059,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsRemoveNoteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1883,6 +2070,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsShowValueRequest',
     responseType: 'Clip',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1893,6 +2081,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsUnfavoriteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1903,6 +2092,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ClipsUpdateRequest',
     responseType: 'Clip',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1913,6 +2103,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'DriveGetResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1923,6 +2114,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesRequest',
     responseType: 'List<DriveFile>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1933,6 +2125,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesAttachedChatMessagesRequest',
     responseType: 'List<ChatMessage>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1943,6 +2136,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesAttachedNotesRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1953,6 +2147,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesCheckExistenceRequest',
     responseType: 'bool',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1963,6 +2158,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesCreateRequest',
     responseType: 'DriveFile',
     multipart: true,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1973,6 +2169,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1983,6 +2180,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesFindRequest',
     responseType: 'List<DriveFile>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -1993,6 +2191,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesFindByHashRequest',
     responseType: 'List<DriveFile>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2003,6 +2202,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesMoveBulkRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2013,6 +2213,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesShowRequest',
     responseType: 'DriveFile',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2023,6 +2224,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesUpdateRequest',
     responseType: 'DriveFile',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2033,6 +2235,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFilesUploadFromUrlRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2043,6 +2246,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFoldersRequest',
     responseType: 'List<DriveFolder>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2053,6 +2257,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFoldersCreateRequest',
     responseType: 'DriveFolder',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2063,6 +2268,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFoldersDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2073,6 +2279,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFoldersFindRequest',
     responseType: 'List<DriveFolder>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2083,6 +2290,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFoldersShowRequest',
     responseType: 'DriveFolder',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2093,6 +2301,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveFoldersUpdateRequest',
     responseType: 'DriveFolder',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2103,6 +2312,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'DriveStreamRequest',
     responseType: 'List<DriveFile>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2113,6 +2323,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersEmailAddressAvailableRequest',
     responseType: 'UsersEmailAddressAvailableResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2123,6 +2334,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'EmojiGetRequest',
     responseType: 'EmojiDetailed',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2133,6 +2345,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'EmojiListResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2143,6 +2356,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'MetaEndpointRequest',
     responseType: 'MetaEndpointResponse?',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2153,6 +2367,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<String>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2163,6 +2378,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2173,6 +2389,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FederationFollowersRequest',
     responseType: 'List<Following>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2183,6 +2400,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FederationFollowingRequest',
     responseType: 'List<Following>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2193,6 +2411,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FederationInstancesRequest',
     responseType: 'List<FederationInstance>',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2203,6 +2422,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FederationShowInstanceRequest',
     responseType: 'FederationInstance?',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2213,6 +2433,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FederationStatsRequest',
     responseType: 'FederationStatsResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2223,6 +2444,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FederationUpdateRemoteUserRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2233,6 +2455,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FederationUsersRequest',
     responseType: 'List<UserDetailedNotMe>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2243,6 +2466,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'MetaFetchExternalResourcesRequest',
     responseType: 'MetaFetchExternalResourcesResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2253,6 +2477,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'MetaFetchRssRequest',
     responseType: 'MetaFetchRssResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2263,6 +2488,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashCreateRequest',
     responseType: 'Flash',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2273,6 +2499,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2283,6 +2510,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashFeaturedRequest',
     responseType: 'List<Flash>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2293,6 +2521,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashLikeRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2303,6 +2532,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashMyRequest',
     responseType: 'List<Flash>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2313,6 +2543,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashMyLikesRequest',
     responseType: 'List<FlashMyLikesResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2323,6 +2554,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashSearchRequest',
     responseType: 'List<Flash>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2333,6 +2565,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashShowValueRequest',
     responseType: 'Flash',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2343,6 +2576,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashUnlikeRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2353,6 +2587,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FlashUpdateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2363,6 +2598,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingCreateRequest',
     responseType: 'UserLite',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2373,6 +2609,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingDeleteRequest',
     responseType: 'UserLite',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2383,6 +2620,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingInvalidateRequest',
     responseType: 'UserLite',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2393,6 +2631,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingListRequest',
     responseType: 'List<Following>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2403,6 +2642,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingRequestsAcceptRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2413,6 +2653,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingRequestsCancelRequest',
     responseType: 'UserLite',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2423,6 +2664,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingRequestsListRequest',
     responseType: 'List<FollowingRequestsListResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2433,6 +2675,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingRequestsRejectRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2443,6 +2686,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingRequestsSentRequest',
     responseType: 'List<FollowingRequestsSentResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2453,6 +2697,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingUpdateRequest',
     responseType: 'UserLite',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2463,6 +2708,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'FollowingUpdateAllRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2473,6 +2719,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'GalleryFeaturedRequest',
     responseType: 'List<GalleryPost>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2483,6 +2730,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<GalleryPost>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2493,6 +2741,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'GalleryPostsRequest',
     responseType: 'List<GalleryPost>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2503,6 +2752,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'GalleryPostsCreateRequest',
     responseType: 'GalleryPost',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2513,6 +2763,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'GalleryPostsDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2523,6 +2774,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'GalleryPostsLikeRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2533,6 +2785,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'GalleryPostsShowRequest',
     responseType: 'GalleryPost',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2543,6 +2796,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'GalleryPostsUnlikeRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2553,6 +2807,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'GalleryPostsUpdateRequest',
     responseType: 'GalleryPost',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2563,6 +2818,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<UsersGetAvatarDecorationsResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2573,6 +2829,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'MetaGetOnlineUsersCountResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2583,6 +2840,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'HashtagsListRequest',
     responseType: 'List<Hashtag>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2593,6 +2851,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'HashtagsSearchRequest',
     responseType: 'List<String>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2603,6 +2862,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'HashtagsShowValueRequest',
     responseType: 'Hashtag',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2613,6 +2873,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<HashtagsTrendResponseItem>',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2623,6 +2884,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'HashtagsUsersRequest',
     responseType: 'List<UserDetailed>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2633,6 +2895,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'MeDetailed',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: 'account.me',
   ),
   EndpointManifest(
@@ -2643,6 +2906,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountTwoFactorDoneRequest',
     responseType: 'AccountTwoFactorDoneResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2653,6 +2917,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountTwoFactorKeyDoneRequest',
     responseType: 'AccountTwoFactorKeyDoneResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2663,6 +2928,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountTwoFactorPasswordLessRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2673,6 +2939,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountTwoFactorRegisterRequest',
     responseType: 'AccountTwoFactorRegisterResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2683,6 +2950,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountTwoFactorRegisterKeyRequest',
     responseType: 'JsonMap',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2693,6 +2961,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountTwoFactorRemoveKeyRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2703,6 +2972,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountTwoFactorUnregisterRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2713,6 +2983,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountTwoFactorUpdateKeyRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2723,6 +2994,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountAppsRequest',
     responseType: 'List<AccountAppsResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2733,6 +3005,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountAuthorizedAppsRequest',
     responseType: 'List<AccountAuthorizedAppsResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2743,6 +3016,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountChangePasswordRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2753,6 +3027,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountClaimAchievementRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2763,6 +3038,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountDeleteAccountRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2773,6 +3049,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2783,6 +3060,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2793,6 +3071,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2803,6 +3082,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2813,6 +3093,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountExportFollowingRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2823,6 +3104,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2833,6 +3115,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2843,6 +3126,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2853,6 +3137,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountFavoritesRequest',
     responseType: 'List<NoteFavorite>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2863,6 +3148,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountGalleryLikesRequest',
     responseType: 'List<AccountGalleryLikesResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2873,6 +3159,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountGalleryPostsRequest',
     responseType: 'List<GalleryPost>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2883,6 +3170,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountImportAntennasRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2893,6 +3181,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountImportBlockingRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2903,6 +3192,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountImportFollowingRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2913,6 +3203,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountImportMutingRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2923,6 +3214,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountImportUserListsRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2933,6 +3225,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountMoveRequest',
     responseType: 'JsonMap',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2943,6 +3236,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountNotificationsRequest',
     responseType: 'List<Notification>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2953,6 +3247,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountNotificationsGroupedRequest',
     responseType: 'List<Notification>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2963,6 +3258,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountPageLikesRequest',
     responseType: 'List<AccountPageLikesResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2973,6 +3269,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountPagesRequest',
     responseType: 'List<Page>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2983,6 +3280,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountPinRequest',
     responseType: 'MeDetailed',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -2993,6 +3291,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountReadAnnouncementRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3003,6 +3302,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountRegenerateTokenRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3013,6 +3313,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountRegistryGetRequest',
     responseType: 'JsonMap',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3023,6 +3324,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountRegistryGetAllRequest',
     responseType: 'JsonMap',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3033,6 +3335,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountRegistryGetDetailRequest',
     responseType: 'AccountRegistryGetDetailResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3043,6 +3346,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountRegistryKeysRequest',
     responseType: 'List<String>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3053,6 +3357,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountRegistryKeysWithTypeRequest',
     responseType: 'JsonMap',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3063,6 +3368,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountRegistryRemoveRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3073,6 +3379,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<AccountRegistryScopesWithDomainResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3083,6 +3390,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountRegistrySetRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3093,6 +3401,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountRevokeTokenRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3103,6 +3412,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountSigninHistoryRequest',
     responseType: 'List<Signin>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3113,6 +3423,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountUnpinRequest',
     responseType: 'MeDetailed',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3123,6 +3434,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountUpdateRequest',
     responseType: 'MeDetailed',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3133,6 +3445,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountUpdateEmailRequest',
     responseType: 'MeDetailed',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3143,6 +3456,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountWebhooksCreateRequest',
     responseType: 'AccountWebhooksCreateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3153,6 +3467,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountWebhooksDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3163,6 +3478,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<UserWebhook>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3173,6 +3489,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountWebhooksShowRequest',
     responseType: 'UserWebhook',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3183,6 +3500,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountWebhooksTestRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3193,6 +3511,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountWebhooksUpdateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3203,6 +3522,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'InviteCode',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3213,6 +3533,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'InviteDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3223,6 +3544,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'InviteLimitResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3233,6 +3555,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'InviteListRequest',
     responseType: 'List<InviteCode>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3243,6 +3566,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'MetaLite',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: 'meta.get/detailed',
   ),
   EndpointManifest(
@@ -3253,6 +3577,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AuthMiAuthGenTokenRequest',
     responseType: 'AuthMiAuthGenTokenResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3263,6 +3588,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'MuteCreateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3273,6 +3599,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'MuteDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3283,6 +3610,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'MuteListRequest',
     responseType: 'List<Muting>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3293,6 +3621,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountMyAppsRequest',
     responseType: 'List<App>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3303,6 +3632,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesGetRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3313,6 +3643,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesChildrenRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3323,6 +3654,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesClipsRequest',
     responseType: 'List<Clip>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3333,6 +3665,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesConversationRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3343,6 +3676,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesCreateRequest',
     responseType: 'NotesCreateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3353,6 +3687,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3363,6 +3698,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'JsonMap',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3373,6 +3709,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesDraftsCreateRequest',
     responseType: 'NotesDraftsCreateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3383,6 +3720,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesDraftsDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3393,6 +3731,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesDraftsListRequest',
     responseType: 'List<NoteDraft>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3403,6 +3742,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesDraftsUpdateRequest',
     responseType: 'NotesDraftsUpdateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3413,6 +3753,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesFavoritesCreateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3423,6 +3764,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesFavoritesDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3433,6 +3775,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesFeaturedRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3443,6 +3786,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesGlobalTimelineRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3453,6 +3797,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesHybridTimelineRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3463,6 +3808,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesLocalTimelineRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3473,6 +3819,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesMentionsRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3483,6 +3830,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesPollsRecommendationRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3493,6 +3841,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesPollsVoteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3503,6 +3852,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesReactionsRequest',
     responseType: 'List<NoteReaction>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3513,6 +3863,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesReactionsCreateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3523,6 +3874,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesReactionsDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3533,6 +3885,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesRenotesRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3543,6 +3896,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesRepliesRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3553,6 +3907,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesSearchRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3563,6 +3918,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesSearchByTagRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3573,6 +3929,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesShowValueRequest',
     responseType: 'Note',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3583,6 +3940,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesShowPartialBulkRequest',
     responseType: 'List<NotesShowPartialBulkResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3593,6 +3951,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesStateRequest',
     responseType: 'NotesStateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3603,6 +3962,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesThreadMutingCreateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3613,6 +3973,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesThreadMutingDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3623,6 +3984,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesTimelineRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3633,6 +3995,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesTranslateRequest',
     responseType: 'NotesTranslateResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3643,6 +4006,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesUnrenoteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3653,6 +4017,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesUserListTimelineRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3663,6 +4028,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotificationsCreateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3673,6 +4039,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3683,6 +4050,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3693,6 +4061,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3703,6 +4072,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'PagesPagePushRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3713,6 +4083,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'PagesCreateRequest',
     responseType: 'Page',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3723,6 +4094,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'PagesDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3733,6 +4105,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<Page>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3743,6 +4116,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'PagesLikeRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3753,6 +4127,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'PagesShowValueRequest',
     responseType: 'Page',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3763,6 +4138,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'PagesUnlikeRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3773,6 +4149,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'PagesUpdateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3783,6 +4160,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'MetaPingResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3793,6 +4171,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<UserDetailed>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3803,6 +4182,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NotesPromoReadRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3813,6 +4193,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'RenoteMuteCreateRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3823,6 +4204,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'RenoteMuteDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3833,6 +4215,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'RenoteMuteListRequest',
     responseType: 'List<RenoteMuting>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3843,6 +4226,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AuthRequestResetPasswordRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3853,6 +4237,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3863,6 +4248,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AuthResetPasswordRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3873,6 +4259,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<UsersRetentionResponseItem>',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3883,6 +4270,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ReversiCancelMatchRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3893,6 +4281,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ReversiGamesRequest',
     responseType: 'List<ReversiGameLite>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3903,6 +4292,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<UserLite>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3913,6 +4303,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ReversiMatchRequest',
     responseType: 'ReversiGameDetailed',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3923,6 +4314,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ReversiShowGameRequest',
     responseType: 'ReversiGameDetailed',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3933,6 +4325,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ReversiSurrenderRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3943,6 +4336,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'ReversiVerifyRequest',
     responseType: 'ReversiVerifyResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3953,6 +4347,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'List<Role>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3963,6 +4358,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'RolesNotesRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3973,6 +4369,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'RolesShowValueRequest',
     responseType: 'Role',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3983,6 +4380,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'RolesUsersRequest',
     responseType: 'List<RolesUsersResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -3993,6 +4391,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'MetaServerInfoResponse',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4003,6 +4402,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: null,
     responseType: 'MetaStatsResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4013,6 +4413,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountSwRegisterRequest',
     responseType: 'AccountSwRegisterResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4023,6 +4424,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountSwShowRegistrationRequest',
     responseType: 'AccountSwShowRegistrationResponse?',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4033,6 +4435,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountSwUnregisterRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4043,6 +4446,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountSwUpdateRegistrationRequest',
     responseType: 'AccountSwUpdateRegistrationResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4053,6 +4457,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'NonProductiveTestRequest',
     responseType: 'NonProductiveTestResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4063,6 +4468,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersUsernameAvailableRequest',
     responseType: 'UsersUsernameAvailableResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4073,6 +4479,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersGetRequest',
     responseType: 'List<UserDetailed>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4083,6 +4490,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersAchievementsRequest',
     responseType: 'List<Achievement>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4093,6 +4501,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersClipsRequest',
     responseType: 'List<Clip>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4103,6 +4512,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersFeaturedNotesRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: true,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4113,6 +4523,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersFlashsRequest',
     responseType: 'List<Flash>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4123,6 +4534,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersFollowersRequest',
     responseType: 'List<Following>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4133,6 +4545,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersFollowingRequest',
     responseType: 'List<Following>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4143,6 +4556,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersGalleryPostsRequest',
     responseType: 'List<GalleryPost>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4153,6 +4567,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersGetFollowingUsersByBirthdayRequest',
     responseType: 'List<UsersGetFollowingUsersByBirthdayResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4163,6 +4578,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersGetFrequentlyRepliedUsersRequest',
     responseType: 'List<UsersGetFrequentlyRepliedUsersResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4173,6 +4589,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsCreateRequest',
     responseType: 'UserList',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4183,6 +4600,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsCreateFromPublicRequest',
     responseType: 'UserList',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4193,6 +4611,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsDeleteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4203,6 +4622,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsFavoriteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4213,6 +4633,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsGetMembershipsRequest',
     responseType: 'List<UsersListsGetMembershipsResponseItem>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4223,6 +4644,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsListRequest',
     responseType: 'List<UserList>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4233,6 +4655,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsPullRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4243,6 +4666,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsPushRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4253,6 +4677,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsShowRequest',
     responseType: 'UsersListsShowResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4263,6 +4688,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsUnfavoriteRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4273,6 +4699,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsUpdateRequest',
     responseType: 'UserList',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4283,6 +4710,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersListsUpdateMembershipRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4293,6 +4721,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersNotesRequest',
     responseType: 'List<Note>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4303,6 +4732,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersPagesRequest',
     responseType: 'List<Page>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4313,6 +4743,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersReactionsRequest',
     responseType: 'List<NoteReactionWithNote>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4323,6 +4754,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersRecommendationRequest',
     responseType: 'List<UserDetailed>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4333,6 +4765,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersRelationRequest',
     responseType: 'UsersRelationResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4343,6 +4776,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersReportAbuseRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4353,6 +4787,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersSearchRequest',
     responseType: 'List<User>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4363,6 +4798,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersSearchByUsernameAndHostRequest',
     responseType: 'List<User>',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4373,6 +4809,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersShowValueRequest',
     responseType: 'UsersShowValueResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4383,6 +4820,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'UsersUpdateMemoRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4393,6 +4831,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AdminV2EmojiListRequest',
     responseType: 'AdminV2EmojiListResponse',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
   EndpointManifest(
@@ -4403,6 +4842,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     requestType: 'AccountVerifyEmailRequest',
     responseType: 'void',
     multipart: false,
+    supportsGet: false,
     handWrittenMethod: null,
   ),
 ];

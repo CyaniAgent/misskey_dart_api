@@ -105,6 +105,10 @@ void main() {
             .length,
         2,
       );
+      expect(
+        misskeyEndpoints.where((entry) => entry.supportsGet),
+        hasLength(24),
+      );
       final methods = <String>{};
       for (final entry in misskeyEndpoints) {
         expect(
@@ -113,6 +117,22 @@ void main() {
           reason: 'duplicate ${entry.group}/${entry.method}',
         );
       }
+    });
+
+    test('dual operation endpoints support GET and default to POST', () async {
+      final adapter = MockHttpAdapter((_) => jsonBody({'count': 3}));
+      final client = _client(adapter);
+      addTearDown(client.close);
+
+      final viaGet = await client.meta.getOnlineUsersCount(
+        httpMethod: MisskeyHttpMethod.get,
+      );
+      expect(viaGet.count, 3);
+      expect(adapter.requests.single.method, 'GET');
+
+      final viaPost = await client.meta.getOnlineUsersCount();
+      expect(viaPost.count, 3);
+      expect(adapter.requests.last.method, 'POST');
     });
 
     test('request serialization', () {

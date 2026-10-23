@@ -5,6 +5,7 @@
 import 'package:dio/dio.dart';
 
 import '../../client.dart';
+import '../../config.dart';
 import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'meta_models.dart';
@@ -48,21 +49,25 @@ class MetaApi {
 
   Future<MetaFetchRssResponse> fetchRss(
     MetaFetchRssRequest request, {
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) {
     return client.postModel<MetaFetchRssResponse>(
       'fetch-rss',
       body: request.toJson(),
+      httpMethod: httpMethod,
       parser: MetaFetchRssResponse.fromJson,
       cancelToken: cancelToken,
     );
   }
 
   Future<MetaGetOnlineUsersCountResponse> getOnlineUsersCount({
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) {
     return client.postModel<MetaGetOnlineUsersCountResponse>(
       'get-online-users-count',
+      httpMethod: httpMethod,
       parser: MetaGetOnlineUsersCountResponse.fromJson,
       cancelToken: cancelToken,
     );
@@ -76,9 +81,13 @@ class MetaApi {
     );
   }
 
-  Future<MetaServerInfoResponse> serverInfo({CancelToken? cancelToken}) {
+  Future<MetaServerInfoResponse> serverInfo({
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
+    CancelToken? cancelToken,
+  }) {
     return client.postModel<MetaServerInfoResponse>(
       'server-info',
+      httpMethod: httpMethod,
       parser: MetaServerInfoResponse.fromJson,
       cancelToken: cancelToken,
     );

@@ -5,6 +5,7 @@
 import 'package:dio/dio.dart';
 
 import '../../client.dart';
+import '../../config.dart';
 import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'hashtags_models.dart';
@@ -50,9 +51,13 @@ class HashtagsApi {
     );
   }
 
-  Future<List<HashtagsTrendResponseItem>> trend({CancelToken? cancelToken}) {
+  Future<List<HashtagsTrendResponseItem>> trend({
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
+    CancelToken? cancelToken,
+  }) {
     return client.postList<HashtagsTrendResponseItem>(
       'hashtags/trend',
+      httpMethod: httpMethod,
       itemParser: HashtagsTrendResponseItem.fromJson,
       cancelToken: cancelToken,
     );

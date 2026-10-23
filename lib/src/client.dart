@@ -134,12 +134,14 @@ class MisskeyClient {
   Future<T> postParsed<T>(
     String endpoint, {
     JsonMap? body,
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     required T Function(Object? data) parser,
     CancelToken? cancelToken,
   }) async {
     final response = await _send(
       endpoint,
       body: body,
+      httpMethod: httpMethod,
       cancelToken: cancelToken,
     );
     try {
@@ -161,12 +163,14 @@ class MisskeyClient {
   Future<T> postModel<T>(
     String endpoint, {
     JsonMap? body,
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     required T Function(JsonMap json) parser,
     CancelToken? cancelToken,
   }) {
     return postParsed<T>(
       endpoint,
       body: body,
+      httpMethod: httpMethod,
       cancelToken: cancelToken,
       parser: (data) {
         if (data is! Map) {
@@ -181,11 +185,13 @@ class MisskeyClient {
   Future<Map<String, dynamic>> postMap(
     String endpoint, {
     JsonMap? body,
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) {
     return postModel<Map<String, dynamic>>(
       endpoint,
       body: body,
+      httpMethod: httpMethod,
       cancelToken: cancelToken,
       parser: (json) => json,
     );
@@ -195,12 +201,14 @@ class MisskeyClient {
   Future<T?> postNullableModel<T>(
     String endpoint, {
     JsonMap? body,
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     required T Function(JsonMap json) parser,
     CancelToken? cancelToken,
   }) {
     return postParsed<T?>(
       endpoint,
       body: body,
+      httpMethod: httpMethod,
       cancelToken: cancelToken,
       parser: (data) {
         if (data == null) return null;
@@ -269,12 +277,14 @@ class MisskeyClient {
   Future<List<T>> postList<T>(
     String endpoint, {
     JsonMap? body,
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     required T Function(Map<String, dynamic> json) itemParser,
     CancelToken? cancelToken,
   }) {
     return postParsed<List<T>>(
       endpoint,
       body: body,
+      httpMethod: httpMethod,
       cancelToken: cancelToken,
       parser: (data) {
         if (data is! List) {
@@ -296,14 +306,21 @@ class MisskeyClient {
   Future<void> postVoid(
     String endpoint, {
     JsonMap? body,
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) async {
-    await _send(endpoint, body: body, cancelToken: cancelToken);
+    await _send(
+      endpoint,
+      body: body,
+      httpMethod: httpMethod,
+      cancelToken: cancelToken,
+    );
   }
 
   Future<Response<dynamic>> _send(
     String endpoint, {
     JsonMap? body,
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) async {
     final uri = _endpointUri(endpoint);
@@ -322,12 +339,20 @@ class MisskeyClient {
     }
 
     try {
-      return await _dio.postUri<dynamic>(
-        uri,
-        data: payload,
-        options: Options(headers: headers.isEmpty ? null : headers),
-        cancelToken: cancelToken,
-      );
+      final options = Options(headers: headers.isEmpty ? null : headers);
+      return await (httpMethod == MisskeyHttpMethod.get
+          ? _dio.getUri<dynamic>(
+              uri,
+              data: payload,
+              options: options,
+              cancelToken: cancelToken,
+            )
+          : _dio.postUri<dynamic>(
+              uri,
+              data: payload,
+              options: options,
+              cancelToken: cancelToken,
+            ));
     } on DioException catch (error) {
       throw _mapDioException(error);
     }

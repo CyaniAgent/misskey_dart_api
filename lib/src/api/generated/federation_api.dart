@@ -5,6 +5,7 @@
 import 'package:dio/dio.dart';
 
 import '../../client.dart';
+import '../../config.dart';
 import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'federation_models.dart';
@@ -63,11 +64,13 @@ class FederationApi {
 
   Future<List<FederationInstance>> instances(
     FederationInstancesRequest request, {
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) {
     return client.postList<FederationInstance>(
       'federation/instances',
       body: request.toJson(),
+      httpMethod: httpMethod,
       itemParser: FederationInstance.fromJson,
       cancelToken: cancelToken,
     );
@@ -87,11 +90,13 @@ class FederationApi {
 
   Future<FederationStatsResponse> stats(
     FederationStatsRequest request, {
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) {
     return client.postModel<FederationStatsResponse>(
       'federation/stats',
       body: request.toJson(),
+      httpMethod: httpMethod,
       parser: FederationStatsResponse.fromJson,
       cancelToken: cancelToken,
     );

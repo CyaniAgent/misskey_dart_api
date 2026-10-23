@@ -738,12 +738,15 @@ class ApiGenerator {
       final group = _groupForPath(path);
       final method = _methodForPath(path, group);
       final generated = !_skipPaths.contains(path);
+      final supportsGet =
+          generated && item['post'] != null && item['get'] != null;
       final operation = _Operation(
         path: path,
         group: group,
         method: method,
         requiresAuth: (op['security'] as List?)?.isNotEmpty ?? false,
         generated: generated,
+        supportsGet: supportsGet,
       );
       final registry = registries[group]!;
       if (generated) {
@@ -1303,6 +1306,7 @@ class ApiGenerator {
   }
 
   void _writeGroupApi(String group, List<_Operation> operations) {
+    final hasDualMethods = operations.any((op) => op.supportsGet);
     final out = StringBuffer()
       ..writeln('// SPDX-License-Identifier: BSD-3-Clause')
       ..writeln()
@@ -1310,7 +1314,11 @@ class ApiGenerator {
       ..writeln()
       ..writeln("import 'package:dio/dio.dart';")
       ..writeln()
-      ..writeln("import '../../client.dart';")
+      ..writeln("import '../../client.dart';");
+    if (hasDualMethods) {
+      out.writeln("import '../../config.dart';");
+    }
+    out
       ..writeln("import '../../models/generated/generated.dart';")
       ..writeln("import '../../models/json.dart';")
       ..writeln("import '${group}_models.dart';")
@@ -1334,9 +1342,12 @@ class ApiGenerator {
     final endpoint = op.path.substring(1);
     final body = request == null ? null : 'body: request.toJson(),';
     final prefix = request == null ? '' : '$request request, ';
+    final methodParameter = op.supportsGet
+        ? 'MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post, '
+        : '';
     final b = StringBuffer()
       ..writeln(
-        '  Future<$returnType> ${op.method}($prefix{CancelToken? cancelToken}) {',
+        '  Future<$returnType> ${op.method}($prefix{${methodParameter}CancelToken? cancelToken}) {',
       );
     if (op.multipart) {
       b.writeln('    final form = FormData();');
@@ -1357,31 +1368,32 @@ class ApiGenerator {
       b.writeln('  }');
       return b.toString();
     }
+    final httpArgument = op.supportsGet ? 'httpMethod: httpMethod, ' : '';
     final call = switch (op.responseKind) {
       _ResponseKind.voidType =>
-        "postVoid('$endpoint', ${body ?? ''}cancelToken: cancelToken)",
+        "postVoid('$endpoint', ${body ?? ''}${httpArgument}cancelToken: cancelToken)",
       _ResponseKind.map =>
-        "postMap('$endpoint', ${body ?? ''}cancelToken: cancelToken)",
+        "postMap('$endpoint', ${body ?? ''}${httpArgument}cancelToken: cancelToken)",
       _ResponseKind.nullableMap =>
-        "postNullableModel<JsonMap>('$endpoint', ${body ?? ''}parser: (json) => json, cancelToken: cancelToken)",
+        "postNullableModel<JsonMap>('$endpoint', ${body ?? ''}${httpArgument}parser: (json) => json, cancelToken: cancelToken)",
       _ResponseKind.boolType =>
-        "postParsed<bool>('$endpoint', ${body ?? ''}parser: (data) => data as bool, cancelToken: cancelToken)",
+        "postParsed<bool>('$endpoint', ${body ?? ''}${httpArgument}parser: (data) => data as bool, cancelToken: cancelToken)",
       _ResponseKind.listPrimitive =>
-        "postParsed<$returnType>('$endpoint', ${body ?? ''}parser: ${_listParser(op)}, cancelToken: cancelToken)",
+        "postParsed<$returnType>('$endpoint', ${body ?? ''}${httpArgument}parser: ${_listParser(op)}, cancelToken: cancelToken)",
       _ResponseKind.listModel =>
-        "postList<${op.itemType}>('$endpoint', ${body ?? ''}itemParser: ${op.itemType}.fromJson, cancelToken: cancelToken)",
+        "postList<${op.itemType}>('$endpoint', ${body ?? ''}${httpArgument}itemParser: ${op.itemType}.fromJson, cancelToken: cancelToken)",
       _ResponseKind.nullableModel =>
-        "postNullableModel<${op.parserType}>('$endpoint', ${body ?? ''}parser: ${op.parserType}.fromJson, cancelToken: cancelToken)",
+        "postNullableModel<${op.parserType}>('$endpoint', ${body ?? ''}${httpArgument}parser: ${op.parserType}.fromJson, cancelToken: cancelToken)",
       _ResponseKind.model =>
-        "postModel<${op.parserType}>('$endpoint', ${body ?? ''}parser: ${op.parserType}.fromJson, cancelToken: cancelToken)",
+        "postModel<${op.parserType}>('$endpoint', ${body ?? ''}${httpArgument}parser: ${op.parserType}.fromJson, cancelToken: cancelToken)",
       _ResponseKind.union =>
         op.unionHasArray
-            ? "postParsed<${op.parserType}>('$endpoint', ${body ?? ''}parser: ${op.parserType}.fromJson, cancelToken: cancelToken)"
-            : "postModel<${op.parserType}>('$endpoint', ${body ?? ''}parser: ${op.parserType}.fromJson, cancelToken: cancelToken)",
+            ? "postParsed<${op.parserType}>('$endpoint', ${body ?? ''}${httpArgument}parser: ${op.parserType}.fromJson, cancelToken: cancelToken)"
+            : "postModel<${op.parserType}>('$endpoint', ${body ?? ''}${httpArgument}parser: ${op.parserType}.fromJson, cancelToken: cancelToken)",
       _ResponseKind.handWritten =>
-        "postModel<${op.returnType}>('$endpoint', ${body ?? ''}parser: ${op.returnType}.fromJson, cancelToken: cancelToken)",
+        "postModel<${op.returnType}>('$endpoint', ${body ?? ''}${httpArgument}parser: ${op.returnType}.fromJson, cancelToken: cancelToken)",
       _ =>
-        "postParsed<$returnType>('$endpoint', ${body ?? ''}parser: (data) => data as $returnType, cancelToken: cancelToken)",
+        "postParsed<$returnType>('$endpoint', ${body ?? ''}${httpArgument}parser: (data) => data as $returnType, cancelToken: cancelToken)",
     };
     b.writeln('    return client.$call;');
     b.writeln('  }');
@@ -1416,6 +1428,7 @@ class ApiGenerator {
       ..writeln('    required this.requestType,')
       ..writeln('    required this.responseType,')
       ..writeln('    required this.multipart,')
+      ..writeln('    required this.supportsGet,')
       ..writeln('    this.handWrittenMethod,')
       ..writeln('  });')
       ..writeln()
@@ -1426,6 +1439,7 @@ class ApiGenerator {
       ..writeln('  final String? requestType;')
       ..writeln('  final String responseType;')
       ..writeln('  final bool multipart;')
+      ..writeln('  final bool supportsGet;')
       ..writeln('  final String? handWrittenMethod;')
       ..writeln('}')
       ..writeln()
@@ -1441,8 +1455,9 @@ class ApiGenerator {
       );
       out.writeln("    responseType: '${op.returnType}',");
       out.writeln('    multipart: ${op.multipart},');
+      out.writeln('    supportsGet: ${op.supportsGet},');
       out.writeln(
-        "    handWrittenMethod: ${op.handWrittenMethod == null ? 'null' : "'${op.handWrittenMethod}'"},",
+        "    handWrittenMethod: ${op.handWrittenMethod == null ? 'null' : "'${op.handWrittenMethod}'"}",
       );
       out.writeln('  ),');
     }
@@ -1607,6 +1622,7 @@ class _Operation {
     required this.method,
     required this.requiresAuth,
     required this.generated,
+    required this.supportsGet,
   });
 
   final String path;
@@ -1614,6 +1630,7 @@ class _Operation {
   final String method;
   final bool requiresAuth;
   final bool generated;
+  final bool supportsGet;
   bool multipart = false;
   String returnType = 'void';
   String? requestType;

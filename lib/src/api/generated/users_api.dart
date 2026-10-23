@@ -5,6 +5,7 @@
 import 'package:dio/dio.dart';
 
 import '../../client.dart';
+import '../../config.dart';
 import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'users_models.dart';
@@ -45,10 +46,12 @@ class UsersApi {
   }
 
   Future<List<UsersRetentionResponseItem>> retention({
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) {
     return client.postList<UsersRetentionResponseItem>(
       'retention',
+      httpMethod: httpMethod,
       itemParser: UsersRetentionResponseItem.fromJson,
       cancelToken: cancelToken,
     );
@@ -104,11 +107,13 @@ class UsersApi {
 
   Future<List<Note>> featuredNotes(
     UsersFeaturedNotesRequest request, {
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) {
     return client.postList<Note>(
       'users/featured-notes',
       body: request.toJson(),
+      httpMethod: httpMethod,
       itemParser: Note.fromJson,
       cancelToken: cancelToken,
     );

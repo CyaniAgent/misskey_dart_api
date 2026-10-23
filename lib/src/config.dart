@@ -12,6 +12,15 @@ enum MisskeyAuthMode {
   none,
 }
 
+/// The HTTP method used for an API request.
+enum MisskeyHttpMethod {
+  /// Send the request as HTTP POST.
+  post,
+
+  /// Send the request as HTTP GET.
+  get,
+}
+
 /// Configuration for a [MisskeyClient].
 class MisskeyClientConfig {
   const MisskeyClientConfig({

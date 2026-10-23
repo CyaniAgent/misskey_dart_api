@@ -5,6 +5,7 @@
 import 'package:dio/dio.dart';
 
 import '../../client.dart';
+import '../../config.dart';
 import '../../models/generated/generated.dart';
 import '../../models/json.dart';
 import 'bubbleGame_models.dart';
@@ -16,11 +17,13 @@ class BubbleGameApi {
 
   Future<List<BubbleGameRankingResponseItem>> ranking(
     BubbleGameRankingRequest request, {
+    MisskeyHttpMethod httpMethod = MisskeyHttpMethod.post,
     CancelToken? cancelToken,
   }) {
     return client.postList<BubbleGameRankingResponseItem>(
       'bubble-game/ranking',
       body: request.toJson(),
+      httpMethod: httpMethod,
       itemParser: BubbleGameRankingResponseItem.fromJson,
       cancelToken: cancelToken,
     );

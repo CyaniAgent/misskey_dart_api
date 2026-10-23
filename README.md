@@ -4,11 +4,15 @@ A Dart client for the [Misskey](https://misskey-hub.net/) API. It works in
 Flutter and in pure Dart.
 
 > Status: early development (`0.1.x`). The API surface may change before 1.0.
-> This package is not published on pub.dev yet.
 
 ## Install
 
-Until the first pub.dev release, use a Git dependency:
+```yaml
+dependencies:
+  misskey_dart_api: ^0.1.0
+```
+
+For unreleased revisions:
 
 ```yaml
 dependencies:
@@ -115,17 +119,26 @@ client.close();
 
 - `MisskeyClient.fromHost(host, {accessToken, userAgent, authMode, allowInsecureHttp, dio})`
 - `MisskeyClient({required MisskeyClientConfig config, Dio? dio})`
-- 30 grouped APIs covering all 438 paths in the pinned OpenAPI 2026.9.0 spec:
-  `account`, `admin`, `announcements`, `antennas`, `app`, `auth`, `blocking`,
-  `bubbleGame`, `channels`, `charts`, `chat`, `clips`, `drive`, `emoji`,
-  `federation`, `flash`, `following`, `gallery`, `hashtags`, `invite`, `meta`,
-  `mute`, `nonProductive`, `notes`, `notifications`, `pages`, `renoteMute`,
-  `reversi`, `roles`, and `users`
+- 30 grouped APIs covering all 438 paths and 462 OpenAPI operations in the
+  pinned 2026.9.0 spec: `account`, `admin`, `announcements`, `antennas`, `app`,
+  `auth`, `blocking`, `bubbleGame`, `channels`, `charts`, `chat`, `clips`,
+  `drive`, `emoji`, `federation`, `flash`, `following`, `gallery`, `hashtags`,
+  `invite`, `meta`, `mute`, `nonProductive`, `notes`, `notifications`, `pages`,
+  `renoteMute`, `reversi`, `roles`, and `users`
+- The 24 paths that define both GET and POST accept an optional `httpMethod`
+  (default `MisskeyHttpMethod.post`):
+
+  ```dart
+  final count = await client.meta.getOnlineUsersCount(
+    httpMethod: MisskeyHttpMethod.get,
+  );
+  ```
+
 - `client.meta.get()` / `client.meta.detailed()` convenience methods
 - `client.account.me()` convenience method
 - `client.miAuth` for MiAuth URL generation and token checks
 - `client.streaming` for WebSocket channel and note-capture subscriptions
-- `MisskeyClientConfig`, `MisskeyAuthMode`
+- `MisskeyClientConfig`, `MisskeyAuthMode`, `MisskeyHttpMethod`
 - Raw escape hatches: `postParsed`, `postModel`, `postMap`, `postList`, `postVoid`, `postNullableModel`, `postMultipartModel`
 - `MisskeyApiException`
 
