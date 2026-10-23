@@ -52,7 +52,9 @@ The normal API uses flat named parameters:
 final note = await client.notes.create(text: 'hello');
 final timeline = await client.notes.timeline(limit: 10);
 final user = await client.users.showByUserId(userId: 'user-id');
+print(user.username);
 final alice = await client.users.showByUsername(username: 'alice');
+print(alice.id);
 ```
 
 ### Authentication
