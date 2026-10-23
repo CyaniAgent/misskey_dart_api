@@ -184,8 +184,8 @@ client.close();
 ```
 
 The streaming token is resolved when the connection opens. Changing the token
-source does not mutate an active stream; close and reconnect the streaming
-client after changing credentials.
+source does not mutate an active stream; close it and create a new streaming
+client (or a new `MisskeyClient`) after changing credentials.
 
 ## Current API
 

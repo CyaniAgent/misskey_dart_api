@@ -40,6 +40,27 @@ MisskeyClient _client(
   );
 }
 
+Map<String, dynamic> _driveFileJson() {
+  return {
+    'id': 'file-1',
+    'createdAt': '2026-01-01T00:00:00.000Z',
+    'name': 'a.txt',
+    'type': 'text/plain',
+    'md5': 'd41d8cd98f00b204e9800998ecf8427e',
+    'size': 2,
+    'isSensitive': false,
+    'blurhash': null,
+    'properties': <String, dynamic>{},
+    'url': 'https://example.com/a.txt',
+    'thumbnailUrl': null,
+    'comment': null,
+    'folderId': null,
+    'folder': null,
+    'userId': null,
+    'user': null,
+  };
+}
+
 void main() {
   group('authentication', () {
     test('async provider supplies a Bearer token', () async {
@@ -72,6 +93,24 @@ void main() {
       expect(
         adapter.requests.single.headers.containsKey('Authorization'),
         false,
+      );
+    });
+
+    test('body auth is added to multipart fields', () async {
+      final adapter = MockHttpAdapter((_) => jsonBody(_driveFileJson()));
+      final client = _client(
+        adapter,
+        tokenProvider: () => 'secret',
+        authMode: MisskeyAuthMode.body,
+      );
+      addTearDown(client.close);
+
+      await client.drive.filesCreate(file: [1, 2], fileName: 'a.txt');
+
+      final form = adapter.requests.single.data as FormData;
+      expect(
+        form.fields.any((field) => field.key == 'i' && field.value == 'secret'),
+        isTrue,
       );
     });
 
