@@ -3,5 +3,16 @@
 /// A Dart client for the Misskey API.
 library;
 
+export 'src/api/account_extensions.dart';
+export 'src/api/generated/generated.dart';
+export 'src/api/meta_extensions.dart';
 export 'src/client.dart';
+export 'src/config.dart';
 export 'src/exceptions.dart';
+export 'src/miauth.dart';
+export 'src/models/models.dart';
+export 'src/streaming/channels.dart';
+export 'src/streaming/streaming_client.dart';
+export 'src/streaming/streaming_exceptions.dart';
+export 'src/streaming/streaming_transport.dart';
+export 'src/streaming/web_socket_transport.dart';

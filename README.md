@@ -34,8 +34,8 @@ import 'package:misskey_dart_api/misskey_dart_api.dart';
 Future<void> main() async {
   final client = MisskeyClient.fromHost('misskey.io');
   try {
-    final meta = await client.meta();
-    print('Instance: ${meta['name'] ?? 'unknown'}');
+    final meta = await client.meta.get();
+    print('Instance: ${meta.name ?? 'unknown'}');
   } finally {
     client.close();
   }
@@ -51,38 +51,93 @@ final client = MisskeyClient.fromHost(
 );
 
 try {
-  final me = await client.me();
-  print(me['username']);
+  final me = await client.account.me();
+  print(me.username);
+
+  final notes = await client.notes.timeline(NotesTimelineRequest(limit: 10));
+  print(notes.first.text);
 } finally {
   client.close();
 }
+```
+
+Bearer authentication is the default. To send the token in the legacy body
+parameter `i` instead:
+
+```dart
+final client = MisskeyClient.fromHost(
+  'misskey.example',
+  accessToken: token,
+  authMode: MisskeyAuthMode.body,
+);
 ```
 
 HTTPS is required by default. For local development only:
 
 ```dart
 final client = MisskeyClient(
-  baseUri: Uri.parse('http://localhost:3000'),
-  allowInsecureHttp: true,
+  config: MisskeyClientConfig(
+    baseUri: Uri.parse('http://localhost:3000'),
+    allowInsecureHttp: true,
+  ),
 );
+```
+
+MiAuth token acquisition:
+
+```dart
+final session = client.miAuth.createSessionId();
+final uri = client.miAuth.buildAuthorizationUri(
+  sessionId: session,
+  name: 'My App',
+  permissions: ['read:notes', 'write:notes'],
+);
+// Open uri in a browser, then poll:
+final result = await client.miAuth.check(session);
+print(result.token);
+```
+
+Streaming:
+
+```dart
+final timeline = await client.streaming.subscribe(
+  const TimelineChannel(TimelineKind.home),
+);
+final subscription = timeline.listen((event) {
+  print(event.body.id);
+});
+// Later:
+await subscription.cancel();
+client.close();
 ```
 
 ## Current API
 
-- `MisskeyClient.fromHost(host, {accessToken, dio, allowInsecureHttp})`
-- `MisskeyClient(baseUri: ..., {accessToken, dio, allowInsecureHttp})`
-- `meta()` → `POST /api/meta`
-- `me()` → `POST /api/i`, requires an access token
+- `MisskeyClient.fromHost(host, {accessToken, userAgent, authMode, allowInsecureHttp, dio})`
+- `MisskeyClient({required MisskeyClientConfig config, Dio? dio})`
+- 30 grouped APIs covering all 438 paths in the pinned OpenAPI 2026.9.0 spec:
+  `account`, `admin`, `announcements`, `antennas`, `app`, `auth`, `blocking`,
+  `bubbleGame`, `channels`, `charts`, `chat`, `clips`, `drive`, `emoji`,
+  `federation`, `flash`, `following`, `gallery`, `hashtags`, `invite`, `meta`,
+  `mute`, `nonProductive`, `notes`, `notifications`, `pages`, `renoteMute`,
+  `reversi`, `roles`, and `users`
+- `client.meta.get()` / `client.meta.detailed()` convenience methods
+- `client.account.me()` convenience method
+- `client.miAuth` for MiAuth URL generation and token checks
+- `client.streaming` for WebSocket channel and note-capture subscriptions
+- `MisskeyClientConfig`, `MisskeyAuthMode`
+- Raw escape hatches: `postParsed`, `postModel`, `postMap`, `postList`, `postVoid`, `postNullableModel`, `postMultipartModel`
 - `MisskeyApiException`
 
-The token is sent in the Misskey request body (`i`), not in a URL or header.
-Do not log request bodies containing tokens.
+Bearer tokens are sent in the `Authorization` header by default. Body mode
+sends the token as `i`. Do not log request headers or bodies containing tokens.
 
 ## Scope
 
 This package is a client library. It is not the Misskey server and is not
-affiliated with the Misskey project. Streaming, generated models, and broader
-endpoint coverage will be added incrementally.
+affiliated with the Misskey project. It covers every unique path in the pinned
+Misskey OpenAPI 2026.9.0 document, plus MiAuth and the documented streaming
+protocol. The OpenAPI document itself is not distributed.
 
 ## License
 

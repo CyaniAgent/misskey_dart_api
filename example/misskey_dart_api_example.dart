@@ -5,8 +5,12 @@ import 'package:misskey_dart_api/misskey_dart_api.dart';
 Future<void> main() async {
   final client = MisskeyClient.fromHost('misskey.io');
   try {
-    final meta = await client.meta();
-    print('Instance: ${meta['name'] ?? 'unknown'}');
+    final announcements = await client.announcements.list(
+      AnnouncementsListRequest(),
+    );
+    if (announcements.isNotEmpty) {
+      print(announcements.first.title);
+    }
   } finally {
     client.close();
   }
