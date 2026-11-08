@@ -1,5 +1,11 @@
 ## Unreleased
 
+- `swUnregisterSubscription` removes a push subscription with every field the
+  endpoint has required since 2026.10 (`endpoint`, `auth`, `publickey`). Sending
+  only `endpoint`, as the pinned 2026.9.0 spec describes, is rejected there.
+- `sw/register` is `secure: true` on the server: it only accepts the instance's
+  own session, so no token-based client can register browser push. Unregister
+  stays reachable because it takes no credentials.
 - `Notification.fromJson` and `PageBlock.fromJson` no longer throw on a type the
   pinned spec does not describe. They return `NotificationUnknown` /
   `PageBlockUnknown`, which keep the raw payload (`id`, `type`, and anything

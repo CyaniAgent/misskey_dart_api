@@ -164,5 +164,27 @@ void main() {
       expect(body['userId'], 'user-1');
       expect(body['limit'], 2);
     });
+
+    test('sw/unregister sends the subscription keys, not just the endpoint', () async {
+      // Misskey 2026.10 identifies a subscription by its own credentials, so a
+      // call carrying only `endpoint` is rejected there. The extra fields are
+      // ignored by 2026.9, whose schema never closed the object.
+      final adapter = MockHttpAdapter((_) => jsonBody(<String, dynamic>{}));
+      final client = _client(adapter);
+      addTearDown(client.close);
+
+      await client.account.swUnregisterSubscription(
+        endpoint: 'https://push.test/abc',
+        auth: 'auth-secret',
+        publickey: 'p256dh-key',
+      );
+
+      expect(adapter.requests.single.uri.path, '/api/sw/unregister');
+      expect(adapter.requests.single.data, {
+        'endpoint': 'https://push.test/abc',
+        'auth': 'auth-secret',
+        'publickey': 'p256dh-key',
+      });
+    });
   });
 }
