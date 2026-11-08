@@ -1,3 +1,11 @@
+## Unreleased
+
+- `Notification.fromJson` and `PageBlock.fromJson` no longer throw on a type the
+  pinned spec does not describe. They return `NotificationUnknown` /
+  `PageBlockUnknown`, which keep the raw payload (`id`, `type`, and anything
+  else as sent). Throwing failed the whole response, so one notification type
+  newer than the spec hid every other row of the page.
+
 ## 0.1.0 - 2026-10-23
 
 - First public release.

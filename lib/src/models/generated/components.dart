@@ -574,11 +574,43 @@ sealed class Notification {
       case 'test':
         return NotificationTest.fromJson(json);
       default:
-        throw FormatException('Unknown Notification type: $type');
+        // A type newer than the pinned spec is still a notification: dropping
+        // the whole response over one unknown variant would hide every row
+        // around it.
+        return NotificationUnknown(json);
     }
   }
 
   Map<String, dynamic> toJson();
+}
+
+/// A notification whose type is newer than the pinned spec.
+///
+/// Returned instead of throwing so one unrecognised row cannot take down the
+/// response it arrived in. [raw] is the payload as sent.
+class NotificationUnknown extends Notification {
+  const NotificationUnknown(this.raw) : super();
+
+  final Map<String, dynamic> raw;
+
+  @override
+  String get id => raw['id'] as String? ?? '';
+
+  /// The type as the server spelled it.
+  String get type => raw['type'] as String? ?? '';
+
+  @override
+  Map<String, dynamic> toJson() => Map<String, dynamic>.from(raw);
+}
+
+/// The same fallback for page blocks.
+class PageBlockUnknown extends PageBlock {
+  const PageBlockUnknown(this.raw) : super();
+
+  final Map<String, dynamic> raw;
+
+  @override
+  Map<String, dynamic> toJson() => Map<String, dynamic>.from(raw);
 }
 
 sealed class PageBlock {
@@ -596,7 +628,9 @@ sealed class PageBlock {
       case 'note':
         return PageBlockNote.fromJson(json);
       default:
-        throw FormatException('Unknown PageBlock type: $type');
+        // Same reasoning as notifications: an unknown block must not fail the
+        // page it belongs to.
+        return PageBlockUnknown(json);
     }
   }
 

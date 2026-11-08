@@ -724,9 +724,10 @@ class ApiGenerator {
     }
     b
       ..writeln('      default:')
-      ..writeln(
-        "        throw FormatException('Unknown Notification type: \$type');",
-      )
+      ..writeln('        // A type newer than the pinned spec is still a')
+      ..writeln('        // notification: dropping the whole response over one')
+      ..writeln('        // unknown variant would hide every row around it.')
+      ..writeln('        return NotificationUnknown(json);')
       ..writeln('    }')
       ..writeln('  }')
       ..writeln()
@@ -740,6 +741,35 @@ class ApiGenerator {
     for (final cls in branchClasses) {
       components.classes[cls.name] = cls;
     }
+
+    components.addBase('NotificationUnknown', _notificationUnknownSource());
+  }
+
+  /// The variant returned for a type the pinned spec does not describe.
+  ///
+  /// It keeps the raw payload, so callers can still read `id`/`type` and the
+  /// rest of the page stays usable instead of the whole response failing.
+  String _notificationUnknownSource() {
+    return '''
+/// A notification whose type is newer than the pinned spec.
+///
+/// Returned instead of throwing so one unrecognised row cannot take down the
+/// response it arrived in. [raw] is the payload as sent.
+class NotificationUnknown extends Notification {
+  const NotificationUnknown(this.raw) : super();
+
+  final Map<String, dynamic> raw;
+
+  @override
+  String get id => raw['id'] as String? ?? '';
+
+  /// The type as the server spelled it.
+  String get type => raw['type'] as String? ?? '';
+
+  @override
+  Map<String, dynamic> toJson() => Map<String, dynamic>.from(raw);
+}
+''';
   }
 
   void _forceTypeString(ClassDef cls) {
@@ -796,9 +826,9 @@ class ApiGenerator {
     }
     b
       ..writeln('      default:')
-      ..writeln(
-        "        throw FormatException('Unknown PageBlock type: \$type');",
-      )
+      ..writeln('        // Same reasoning as notifications: an unknown block')
+      ..writeln('        // must not fail the page it belongs to.')
+      ..writeln('        return PageBlockUnknown(json);')
       ..writeln('    }')
       ..writeln('  }')
       ..writeln()
@@ -811,6 +841,22 @@ class ApiGenerator {
     for (final cls in branchClasses) {
       components.classes[cls.name] = cls;
     }
+    components.addBase('PageBlockUnknown', _pageBlockUnknownSource());
+  }
+
+  /// The variant returned for a page block the pinned spec does not describe.
+  String _pageBlockUnknownSource() {
+    return '''
+/// A page block whose type is newer than the pinned spec.
+class PageBlockUnknown extends PageBlock {
+  const PageBlockUnknown(this.raw) : super();
+
+  final Map<String, dynamic> raw;
+
+  @override
+  Map<String, dynamic> toJson() => Map<String, dynamic>.from(raw);
+}
+''';
   }
 
   String _groupForPath(String path) {

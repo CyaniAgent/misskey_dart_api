@@ -52,6 +52,30 @@ void main() {
       expect(notification.toJson()['type'], 'note');
     });
 
+    test('keeps a notification type newer than the spec', () {
+      // Servers ship notification types ahead of the pinned spec. Throwing
+      // here failed the entire list response, hiding every other row.
+      final notification = Notification.fromJson({
+        'id': 'notification-2',
+        'createdAt': '2026-01-01T00:00:00.000Z',
+        'type': 'somethingNew',
+        'user': meDetailedJson(),
+        'userId': 'user-1',
+      });
+
+      expect(notification, isA<NotificationUnknown>());
+      expect(notification.id, 'notification-2');
+      expect((notification as NotificationUnknown).type, 'somethingNew');
+      expect(notification.toJson()['type'], 'somethingNew');
+    });
+
+    test('keeps a page block type newer than the spec', () {
+      final block = PageBlock.fromJson({'id': 'block-2', 'type': 'future'});
+
+      expect(block, isA<PageBlockUnknown>());
+      expect(block.toJson()['type'], 'future');
+    });
+
     test('parses PageBlock recursively', () {
       final block = PageBlock.fromJson({
         'id': 'block-1',
