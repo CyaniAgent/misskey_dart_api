@@ -57,8 +57,8 @@ class MisskeyClientConfig {
 }
 
 /// The package version used in the default user agent.
-const String misskeyDartApiVersion = '0.1.0';
+const String misskeyDartApiVersion = '0.2.0';
 
 /// The default `User-Agent` header.
 const String misskeyDartApiUserAgent =
-    'misskey_dart_api/0.1.0 (+https://github.com/CyaniAgent/misskey_dart_api)';
+    'misskey_dart_api/0.2.0 (+https://github.com/CyaniAgent/misskey_dart_api)';

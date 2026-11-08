@@ -3,16 +3,16 @@
 A Dart client for the [Misskey](https://misskey-hub.net/) API. It works in
 Flutter and in pure Dart.
 
-> Status: early development (`0.1.x`). The API surface may change before 1.0.
+> Status: early development (`0.2.x`). The API surface may change before 1.0.
 
 ## Install
 
 ```yaml
 dependencies:
-  misskey_dart_api: ^0.1.0
+  misskey_dart_api: ^0.2.0
 ```
 
-For unreleased revisions:
+To track unreleased work, point at the repository:
 
 ```yaml
 dependencies:
@@ -20,14 +20,6 @@ dependencies:
     git:
       url: https://github.com/CyaniAgent/misskey_dart_api.git
       ref: main
-```
-
-For local development:
-
-```yaml
-dependencies:
-  misskey_dart_api:
-    path: ../misskey_dart_api
 ```
 
 ## Usage
@@ -231,24 +223,16 @@ under `lib/src/api/generated/` or `lib/src/api/high_level/`.
 
 ## Current API
 
-- High-level flat methods for every non-admin group, exposed as `client.notes`,
-  `client.users`, `client.drive`, `client.account`, `client.meta`, and the other
-  29 group properties.
-- `client.raw` exposes the complete generated surface for all 438 paths and
-  462 OpenAPI operations in the pinned 2026.10.1 spec. Admin is raw-only:
-  `client.raw.admin`.
-- `MisskeyClient.fromHost(host, {accessToken, tokenProvider, userAgent, authMode, allowInsecureHttp, dio})`
-- `MisskeyClient({required MisskeyClientConfig config, TokenProvider? tokenProvider, Dio? dio})`
-- `MisskeyClientConfig`, `MisskeyAuthMode`, `MisskeyHttpMethod`, `TokenProvider`
-- `MisskeyAuthenticationException` and `MisskeyApiException`
-- `CursorPage<T>` with `next()` and `stream()`, plus generated `...Page`
-  methods for all 71 non-admin cursor operations; `anyOf` list variants get
-  one page method each.
-- `client.meta.get()` / `client.meta.detailed()` and `client.account.me()`
-- `client.miAuth` for MiAuth URL generation and token checks
-- `client.streaming` for WebSocket channel and note-capture subscriptions
-- Raw escape hatches on `MisskeyClient`: `postParsed`, `postModel`, `postMap`,
-  `postList`, `postVoid`, `postNullableModel`, `postMultipartModel`
+High-level flat methods cover every non-admin group: `client.notes`,
+`client.users`, `client.drive`, `client.account`, `client.meta`, and the other
+group properties. `client.raw` exposes the complete generated surface for all
+438 paths and 462 operations, admin included; admin is raw-only.
+
+`CursorPage<T>` supports `next()` and `stream()`, with a generated `...Page`
+method for every non-admin cursor operation.
+
+Client-wide escape hatches: `postParsed`, `postModel`, `postMap`, `postList`,
+`postVoid`, `postNullableModel`, `postMultipartModel`.
 
 Bearer tokens are sent in the `Authorization` header by default. Body mode
 sends the token as `i`. Do not log request headers or bodies containing tokens.

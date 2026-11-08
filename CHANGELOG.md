@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.0 - 2026-11-08
 
 - Pinned the Misskey OpenAPI document at **2026.10.1** (438 paths, 462
   operations, 70 component schemas). Generated from the upstream `2026.10.1`

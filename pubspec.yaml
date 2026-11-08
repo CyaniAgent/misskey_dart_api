@@ -1,6 +1,6 @@
 name: misskey_dart_api
 description: A Dart client for the Misskey API.
-version: 0.1.0
+version: 0.2.0
 repository: https://github.com/CyaniAgent/misskey_dart_api
 issue_tracker: https://github.com/CyaniAgent/misskey_dart_api/issues
 
