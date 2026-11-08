@@ -1,11 +1,18 @@
 ## Unreleased
 
-- `swUnregisterSubscription` removes a push subscription with every field the
-  endpoint has required since 2026.10 (`endpoint`, `auth`, `publickey`). Sending
-  only `endpoint`, as the pinned 2026.9.0 spec describes, is rejected there.
+- Pinned the Misskey OpenAPI document at **2026.10.1** (438 paths, 462
+  operations, 70 component schemas). Generated from the upstream `2026.10.1`
+  tag with Misskey's own spec generator, not from an instance, because a fork
+  serves fork-private schemas.
+- `swUnregister` now requires `auth` and `publickey` alongside `endpoint`:
+  2026.10 made the endpoint credential-free and identifies the subscription by
+  its own keys. Sending the extra fields to a 2026.9 server stays harmless —
+  its parameter schema never closed the object.
 - `sw/register` is `secure: true` on the server: it only accepts the instance's
   own session, so no token-based client can register browser push. Unregister
   stays reachable because it takes no credentials.
+- `account/update` gained `followApprovalLocalSeconds` and
+  `followApprovalRemoteSeconds`.
 - `Notification.fromJson` and `PageBlock.fromJson` no longer throw on a type the
   pinned spec does not describe. They return `NotificationUnknown` /
   `PageBlockUnknown`, which keep the raw payload (`id`, `type`, and anything

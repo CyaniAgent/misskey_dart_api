@@ -830,6 +830,10 @@ class AdminAccountsCreateResponse {
     required this.autoSensitive,
     required this.carefulBot,
     required this.autoAcceptFollowed,
+    @JsonKey(name: 'followApprovalLocalSeconds', includeIfNull: true)
+    required this.followApprovalLocalSeconds,
+    @JsonKey(name: 'followApprovalRemoteSeconds', includeIfNull: true)
+    required this.followApprovalRemoteSeconds,
     required this.noCrawle,
     required this.preventAiLearning,
     required this.isExplorable,
@@ -933,6 +937,8 @@ class AdminAccountsCreateResponse {
   final bool autoSensitive;
   final bool carefulBot;
   final bool autoAcceptFollowed;
+  final num? followApprovalLocalSeconds;
+  final num? followApprovalRemoteSeconds;
   final bool noCrawle;
   final bool preventAiLearning;
   final bool isExplorable;
@@ -1102,6 +1108,7 @@ class AdminAnnouncementsCreateRequest {
     this.silence = false,
     this.needConfirmationToRead = false,
     this.userId,
+    this.autoArchiveAt,
   });
   final String title;
   final String text;
@@ -1112,6 +1119,7 @@ class AdminAnnouncementsCreateRequest {
   final bool silence;
   final bool needConfirmationToRead;
   final String? userId;
+  final int? autoArchiveAt;
 
   factory AdminAnnouncementsCreateRequest.fromJson(Map<String, dynamic> json) =>
       _$AdminAnnouncementsCreateRequestFromJson(json);
@@ -1193,6 +1201,8 @@ class AdminAnnouncementsListResponseItem {
     required this.icon,
     required this.display,
     required this.isActive,
+    @JsonKey(name: 'autoArchiveAt', includeIfNull: true)
+    required this.autoArchiveAt,
     required this.forExistingUsers,
     required this.silence,
     required this.needConfirmationToRead,
@@ -1208,6 +1218,7 @@ class AdminAnnouncementsListResponseItem {
   final AdminAnnouncementsListResponseItemIcon icon;
   final AdminAnnouncementsListResponseItemDisplay display;
   final bool isActive;
+  final DateTime? autoArchiveAt;
   final bool forExistingUsers;
   final bool silence;
   final bool needConfirmationToRead;
@@ -1236,6 +1247,7 @@ class AdminAnnouncementsUpdateRequest {
     this.silence,
     this.needConfirmationToRead,
     this.isActive,
+    this.autoArchiveAt,
   });
   final String id;
   final String? title;
@@ -1247,6 +1259,7 @@ class AdminAnnouncementsUpdateRequest {
   final bool? silence;
   final bool? needConfirmationToRead;
   final bool? isActive;
+  final int? autoArchiveAt;
 
   factory AdminAnnouncementsUpdateRequest.fromJson(Map<String, dynamic> json) =>
       _$AdminAnnouncementsUpdateRequestFromJson(json);

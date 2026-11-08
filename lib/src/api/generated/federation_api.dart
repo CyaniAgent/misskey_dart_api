@@ -140,6 +140,8 @@ class RawFederationApi {
   /// federation/update-remote-user
   ///
   /// Calls POST /api/federation/update-remote-user.
+  ///
+  /// Authentication required.
   Future<void> updateRemoteUser(
     FederationUpdateRemoteUserRequest request, {
     CancelToken? cancelToken,
@@ -147,7 +149,7 @@ class RawFederationApi {
     return client.postVoid(
       'federation/update-remote-user',
       body: request.toJson(),
-      requiresAuth: false,
+      requiresAuth: true,
       cancelToken: cancelToken,
     );
   }

@@ -1021,6 +1021,8 @@ class AccountApi {
     bool? publicReactions,
     bool? carefulBot,
     bool? autoAcceptFollowed,
+    int? followApprovalLocalSeconds,
+    int? followApprovalRemoteSeconds,
     bool? noCrawle,
     bool? preventAiLearning,
     bool? requireSigninToViewContents,
@@ -1062,6 +1064,8 @@ class AccountApi {
         publicReactions: publicReactions,
         carefulBot: carefulBot,
         autoAcceptFollowed: autoAcceptFollowed,
+        followApprovalLocalSeconds: followApprovalLocalSeconds,
+        followApprovalRemoteSeconds: followApprovalRemoteSeconds,
         noCrawle: noCrawle,
         preventAiLearning: preventAiLearning,
         requireSigninToViewContents: requireSigninToViewContents,
@@ -1274,10 +1278,16 @@ class AccountApi {
   /// Calls POST /api/sw/unregister.
   Future<void> swUnregister({
     required String endpoint,
+    required String auth,
+    required String publickey,
     CancelToken? cancelToken,
   }) async {
     return client.raw.account.swUnregister(
-      AccountSwUnregisterRequest(endpoint: endpoint),
+      AccountSwUnregisterRequest(
+        endpoint: endpoint,
+        auth: auth,
+        publickey: publickey,
+      ),
       cancelToken: cancelToken,
     );
   }

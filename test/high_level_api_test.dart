@@ -173,7 +173,7 @@ void main() {
       final client = _client(adapter);
       addTearDown(client.close);
 
-      await client.account.swUnregisterSubscription(
+      await client.account.swUnregister(
         endpoint: 'https://push.test/abc',
         auth: 'auth-secret',
         publickey: 'p256dh-key',

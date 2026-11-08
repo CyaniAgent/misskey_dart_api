@@ -1083,6 +1083,10 @@ AccountUpdateRequest _$AccountUpdateRequestFromJson(
   publicReactions: json['publicReactions'] as bool?,
   carefulBot: json['carefulBot'] as bool?,
   autoAcceptFollowed: json['autoAcceptFollowed'] as bool?,
+  followApprovalLocalSeconds: (json['followApprovalLocalSeconds'] as num?)
+      ?.toInt(),
+  followApprovalRemoteSeconds: (json['followApprovalRemoteSeconds'] as num?)
+      ?.toInt(),
   noCrawle: json['noCrawle'] as bool?,
   preventAiLearning: json['preventAiLearning'] as bool?,
   requireSigninToViewContents: json['requireSigninToViewContents'] as bool?,
@@ -1148,6 +1152,8 @@ Map<String, dynamic> _$AccountUpdateRequestToJson(
   'publicReactions': ?instance.publicReactions,
   'carefulBot': ?instance.carefulBot,
   'autoAcceptFollowed': ?instance.autoAcceptFollowed,
+  'followApprovalLocalSeconds': ?instance.followApprovalLocalSeconds,
+  'followApprovalRemoteSeconds': ?instance.followApprovalRemoteSeconds,
   'noCrawle': ?instance.noCrawle,
   'preventAiLearning': ?instance.preventAiLearning,
   'requireSigninToViewContents': ?instance.requireSigninToViewContents,
@@ -1683,11 +1689,19 @@ Map<String, dynamic> _$AccountSwShowRegistrationResponseToJson(
 
 AccountSwUnregisterRequest _$AccountSwUnregisterRequestFromJson(
   Map<String, dynamic> json,
-) => AccountSwUnregisterRequest(endpoint: json['endpoint'] as String);
+) => AccountSwUnregisterRequest(
+  endpoint: json['endpoint'] as String,
+  auth: json['auth'] as String,
+  publickey: json['publickey'] as String,
+);
 
 Map<String, dynamic> _$AccountSwUnregisterRequestToJson(
   AccountSwUnregisterRequest instance,
-) => <String, dynamic>{'endpoint': instance.endpoint};
+) => <String, dynamic>{
+  'endpoint': instance.endpoint,
+  'auth': instance.auth,
+  'publickey': instance.publickey,
+};
 
 AccountSwUpdateRegistrationRequest _$AccountSwUpdateRegistrationRequestFromJson(
   Map<String, dynamic> json,

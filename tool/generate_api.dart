@@ -9,9 +9,9 @@ import 'dart:io';
 import 'package:crypto/crypto.dart';
 import 'package:dart_style/dart_style.dart';
 
-const _expectedVersion = '2026.9.0';
+const _expectedVersion = '2026.10.1';
 const _expectedHash =
-    'c5e9547bd553c7a63a16c912410e791f20e2b393feecab14165f3ddd31af6ebf';
+    'a548632511845482e2f0403154dbe494d3715d63ddc7ed6836a29095509cdfc7';
 const _repoRoot = '.';
 const _skipPaths = {'/meta', '/i'};
 

@@ -2683,7 +2683,7 @@ const List<EndpointManifest> misskeyEndpoints = [
     path: '/federation/update-remote-user',
     group: 'federation',
     method: 'updateRemoteUser',
-    requiresAuth: false,
+    requiresAuth: true,
     requestType: 'FederationUpdateRemoteUserRequest',
     responseType: 'void',
     multipart: false,

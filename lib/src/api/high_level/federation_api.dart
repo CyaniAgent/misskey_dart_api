@@ -204,6 +204,8 @@ class FederationApi {
   /// federation/update-remote-user
   ///
   /// Calls POST /api/federation/update-remote-user.
+  ///
+  /// Authentication required.
   Future<void> updateRemoteUser({
     required String userId,
     CancelToken? cancelToken,

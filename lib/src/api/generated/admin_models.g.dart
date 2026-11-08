@@ -504,6 +504,8 @@ AdminAccountsCreateResponse _$AdminAccountsCreateResponseFromJson(
   autoSensitive: json['autoSensitive'] as bool,
   carefulBot: json['carefulBot'] as bool,
   autoAcceptFollowed: json['autoAcceptFollowed'] as bool,
+  followApprovalLocalSeconds: json['followApprovalLocalSeconds'] as num?,
+  followApprovalRemoteSeconds: json['followApprovalRemoteSeconds'] as num?,
   noCrawle: json['noCrawle'] as bool,
   preventAiLearning: json['preventAiLearning'] as bool,
   isExplorable: json['isExplorable'] as bool,
@@ -639,6 +641,8 @@ Map<String, dynamic> _$AdminAccountsCreateResponseToJson(
   'autoSensitive': instance.autoSensitive,
   'carefulBot': instance.carefulBot,
   'autoAcceptFollowed': instance.autoAcceptFollowed,
+  'followApprovalLocalSeconds': instance.followApprovalLocalSeconds,
+  'followApprovalRemoteSeconds': instance.followApprovalRemoteSeconds,
   'noCrawle': instance.noCrawle,
   'preventAiLearning': instance.preventAiLearning,
   'isExplorable': instance.isExplorable,
@@ -834,6 +838,7 @@ AdminAnnouncementsCreateRequest _$AdminAnnouncementsCreateRequestFromJson(
   silence: json['silence'] as bool? ?? false,
   needConfirmationToRead: json['needConfirmationToRead'] as bool? ?? false,
   userId: json['userId'] as String?,
+  autoArchiveAt: (json['autoArchiveAt'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$AdminAnnouncementsCreateRequestToJson(
@@ -848,6 +853,7 @@ Map<String, dynamic> _$AdminAnnouncementsCreateRequestToJson(
   'silence': instance.silence,
   'needConfirmationToRead': instance.needConfirmationToRead,
   'userId': ?instance.userId,
+  'autoArchiveAt': ?instance.autoArchiveAt,
 };
 
 const _$AdminAnnouncementsCreateRequestIconEnumMap = {
@@ -949,6 +955,9 @@ AdminAnnouncementsListResponseItem _$AdminAnnouncementsListResponseItemFromJson(
     json['display'],
   ),
   isActive: json['isActive'] as bool,
+  autoArchiveAt: json['autoArchiveAt'] == null
+      ? null
+      : DateTime.parse(json['autoArchiveAt'] as String),
   forExistingUsers: json['forExistingUsers'] as bool,
   silence: json['silence'] as bool,
   needConfirmationToRead: json['needConfirmationToRead'] as bool,
@@ -969,6 +978,7 @@ Map<String, dynamic> _$AdminAnnouncementsListResponseItemToJson(
   'display':
       _$AdminAnnouncementsListResponseItemDisplayEnumMap[instance.display]!,
   'isActive': instance.isActive,
+  'autoArchiveAt': instance.autoArchiveAt?.toIso8601String(),
   'forExistingUsers': instance.forExistingUsers,
   'silence': instance.silence,
   'needConfirmationToRead': instance.needConfirmationToRead,
@@ -1009,6 +1019,7 @@ AdminAnnouncementsUpdateRequest _$AdminAnnouncementsUpdateRequestFromJson(
   silence: json['silence'] as bool?,
   needConfirmationToRead: json['needConfirmationToRead'] as bool?,
   isActive: json['isActive'] as bool?,
+  autoArchiveAt: (json['autoArchiveAt'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$AdminAnnouncementsUpdateRequestToJson(
@@ -1024,6 +1035,7 @@ Map<String, dynamic> _$AdminAnnouncementsUpdateRequestToJson(
   'silence': ?instance.silence,
   'needConfirmationToRead': ?instance.needConfirmationToRead,
   'isActive': ?instance.isActive,
+  'autoArchiveAt': ?instance.autoArchiveAt,
 };
 
 const _$AdminAnnouncementsUpdateRequestIconEnumMap = {

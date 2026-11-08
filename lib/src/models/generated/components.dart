@@ -574,9 +574,9 @@ sealed class Notification {
       case 'test':
         return NotificationTest.fromJson(json);
       default:
-        // A type newer than the pinned spec is still a notification: dropping
-        // the whole response over one unknown variant would hide every row
-        // around it.
+        // A type newer than the pinned spec is still a
+        // notification: dropping the whole response over one
+        // unknown variant would hide every row around it.
         return NotificationUnknown(json);
     }
   }
@@ -603,16 +603,6 @@ class NotificationUnknown extends Notification {
   Map<String, dynamic> toJson() => Map<String, dynamic>.from(raw);
 }
 
-/// The same fallback for page blocks.
-class PageBlockUnknown extends PageBlock {
-  const PageBlockUnknown(this.raw) : super();
-
-  final Map<String, dynamic> raw;
-
-  @override
-  Map<String, dynamic> toJson() => Map<String, dynamic>.from(raw);
-}
-
 sealed class PageBlock {
   const PageBlock();
 
@@ -628,13 +618,23 @@ sealed class PageBlock {
       case 'note':
         return PageBlockNote.fromJson(json);
       default:
-        // Same reasoning as notifications: an unknown block must not fail the
-        // page it belongs to.
+        // Same reasoning as notifications: an unknown block
+        // must not fail the page it belongs to.
         return PageBlockUnknown(json);
     }
   }
 
   Map<String, dynamic> toJson();
+}
+
+/// A page block whose type is newer than the pinned spec.
+class PageBlockUnknown extends PageBlock {
+  const PageBlockUnknown(this.raw) : super();
+
+  final Map<String, dynamic> raw;
+
+  @override
+  Map<String, dynamic> toJson() => Map<String, dynamic>.from(raw);
 }
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
@@ -879,6 +879,8 @@ abstract class MeDetailedOnly with _$MeDetailedOnly {
     required bool autoSensitive,
     required bool carefulBot,
     required bool autoAcceptFollowed,
+    required num? followApprovalLocalSeconds,
+    required num? followApprovalRemoteSeconds,
     required bool noCrawle,
     required bool preventAiLearning,
     required bool isExplorable,
@@ -1293,6 +1295,8 @@ abstract class MeDetailed with _$MeDetailed implements UserDetailed {
     required bool autoSensitive,
     required bool carefulBot,
     required bool autoAcceptFollowed,
+    required num? followApprovalLocalSeconds,
+    required num? followApprovalRemoteSeconds,
     required bool noCrawle,
     required bool preventAiLearning,
     required bool isExplorable,

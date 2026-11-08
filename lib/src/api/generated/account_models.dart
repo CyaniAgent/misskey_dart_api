@@ -1512,6 +1512,8 @@ class AccountUpdateRequest {
     this.publicReactions,
     this.carefulBot,
     this.autoAcceptFollowed,
+    this.followApprovalLocalSeconds,
+    this.followApprovalRemoteSeconds,
     this.noCrawle,
     this.preventAiLearning,
     this.requireSigninToViewContents,
@@ -1550,6 +1552,8 @@ class AccountUpdateRequest {
   final bool? publicReactions;
   final bool? carefulBot;
   final bool? autoAcceptFollowed;
+  final int? followApprovalLocalSeconds;
+  final int? followApprovalRemoteSeconds;
   final bool? noCrawle;
   final bool? preventAiLearning;
   final bool? requireSigninToViewContents;
@@ -1808,8 +1812,14 @@ class AccountSwShowRegistrationResponse {
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class AccountSwUnregisterRequest {
-  const AccountSwUnregisterRequest({required this.endpoint});
+  const AccountSwUnregisterRequest({
+    required this.endpoint,
+    required this.auth,
+    required this.publickey,
+  });
   final String endpoint;
+  final String auth;
+  final String publickey;
 
   factory AccountSwUnregisterRequest.fromJson(Map<String, dynamic> json) =>
       _$AccountSwUnregisterRequestFromJson(json);

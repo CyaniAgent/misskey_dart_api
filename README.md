@@ -192,13 +192,33 @@ client (or a new `MisskeyClient`) after changing credentials.
 ## Regenerating the API
 
 The generated client is committed. The pinned Misskey OpenAPI document is not
-distributed; use Misskey OpenAPI **2026.9.0** with SHA-256
-`c5e9547bd553c7a63a16c912410e791f20e2b393feecab14165f3ddd31af6ebf`.
+distributed; use the Misskey OpenAPI **2026.10.1** document with SHA-256
+`a548632511845482e2f0403154dbe494d3715d63ddc7ed6836a29095509cdfc7`.
+
+Misskey serves its own spec at `GET /api.json`, but only upstream instances
+produce an upstream document — a fork's spec carries its private schemas. The
+pinned file was generated from the `2026.10.1` tag of
+`misskey-dev/misskey` with its own spec generator:
+
+```sh
+git clone --depth 1 --branch 2026.10.1 https://github.com/misskey-dev/misskey.git
+cd misskey && pnpm install --filter "backend..." --ignore-scripts
+cd packages/backend && pnpm dlx tsx@4 -e "
+  import { genOpenapiSpec } from '@/server/api/openapi/gen-spec.js';
+  process.stdout.write(JSON.stringify(
+    genOpenapiSpec({ version: '2026.10.1', apiUrl: 'https://example.invalid/api' }),
+    null, 2,
+  ));
+" > misskey_api_2026.10.1.json
+```
+
+(`--ignore-scripts` skips the native `re2` build; stub it with a `RegExp`
+subclass when the generator runs, as it never evaluates a pattern.)
 
 ```powershell
-dart run tool/generate_api.dart --spec <path-to-misskey_api_2026.9.0.json>
+dart run tool/generate_api.dart --spec <path-to-misskey_api_2026.10.1.json>
 dart run build_runner build
-dart run tool/generate_api.dart --spec <path-to-misskey_api_2026.9.0.json> --check
+dart run tool/generate_api.dart --spec <path-to-misskey_api_2026.10.1.json> --check
 dart format .
 dart analyze
 dart test
@@ -215,7 +235,7 @@ under `lib/src/api/generated/` or `lib/src/api/high_level/`.
   `client.users`, `client.drive`, `client.account`, `client.meta`, and the other
   29 group properties.
 - `client.raw` exposes the complete generated surface for all 438 paths and
-  462 OpenAPI operations in the pinned 2026.9.0 spec. Admin is raw-only:
+  462 OpenAPI operations in the pinned 2026.10.1 spec. Admin is raw-only:
   `client.raw.admin`.
 - `MisskeyClient.fromHost(host, {accessToken, tokenProvider, userAgent, authMode, allowInsecureHttp, dio})`
 - `MisskeyClient({required MisskeyClientConfig config, TokenProvider? tokenProvider, Dio? dio})`
@@ -237,7 +257,7 @@ sends the token as `i`. Do not log request headers or bodies containing tokens.
 
 This package is a client library. It is not the Misskey server and is not
 affiliated with the Misskey project. It covers every unique path in the pinned
-Misskey OpenAPI 2026.9.0 document, plus MiAuth and the documented streaming
+Misskey OpenAPI 2026.10.1 document, plus MiAuth and the documented streaming
 protocol. The OpenAPI document itself is not distributed.
 
 ## License
